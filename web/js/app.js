@@ -50,8 +50,19 @@ angular.module('codr', ['ngRoute'])
                 }
                 $scope.person.languages = languages.substring(
                     0, languages.length - 2);
+
+            // update sample snippet
+            $scope.sampleSnippet();
         });
     };
+
+    $scope.sampleSnippet = function() {
+        $scope.person.code_snippet = '';
+        $http.get('/api/snippet/' + $scope.person.name)
+        .then(function(result) {
+            $scope.person.code_snippet = result.data;
+        });
+    }
 
     // find an initial person
     $scope.find();

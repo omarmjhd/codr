@@ -4,7 +4,7 @@ import config
 from models import users
 import datetime
 import re
-import github
+from lib import github
 
 class BaseHandler(tornado.web.RequestHandler):
 
@@ -28,10 +28,10 @@ class LikeHandler(BaseHandler):
 
 class SnippetHandler(BaseHandler):
 
-    def get(self, uid):
-        user = users.get_user(int(uid))
+    def get(self, name):
+        snippet = github.get_code_snippet(name)
         self.write(
-            github.get_code_snippet(user['name'])
+            snippet
         )
 
 class RejectHandler(BaseHandler):
@@ -50,8 +50,6 @@ class FindHandler(BaseHandler):
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
-        print('----------------FIND HANDLER----------------')
-        print(user)
         self.write(json.dumps(user))
 
 class MatchesHandler(BaseHandler):

@@ -3,6 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+import traceback
 from models import users
 from lib import github
 
@@ -38,8 +39,7 @@ class Handler(tornado.web.RequestHandler):
                     access_token,
                     user['avatar_url'],
                     github.get_languages(access_token),
-                    user['updated_at'],
-                    github.get_code_snippet(user['id'])
+                    user['updated_at']
                 )
 
                 self.set_secure_cookie('user', str(user['id']))
@@ -56,6 +56,8 @@ class Handler(tornado.web.RequestHandler):
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
             print('Error', e)
+            print(traceback.format_exc())
         except Exception as e:
             # Other errors are possible, such as IOError.
             print('Error', e)
+            print(traceback.format_exc())
