@@ -28,7 +28,7 @@ def like(source_id, target_id):
     if not 'likes' in user:
         user['likes'] = []
 
-    user.likes.append(target_id)
+    user['likes'].append(target_id)
 
     target = get_user(target_id)
 

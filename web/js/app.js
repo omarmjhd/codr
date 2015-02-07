@@ -25,7 +25,7 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.reject = function() {
-        $http.get('/api/reject/' + uid);
+        $http.get('/api/reject/' + uid + '/' + $scope.person._id);
     };
 
     $scope.person = {};
