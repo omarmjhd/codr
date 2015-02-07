@@ -30,8 +30,6 @@ class SnippetHandler(BaseHandler):
 
     def get(self, name):
         snippet = github.get_code_snippet(name)
-        print('-------------SNIPPET----------')
-        print(snippet)
         self.write(
             snippet
         )
