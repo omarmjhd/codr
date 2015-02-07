@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="codr">
 	<head>
 		<title>Login</title>
 
@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/lipis/bootstrap-social/gh-pages/bootstrap-social.css">
 	</head>
-	<body>
+	<body data-ng-controller="loginCtrl" data-ng-init="sendRequest()">
 		<img src="img/logo.png" alt="..." class="img-responsive center-block" />
 	    <a href="https://github.com/login/oauth/authorize?client_id=be249dd939fe1ef1aa3d" class="btn btn-block btn-social btn-lg btn-github">
 	    	<i class="fa fa-github"></i> Sign in with Github
