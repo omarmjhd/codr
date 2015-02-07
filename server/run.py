@@ -11,7 +11,8 @@ application = tornado.web.Application([
     (r"/api/user/(?P<uid>[^\/]+)/?", api.user.UserHandler),
     (r"/api/like/(?P<source_id>[^\/]+)/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
     (r"/api/reject/(?P<source_id>[^\/]+)/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
-    (r"/api/find/(?P<uid>[^\/]+)/?", api.user.FindHandler)
+    (r"/api/find/(?P<uid>[^\/]+)/?", api.user.FindHandler),
+    (r"/api/matches/(?P<uid>[^\/]+)/?", api.user.MatchesHandler)
 ])
 
 if __name__ == "__main__":
