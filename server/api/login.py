@@ -3,6 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+from models import users
 from lib import github
 
 class Handler(tornado.web.RequestHandler):
@@ -30,8 +31,21 @@ class Handler(tornado.web.RequestHandler):
             print(response)
             print(user)
 
+            # add to db
+
             if 'id' in user:
-                self.redirect('/#/auth/'+str(user['id']))
+
+                fetched_user = users.get_user(user['id'])
+
+                if not fetched_user:
+                    users.add_user(
+                        id, user['name'], access_token, user['avatar_url']
+                    )
+                    fetched_user = users.get_user(user['id'])
+
+                print(fetched_user)
+
+                self.redirect('/#/match/'+str(user['id']))
             else:
                 self.redirect('/#/error/login')
 
