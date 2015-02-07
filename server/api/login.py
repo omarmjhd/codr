@@ -29,6 +29,12 @@ class Handler(tornado.web.RequestHandler):
 
             print(response)
             print(user)
+
+            if 'id' in user:
+                self.redirect('/#/auth/'+str(user['id']))
+            else:
+                self.redirect('/#/error/login')
+
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
@@ -37,9 +43,5 @@ class Handler(tornado.web.RequestHandler):
             # Other errors are possible, such as IOError.
             print(e)
 
-        if 'id' in user:
-            self.redirect('/#/auth/'+str(user['id']))
-        else:
-            self.redirect('/#/error/login')
 
 
