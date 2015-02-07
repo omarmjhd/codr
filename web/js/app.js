@@ -42,7 +42,6 @@ angular.module('codr', ['ngRoute'])
         $scope.person = {};
         $http.get('/api/find')
         .then(function(result) {
-            console.log(result.data);
             $scope.person = result.data;
         });
     };

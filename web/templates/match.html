@@ -1,4 +1,4 @@
-<div id="main" ng-hide="person=='null'">
+<div id="main" ng-show="person">
   <div id="code">{{person.code_snippet}}</div>
   <div id="name"><h1>{{person.name}}</h1></div>
   <div id="commit">Last commit: {{person.updated_at}}</div>
@@ -11,6 +11,6 @@
     <button id="one" ng-click="like()" type="button">&nbsp;</button>
   </div>
 </div>
-<div id="main" ng-show="person=='null'">
+<div id="main" ng-hid="person">
     <h1>No more matches :(</h>
 </div>
