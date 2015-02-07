@@ -93,6 +93,12 @@ p {
    margin-right: auto;
 }
 
+#refreshbutton {
+    float: right;
+    margin-right: 4vw;
+}
+
+
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
