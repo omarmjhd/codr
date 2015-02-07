@@ -71,13 +71,47 @@ angular.module('codr', ['ngRoute'])
 }])
 
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
-    function ($scope, $http, $sce, $routeParams) {
+    '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.profiles = function() {
-        $scope.matches = [];
+        $scope.person.matches = [];
         $http.get('/api/user/' + uid)
         .then(function(result) {
-            $scope.matches = result.data;
+            $scope.person.matches = result.data;
         });
     };
+
+    $scope.go = function(path) {
+        $location.path(path);
+    };
+
+    $scope.find = function() {
+        $scope.person = {};
+        $http.get('/api/find')
+        .then(function(result) {
+            $scope.person = result.data;
+            if ($scope.person) {
+                var languages = '';
+                var keys = Object.keys($scope.person.languages);
+                for (l in keys) {
+                    languages = languages.concat(keys[l], ', ');
+                }
+                $scope.person.languages = languages.substring(
+                    0, languages.length - 2);
+
+            // update sample snippet
+            $scope.sampleSnippet();
+            }
+        });
+    };
+
+    $scope.sampleSnippet = function() {
+        $scope.person.code_snippet = '';
+        $http.get('/api/snippet/' + $scope.person._id)
+        .then(function(result) {
+            $scope.person.code_snippet = result.data;
+        });
+    };
+
+    $scope.find();
 }]);

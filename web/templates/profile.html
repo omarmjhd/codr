@@ -1,0 +1,18 @@
+<div id="main" ng-show="person">
+  <div id="code" ng-click="sampleSnippet()">
+    <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
+  </div>
+  <div id="name"><h1>{{person.name}}</h1></div>
+  <div id="commit">Last commit: {{person.updated_at}}</div>
+  <div id="languages">
+    <h3>Languages</h3>
+    <p>{{person.languages}}</p>
+  </div>
+  <div id="buttons">
+    <button id="viewlist" ng-click="go(/list.html)" type="button">&nbsp;</button>
+    <button id="chat" ng-click="go(/chat.html)" type="button">&nbsp;</button>
+  </div>
+</div>
+<div id="nomatch" ng-hide="person">
+  <div id="holder">{all out of matches}</div>
+</div>
