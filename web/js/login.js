@@ -1,6 +1,22 @@
-angular.module('codr', [])
+angular.module('codr', ['ngRoute'])
 
-.controller('loginCtrl', function ($scope, $http, $location) {
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'templates/login.html',
+            controller: 'loginCtrl'
+        });
+}])
+
+.controller('loginCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    $scope.sendRequest = function() {
+        if ('code' in $routeParams) {
+        $http.post('api/login', {code: $routeParams['code']});
+        }
+    };
+}]);
+
+/* .controller('loginCtrl', function ($scope, $http, $location) {
      $scope.sendRequest = function() {
         var token = $location.search();
         alert(token['code']);
@@ -8,4 +24,4 @@ angular.module('codr', [])
             $http.post('api/login', {code: token['code']});
         }
     };
-});
+}); */
