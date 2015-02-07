@@ -13,15 +13,16 @@ def _make_req(url, token):
             url,
             method='GET',
             headers={'Accept':'application/json'}
-        ))
+        ).body.decode('utf-8'))
+
         return response
     except httpclient.HTTPError as e:
         # HTTPError is raised for non-200 responses; the response
         # can be found in e.response.
-        pass
+        print(e)
     except Exception as e:
         # Other errors are possible, such as IOError.
-        pass
+        print(e)
 
 def get_user(token):
     url = url_concat(config.gh_ep_url + '/user', {'access_token' : token})
