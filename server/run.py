@@ -23,7 +23,8 @@ if __name__ == "__main__":
         (r"/api/like/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
         (r"/api/reject/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
         (r"/api/find/?", api.user.FindHandler),
-        (r"/api/matches/?", api.user.MatchesHandler)
+        (r"/api/matches/?", api.user.MatchesHandler),
+        (r"/api/token/?", api.user.TokenHandler),
     ], cookie_secret=config.app_secret)
 
     application.listen(8888)

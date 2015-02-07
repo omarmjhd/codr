@@ -1,5 +1,6 @@
 import json
 import tornado.web
+import config
 from models import users
 import datetime
 import re
@@ -49,3 +50,8 @@ class MatchesHandler(BaseHandler):
 
     def get(self):
         self.write(json.dumps(users.get_matches(self.get_current_user())))
+
+class TokenHandler(BaseHandler):
+
+    def get(self):
+        self.write(config.gh_id)
