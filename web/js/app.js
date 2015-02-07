@@ -113,4 +113,4 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.find();
-});
+};
