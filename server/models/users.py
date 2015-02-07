@@ -28,12 +28,15 @@ def like(source_id, target_id):
     if not 'likes' in user:
         user['likes'] = []
 
-    user.likes.append(target_id)
+    user['likes'].append(target_id)
 
     target = get_user(target_id)
 
     if not target:
         raise ValueError('No user with id %d found' % (target_id, ))
+
+    if not 'likes' in target:
+        target['likes'] = []
 
     # return if they are a match
     return target['likes'] and source_id in target['likes']
@@ -72,8 +75,8 @@ def get_potential(_id):
         if 'rejects' not in user:
             user['rejects'] = []
         if (not _id in user['rejects']
-            and not _id in user['matches']
-            and _id != user['_id']):
+            or not _id in user['matches']
+            or _id != user['_id']):
             return user
 
     return None

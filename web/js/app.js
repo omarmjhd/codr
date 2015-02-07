@@ -14,11 +14,18 @@ angular.module('codr', ['ngRoute'])
 .controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
-        $http.post('/api/like', {id: uid});
+        $http.get('/api/like/' + uid + '/' + $scope.person._id)
+        .then(function(result) {
+            $scope.matched = result.data;
+            if ($scope.matched) {
+                alert('You matched!');
+            }
+            console.log($scope.matched);
+        });
     };
 
     $scope.reject = function() {
-        $http.post('/api/reject', {id: uid});
+        $http.get('/api/reject/' + uid + '/' + $scope.person._id);
     };
 
     $scope.person = {};
