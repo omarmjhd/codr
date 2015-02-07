@@ -116,8 +116,8 @@ p {
 #name {
     position: relative;
     float: left;
-    margin-left: 0vw;
-    margin-right: 4vw;
+    margin-left: 4vw;
+    margin-right: 0vw;
     margin-bottom: 2vh;
     width: 40vw;
     text-align: left;
