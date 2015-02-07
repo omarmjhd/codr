@@ -5,13 +5,14 @@ client = MongoClient()
 db = client.codr
 users = db.users
 
-def update_user(_id, name, token, avatar_url, languages):
+def update_user(_id, name, token, avatar_url, languages, updated):
     users.save(
         {'_id': _id,
          'name': name,
          'access_token': token,
          'avatar': avatar_url,
          'languages':languages
+         'updated_at': updated
         }
     )
 
@@ -74,3 +75,11 @@ def get_potential(_id):
             return user
 
     return None
+
+def get_updated_at(_id):
+    user = get_user(_id)
+
+    if not user:
+        raise ValueError('No user with id %d found' % (_id, ))
+
+    return user['updated-at']
