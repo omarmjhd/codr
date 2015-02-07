@@ -59,7 +59,7 @@ class Handler(tornado.web.RequestHandler):
             pass
         except Exception as e:
             # Other errors are possible, such as IOError.
-            print('whatever error')
+            print(e)
             pass
 
 
