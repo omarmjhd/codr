@@ -11,8 +11,7 @@ def update_user(_id, name, token, avatar_url, languages):
          'name': name,
          'access_token': token,
          'avatar': avatar_url,
-         'languages':languages,
-         'test':'abc123'
+         'languages':languages
         }
     )
 
