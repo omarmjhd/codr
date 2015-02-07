@@ -13,7 +13,6 @@ angular.module('codr', ['ngRoute'])
 
 .controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
-    alert(uid);
     $scope.like = function() {
         $http.post('/api/like', {id: uid});
     };
@@ -23,7 +22,7 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.person = {};
-    $http.get('/api/user/' + uid)
+    $http.get('/api/find/' + uid)
         .then(function(result) {
             $scope.person = result.data;
             console.log($scope.person);
