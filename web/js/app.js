@@ -17,7 +17,7 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/like/' + uid + '/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
-            if ($scope.matched) {
+            if ($scope.matched === 'true') {
                 alert('You matched!');
             }
             console.log($scope.matched);
