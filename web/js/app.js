@@ -71,13 +71,17 @@ angular.module('codr', ['ngRoute'])
 }])
 
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
-    function ($scope, $http, $sce, $routeParams) {
+    '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.profiles = function() {
-        $scope.matches = [];
+        $scope.person.matches = [];
         $http.get('/api/user/' + uid)
         .then(function(result) {
-            $scope.matches = result.data;
+            $scope.person.matches = result.data;
         });
+    };
+
+    $scope.go = function(path) {
+        $location.path(path);
     };
 }]);
