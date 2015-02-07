@@ -66,7 +66,7 @@ def get_matches(_id):
 
 def get_potential(_id):
 
-    for user in users:
+    for user in users.find():
         if not user.matches:
             user.matches = []
         if not user.rejects:
