@@ -4,25 +4,22 @@ from models import users
 class UserHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        user = users.get_user(uid)
+        user = users.get_user(int(uid))
         print(user)
         return user
 
 
 class LikeHandler(tornado.web.RequestHandler):
 
-    def get(self):
-        id = self.get_argument('id')
-        return users.like(id)
+    def get(self, uid):
+        return users.like(uid)
 
 class RejectHandler(tornado.web.RequestHandler):
 
-    def get(self):
-        id = self.get_argument('id')
-        return users.reject(id)
+    def get(self, uid):
+        return users.reject(uid)
 
 class FindHandler(tornado.web.RequestHandler):
 
-    def get(self):
-        id = self.get_argument('id')
-        return users.get_potential(id)
+    def get(self, uid):
+        return users.get_potential(uid)
