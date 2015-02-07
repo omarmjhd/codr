@@ -65,8 +65,7 @@ p {
     margin-right: auto;
     height: 100vh;
     width: 60vw;
-    background-color: #dddddd;
-    opacity: 0.8;
+    background-color: rgba(221,221,221,0.8);
 }
 
 #code {
@@ -76,9 +75,10 @@ p {
     margin-bottom: 2vh;
     margin-left: 4vw;
     margin-right: 4vw;
-    background-image: url("../img/404.gif");
     width: 52vw;
     height: 40vh;
+    background-color: white;
+    opacity: 1;
 }
 
 #name {
@@ -96,6 +96,7 @@ p {
     margin-left: 4vw;
     margin-right: 4vw;
     text-align: left;
+    font-size: 1.2em;
     width: 52vw;
     height: 7vh;
 }
