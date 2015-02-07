@@ -4,22 +4,22 @@ from models import users
 class UserHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        user = users.get_user(int(uid))
+        user = users.get_user(uid)
         print(user)
-        return user
+        self.write(user)
 
 
 class LikeHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        return users.like(uid)
+        self.write(users.like(uid))
 
 class RejectHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        return users.reject(uid)
+        self.write(users.reject(uid))
 
 class FindHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        return users.get_potential(uid)
+        self.write(users.get_potential(uid))
