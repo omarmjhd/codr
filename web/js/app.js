@@ -46,14 +46,14 @@ angular.module('codr', ['ngRoute'])
         });
     };
 
-    $scope.languages = '';
+    var languages = '';
     console.log($scope.person.languages);
     for (l in $scope.person.languages.keys()) {
-        $scope.languages.concat(l);
-        $scope.languages.concat(', ');
+        languages.concat(l);
+        languages.concat(', ');
     }
-    $scope.languages = $scope.languages.substring(
-        0, $scope.languages.length - 2);
+    $scope.person.languages = languages.substring(
+        0, languages.length - 2);
 
     // find an initial person
     $scope.find();
