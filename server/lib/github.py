@@ -48,3 +48,7 @@ def get_languages(token):
             lang_dict[lang] = lang_dict[lang] + 1
 
     return lang_dict
+
+def updated_at(token):
+    user = get_user(token)
+    return user['updated_at']
