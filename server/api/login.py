@@ -36,11 +36,10 @@ class Handler(tornado.web.RequestHandler):
             # add to db
 
             if 'id' in user:
-                Session = sessionmaker()
-                Session.configure(bind=engine)
+                Session = sessionmaker(bind=engine)
                 session = Session()
 
-                orm_user = Session.query(User)\
+                orm_user = session.query(User)\
                     .filter(User.name == user['name'])\
                     .first()
 
