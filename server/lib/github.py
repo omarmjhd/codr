@@ -55,9 +55,7 @@ def get_languages(token):
 
 def updated_at(token):
     user = get_user(token)
-    date = datetime.datetime(*map(int, re.split('[^\d', user['updated_at'])[:-1]))
-    diff = datetime.now() - date
-    return str(diff.days) + " days ago"
+    return user['updated_at']
 
 def get_code_snippet(token):
     """ Returns a string of the person's code """
