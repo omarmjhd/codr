@@ -1,0 +1,91 @@
+*{
+	padding:0px;
+	border:0px;
+	margin:0px;
+	font-family: 'Open Sans', serif;
+}
+
+#profilePicture{
+	float: left;
+	width: 15vw;
+	height: 15vh;
+	background: #607D8B;
+	margin-top: 2vh;
+	margin-left: 2vw;
+}
+
+#username{
+	width: 100vw;
+	height: 6vh;
+	background: #455A64;
+
+	color: #FFFFFF;
+}
+#code{
+	width: 100vw;
+	height: 50vh;
+	background: #CFD8DC;
+}
+
+#zero{
+	float: left;
+	width: 50vw;
+	height: 5vh;
+	background: blue;
+}
+
+#one{
+	float: right;
+	width: 50vw;
+	height: 5vh;
+	background: green;
+}
+
+#secondHalf{
+	position:absolute;
+	bottom: 0;
+	float: left;
+	width: 100vw;
+	height: 40vh;
+	background: #B6B6B6;
+}
+
+#codePreference{
+	float: left;
+	margin-top: 2vh;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	width: 96vw;
+	height: 4vh;
+	background: #212121;
+}
+
+#stats{
+	float: left;
+	margin-top: 1vh;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	width: 96vw;
+	height: 10vh;
+	background: #B6B6B6;
+}
+
+#bio{
+	float: left;
+	margin-top: 1vh;
+	margin-left: 2vw;
+	margin-right: 2vw;
+	width: 96vw;
+	height: 16vh;
+	background: #CFD8DC;
+
+	color: #212121;
+}
+
+#footer{
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	height: 4vh;
+	background: #212121;
+}
