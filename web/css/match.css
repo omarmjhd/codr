@@ -5,7 +5,6 @@
     margin: 0;
 }
 
-
 h3 {
     font-size: 2em;
     font-weight: normal;
@@ -14,6 +13,11 @@ h3 {
 
 p {
     font-size: 1.5em;
+}
+
+.select {
+    height: 100%;
+    width: 100%;
 }
 
 #main {
@@ -88,10 +92,17 @@ p {
     height: 8vh;
 }
 
-#zero {
+.buttonHolder {
     float: left;
     width: 22vw;
     margin-left: 2vw;
+    height: 10vh;
+    background-color: red;
+}
+
+#zero {
+    float: left;
+    width: 22vw;
     height: 10vh;
     background-color: red;
 }
@@ -100,7 +111,6 @@ p {
 #one {
     float: right;
     width: 22vw;
-    margin-right: 2vw;
     height: 10vh;
     background-color: green;
 }
