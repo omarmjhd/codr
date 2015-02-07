@@ -42,7 +42,7 @@ def like(source_id, target_id):
     users.save(user)
 
     # return if they are a match
-    return 'likes' in target and source_id in target['likes']
+    return source_id in target['likes']
 
 def reject(source_id, target_id):
     user = get_user(source_id)
