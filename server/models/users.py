@@ -75,6 +75,10 @@ def get_matches(_id):
 def get_potential(_id):
 
     user = get_user(_id)
+
+    if not user:
+        raise ValueError('No user with id %d found' % (_id, ))
+
     if 'likes' not in user:
         user['likes'] = []
     if 'rejects' not in user:
