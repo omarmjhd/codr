@@ -1,0 +1,212 @@
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-image: url("../assets/Capture.PNG");
+}
+
+h3 {
+    font-size: 1.7em;
+    font-weight: normal;
+    margin-bottom: 2vh;
+}
+
+h2 {
+    font-size: 1.9em;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: normal;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 1vh;
+    color: black;
+}
+
+@media all and (max-width: 800px) {
+    h2 {
+	font-size: 1.1em;
+	font-weight: normal;
+    }
+}
+
+@media all and (max-width: 800px) {
+    h3 {
+	font-size: 1.3em;
+	font-weight: normal;
+	margin-bottom: 2vh;
+   }
+}
+
+@media all and (max-width: 800px) {
+    p {font-size: 1.1em;}
+}
+
+@media all and (max-width: 600px) {
+    p {font-size: 1em;}
+}
+
+@media all and (max-width: 400px) {
+    p {font-size: 0.9em;}
+}
+
+#main {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    width: 60vw;
+    background-color: rgba(221,221,221,0.8);
+}
+
+#nomatch {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20vw;
+    border-radius: 15vw;
+    width: 60vw;
+    height: 40vh;
+    background-color: rgba(34, 34, 34, 0.8);
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+#holder {
+   text-align: center;
+   color: white;
+   font-size: 2em;
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%);
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#refreshbutton {
+    float: right;
+    margin-right: 4vw;
+    height: 2vh;
+    width: 2vw;
+    background-image: url("../img/refresh.jpg");
+    background-size: contain;
+}
+
+
+#code {
+    overflow: auto; /* try instead of hiding */
+    position: relative;
+    float:left;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: 52vw;
+    height: 40vh;
+    background-color: white;
+    opacity: 1;
+}
+
+#name {
+    position: relative;
+    float: left;
+    margin-left: 4vw;
+    margin-right: 0vw;
+    margin-bottom: 2vh;
+    width: 40vw;
+    text-align: left;
+}
+
+#commit {
+    float: left;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-bottom: 3.5vh;
+    text-align: left;
+    font-size: 1.2em;
+    width: 52vw;
+    /*height: 7vh;*/
+}
+
+#languages {
+    float:left;
+    width: 52vw;
+    margin-right: 4vw;
+    margin-left: 4vw;
+    margin-bottom: 3.5vh;
+}
+
+#forks {
+    text-align: left;
+    float: left;
+    width: 22vw;
+    height: 20vh;
+    margin-right: 4vw;
+    margin-left: 4vw;
+    margin-bottom: 2vh;
+}
+
+#buttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+    min-width: 25vh;
+    height: 10vh;
+    clear: both;
+}
+
+.buttonHolder {
+    float: left;
+    width: 10vw;
+    margin-left: 8vw;
+    margin-right: 4vw;
+    height: 10vh;
+}
+
+#chat {
+    border: none;
+    float: left;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+    background-color: #aaaaaa;
+    background-image: url("../img/speech-bubble.png");
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#chat:hover {
+    border: none;
+    background-color: #dddddd;
+}
+
+#viewlist {
+    border: none;
+    float: right;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+    background-color: #aaaaaa;
+    background-image: url("../img/arrow-back.png");
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#one:hover {
+    border: none;
+    background-color:#dddddd;
+}
+
+#one
