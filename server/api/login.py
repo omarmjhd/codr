@@ -28,15 +28,13 @@ class Handler(tornado.web.RequestHandler):
             access_token = response['access_token']
             user = github.get_user(access_token)
 
-            print(user)
-
             # add to db
 
             if 'id' in user:
 
                 users.update_user(
                     user['id'],
-                    user['name'] if 'name' in user else user['login'],
+                    user['login'],
                     access_token,
                     user['avatar_url'],
                     github.get_languages(access_token),
