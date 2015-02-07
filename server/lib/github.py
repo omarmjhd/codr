@@ -4,6 +4,7 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
+import collections
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
@@ -50,7 +51,7 @@ def get_languages(token):
             lang_dict[lang] = lang_dict[lang] + 1
 
     print(lang_dict)
-    return lang_dict
+    return collections.OrderedDict(sorted(lang_dict.items()))
 
 def updated_at(token):
     user = get_user(token)
@@ -76,7 +77,7 @@ def get_code_snippet(token):
 
 
 def get_issues(token):
-	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token}) 
+	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
 	json = _make_req(url) # gets a list of all issues currently assigned to the user
 	if json:
 		return True
