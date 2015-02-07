@@ -8,7 +8,6 @@
     position: fixed;
     top: 0;
     left: 20vw;
-
     margin-top: 0px;
     height: 100vh;
     width: 60vw;
@@ -23,8 +22,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 52vw;
-    height: 40vh;
-    background-color: white;
+    height: 50vh;
     border-radius: 15vw;
     background-color: #222222;
 }
@@ -34,8 +32,11 @@
     margin-right: auto;
     position: relative;
     top: 50%;
+    width: 52vw;
+    border-radius: 15vw;
     transform: translateY(-50%);
     background-color: #222222;
+
 }
 
 #signup {
@@ -52,7 +53,7 @@ h1 {
     text-align: center;
     width: 100%;
     font-weight: normal;
-    font-size: 5em;
+    font-size: 9em;
     margin-bottom: 1vh;
 }
 
@@ -61,6 +62,6 @@ p {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 1.3em;
+    font-size: 2em;
     margin-bottom: 3vh;
 }
