@@ -12,7 +12,7 @@ def update_user(_id, name, token, avatar_url, languages, updated):
          'access_token': token,
          'avatar': avatar_url,
          'languages':languages,
-         'updated_at': updated,
+         'updated_at': updated
         }
     )
 

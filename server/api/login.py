@@ -43,11 +43,13 @@ class Handler(tornado.web.RequestHandler):
                     user['updated_at']
                 )
 
+                self.set_secure_cookie('user', str(user['id']))
+
                 fetched_user = users.get_user(user['id'])
 
                 print(fetched_user)
 
-                self.redirect('/#/match/'+str(user['id']))
+                self.redirect('/#/match')
             else:
                 self.redirect('/#/error/login')
 

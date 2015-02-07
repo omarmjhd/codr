@@ -5,7 +5,7 @@ angular.module('codr', ['ngRoute'])
         .when('/', {
             templateUrl: 'templates/login.html',
         })
-        .when('/match/:uid', {
+        .when('/match', {
             templateUrl: 'templates/match.html',
             controller: 'matchCtrl'
         })
@@ -19,7 +19,7 @@ angular.module('codr', ['ngRoute'])
     function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
-        $http.get('/api/like/' + uid + '/' + $scope.person._id)
+        $http.get('/api/like/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
@@ -31,7 +31,7 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.reject = function() {
-        $http.get('/api/reject/' + uid + '/' + $scope.person._id)
+        $http.get('/api/reject/' + $scope.person._id)
         .then(function(result) {
             // find a new person
             $scope.find();
@@ -40,8 +40,9 @@ angular.module('codr', ['ngRoute'])
 
     $scope.find = function() {
         $scope.person = {};
-        $http.get('/api/find/' + uid)
+        $http.get('/api/find')
         .then(function(result) {
+            console.log(result)
             $scope.person = result.data;
         });
     };
