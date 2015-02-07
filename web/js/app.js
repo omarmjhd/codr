@@ -53,8 +53,17 @@ angular.module('codr', ['ngRoute'])
         });
     };
 
+    $scope.sampleSnippet = function() {
+        $scope.code_snippet = '';
+        $http.get('/api/snippet')
+        .then(function(result) {
+            $scope.code_snippet = result.data;
+        });
+    }
+
     // find an initial person
     $scope.find();
+    $scope.sampleSnippet();
 }])
 
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
