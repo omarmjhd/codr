@@ -7,15 +7,15 @@ angular.module('codr', ['ngRoute'])
         })
         .when('/match', {
             templateUrl: 'templates/match.html',
-            controller: 'matchCtrl'
+            controller: 'mainCtrl'
         })
         .when('/profile/:uid', {
             templateUrl: 'templates/profile.html',
-            controller: 'profileCtrl'
+            controller: 'mainCtrl'
         });
 }])
 
-.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams',
+.controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
@@ -64,15 +64,8 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.person.code_snippet = result.data;
         });
-    }
+    };
 
-    // find an initial person
-    $scope.find();
-}])
-
-.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
-    '$location', function ($scope, $http, $sce, $routeParams, $location) {
-    var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.profiles = function() {
         $scope.person.matches = [];
         $http.get('/api/user/' + uid)
@@ -85,32 +78,6 @@ angular.module('codr', ['ngRoute'])
         $location.path(path);
     };
 
-    $scope.find = function() {
-        $scope.person = {};
-        $http.get('/api/find')
-        .then(function(result) {
-            $scope.person = result.data;
-            if ($scope.person) {
-                var languages = '';
-                var keys = Object.keys($scope.person.languages);
-                for (l in keys) {
-                    languages = languages.concat(keys[l], ', ');
-                }
-                $scope.person.languages = languages.substring(
-                    0, languages.length - 2);
-
-            // update sample snippet
-            $scope.sampleSnippet();
-        }
-    });
-
-    $scope.sampleSnippet = function() {
-        $scope.person.code_snippet = '';
-        $http.get('/api/snippet/' + $scope.person._id)
-        .then(function(result) {
-            $scope.person.code_snippet = result.data;
-        });
-    };
-
+    // find an initial person
     $scope.find();
-});
+}]);
