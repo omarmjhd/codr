@@ -38,7 +38,7 @@ class Handler(tornado.web.RequestHandler):
             print(e)
 
         if 'id' in user:
-            self.redirect('/#/auth/'+user['id'])
+            self.redirect('/#/auth/'+str(user['id']))
         else:
             self.redirect('/#/error/login')
 
