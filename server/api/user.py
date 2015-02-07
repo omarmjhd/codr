@@ -13,12 +13,18 @@ class UserHandler(BaseHandler):
 
     def get(self):
         user = users.get_user(self.get_current_user())
+        if not user: return
         self.write(json.dumps(user))
 
 
 class LikeHandler(BaseHandler):
 
     def get(self, target_id):
+        # check secure cookie to avoid spoofing
+        if target_id != self.get_secure_cookie("target"):
+            raise Exception("A spoofing attempt was detected.")
+            return
+
         self.write(
             json.dumps(users.like(self.get_current_user(), int(target_id)))
         )
@@ -26,6 +32,11 @@ class LikeHandler(BaseHandler):
 class RejectHandler(BaseHandler):
 
     def get(self, target_id):
+        # check secure cookie to avoid spoofing
+        if target_id != self.get_secure_cookie("target"):
+            raise Exception("A spoofing attempt was detected.")
+            return
+
         self.write(json.dumps(
             users.reject(self.get_current_user(), int(target_id)))
     )
@@ -34,7 +45,10 @@ class FindHandler(BaseHandler):
 
     def get(self):
         user = users.get_potential(self.get_current_user())
-        if not user: return None
+        if not user: return
+
+        # write a secure cookie to prevent spoofing
+        self.set_secure_cookie("target", user_id)
 
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date

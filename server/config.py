@@ -7,4 +7,5 @@ gh_ex_url = 'https://github.com/login/oauth/access_token'
 gh_ep_url = 'https://api.github.com'
 
 # Cookie secret
+# TODO: generate a new secret every time the server starts
 app_secret = '80cxDdIxnMU72157pJ7e5L4C0O6r15Ku'
