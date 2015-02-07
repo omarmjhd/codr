@@ -5,6 +5,6 @@ ws.onopen = function() {
 };
 
 ws.onmessage = function (evt) {
-    alert(evt.data);
+    alert('You matched with ' + evt.data);
 };
 
