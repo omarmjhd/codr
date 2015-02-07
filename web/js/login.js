@@ -10,6 +10,7 @@ angular.module('codr', ['ngRoute'])
 
 .controller('loginCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     $scope.sendRequest = function() {
+        alert('hi');
         if ('code' in $routeParams) {
         $http.post('api/login', {code: $routeParams['code']});
         }
