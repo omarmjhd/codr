@@ -43,9 +43,9 @@ def get_languages(token):
     repos = get_repos(token)
     for repo in repos:
         lang = repo['language']
-        if lang not in lang_dict:
+        if lang and lang not in lang_dict:
             lang_dict[lang] = 1
-        else:
+        elif lang:
             lang_dict[lang] = lang_dict[lang] + 1
 
     print(lang_dict)
