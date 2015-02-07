@@ -34,17 +34,15 @@ class Handler(tornado.web.RequestHandler):
 
             if 'id' in user:
 
-                fetched_user = users.get_user(user['id'])
+                users.update_user(
+                    user['id'],
+                    user['name'],
+                    access_token,
+                    user['avatar_url'],
+                    github.get_languages(access_token)
+                )
 
-                if not fetched_user:
-                    users.add_user(
-                        user['id'],
-                        user['name'],
-                        access_token,
-                        user['avatar_url'],
-                        github.get_languages(access_token)
-                    )
-                    fetched_user = users.get_user(user['id'])
+                fetched_user = users.get_user(user['id'])
 
                 print(fetched_user)
 
