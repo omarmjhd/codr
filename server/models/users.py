@@ -6,7 +6,7 @@ db = client.codr
 users = db.users
 
 def add_user(_id, name, token, avatar_url, languages):
-    users.insert(
+    users.save(
         {'_id': _id,
          'name': name,
          'access_token': token,
