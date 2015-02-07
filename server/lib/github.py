@@ -50,7 +50,7 @@ def get_languages(token):
             lang_dict[lang] = lang_dict[lang] + 1
 
     print(lang_dict)
-    return sorted(lang_dict.items(), key=lambda x: x[1])
+    return sorted(lang_dict.items(), key=lambda x: x[1], reverse=True)
 
 def updated_at(token):
     user = get_user(token)
