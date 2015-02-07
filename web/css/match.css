@@ -214,12 +214,13 @@ p {
 
 
 #viewlist {
-
+    position:relative;
+    top: 20vh;
     border: none;
     width: 15vw;
     height: 10vh;
     border-radius: 5vh;
-    background-color: #eeeeee;
+    background-color: #bbbbbb;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -231,5 +232,5 @@ p {
 
 #viewlist:hover {
     border: none;
-    background-color: #bbbbbb;
+    background-color: #888888;
 }
