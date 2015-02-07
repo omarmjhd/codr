@@ -214,17 +214,20 @@ p {
 #viewlist {
     border: none;
     float: right;
-    width: 10vh;
+    width: 15vw;
     height: 10vh;
     border-radius: 5vh;
-    background-color: #008000;
-    background-image: url("../img/1_white.png");
+    background-color: #eeeeee;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-image: url("../img/1_white.png");
     background-size: 8vh 8vh;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 }
 
 #viewlist:hover {
     border: none;
-    background-color: #00cd00;
+    background-color: #bbbbbb;
 }
