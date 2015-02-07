@@ -50,6 +50,9 @@ angular.module('codr', ['ngRoute'])
                 }
                 $scope.person.languages = languages.substring(
                     0, languages.length - 2);
+
+            // update sample snippet
+            $scope.sampleSnippet();
         });
     };
 
@@ -63,7 +66,6 @@ angular.module('codr', ['ngRoute'])
 
     // find an initial person
     $scope.find();
-    $scope.sampleSnippet();
 }])
 
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
