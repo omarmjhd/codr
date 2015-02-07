@@ -38,6 +38,9 @@ def like(source_id, target_id):
     if not 'likes' in target:
         target['likes'] = []
 
+    # save changes to db
+    users.save(user)
+
     print('----Like button clicked')
     print(user, 'likes', target)
     # return if they are a match
@@ -55,6 +58,8 @@ def reject(source_id, target_id):
     print('----Reject button clicked')
     print(user, 'rejects', get_user(target_id))
     user['rejects'].append(target_id)
+
+    users.save(user)
 
 def get_matches(_id):
     user = get_user(_id)
