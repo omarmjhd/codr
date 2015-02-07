@@ -3,6 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+import traceback
 from models import users
 from lib import github
 
@@ -56,6 +57,8 @@ class Handler(tornado.web.RequestHandler):
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
             print('Error', e)
+            traceback.print_stack()
         except Exception as e:
             # Other errors are possible, such as IOError.
             print('Error', e)
+            traceback.print_stack()
