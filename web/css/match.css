@@ -69,7 +69,7 @@ p {
 }
 
 #nomatch {
-    position: relative;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     margin-left: auto;
@@ -95,6 +95,7 @@ p {
 }
 
 #code {
+    overflow: hidden;
     position: relative;
     float:left;
     margin-top: 4vh;
