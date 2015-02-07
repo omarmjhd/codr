@@ -4,7 +4,7 @@ client = MongoClient()
 
 db = client.codr
 
-def add_user(id, gender, name, token, avatar_url):
+def add_user(id, name, token, avatar_url):
     users = db.users
     users.insert(
         {'_id': id, 'name': name, 'access_token': token, 'avatar': avatar_url}
