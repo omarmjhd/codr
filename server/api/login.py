@@ -43,7 +43,7 @@ class Handler(tornado.web.RequestHandler):
                         user['name'],
                         access_token,
                         user['avatar_url'],
-                        get_languages(access_token)
+                        github.get_languages(access_token)
                     )
                     fetched_user = users.get_user(user['id'])
 
