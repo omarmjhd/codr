@@ -81,7 +81,7 @@ def get_code_snippet(token):
     src_file = struct[i]['url'] # user has some source data
     file_url = url_concat(src_file, {'access_token' : token})
     contents = _make_req(file_url, token)
-    return base64.b64decode(contents['content']) # content is saved in base64
+    return base64.b64decode(contents['content']).decode('UTF-8')
 
 def get_issues(token):
 	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
