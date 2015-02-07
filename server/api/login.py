@@ -50,7 +50,7 @@ class Handler(tornado.web.RequestHandler):
                 method='POST',
                 body=urllib.parse.urlencode(post_args),
                 headers={'Accept':'application/json'}
-            ).body)
+            ).body.decode('utf-8'))
 
             print(response)
         except httpclient.HTTPError as e:
