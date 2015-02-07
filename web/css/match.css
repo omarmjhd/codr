@@ -72,8 +72,7 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin-left: auto;
-    margin-right: auto;
+    left: 20vw;
     border-radius: 15vw;
     width: 60vw;
     height: 40vh;
@@ -94,8 +93,18 @@ p {
    margin-right: auto;
 }
 
+#refreshbutton {
+    float: right;
+    margin-right: 4vw;
+    height: 2vh;
+    width: 2vw;
+    background-image: url("../img/refresh.jpg");
+    background-size: contain;
+}
+
+
 #code {
-    overflow: hidden;
+    overflow: auto; /* try instead of hiding */
     position: relative;
     float:left;
     margin-top: 4vh;
@@ -112,9 +121,9 @@ p {
     position: relative;
     float: left;
     margin-left: 4vw;
-    margin-right: 4vw;
+    margin-right: 0vw;
     margin-bottom: 2vh;
-    width: 52vw;
+    width: 40vw;
     text-align: left;
 }
 
