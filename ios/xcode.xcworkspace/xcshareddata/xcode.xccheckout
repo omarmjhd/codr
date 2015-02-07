@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>53A6D149-CC47-4409-B667-699B0AC93922</string>
+	<key>IDESourceControlProjectName</key>
+	<string>xcode</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1C8BF41682431E8F1698AFB756A455D207D11A5B</key>
+		<string>https://github.com/cusuh/codr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xcode/xcode.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1C8BF41682431E8F1698AFB756A455D207D11A5B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cusuh/codr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1C8BF41682431E8F1698AFB756A455D207D11A5B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1C8BF41682431E8F1698AFB756A455D207D11A5B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>codr</string>
+		</dict>
+	</array>
+</dict>
+</plist>
