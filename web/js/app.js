@@ -11,8 +11,9 @@ angular.module('codr', ['ngRoute'])
         });
 }])
 
-.controller('matchCtrl', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
+.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
+    alert(uid);
     $scope.like = function() {
         $http.post('/api/like', {id: uid});
     };
