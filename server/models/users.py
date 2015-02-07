@@ -21,7 +21,8 @@ class User(Base):
 
     matches = relationship('User',
         secondary=association_table,
-        backref='matches'
+        backref='matches',
+        foreign_keys=[id]
     )
 
     def __repr__(self):
