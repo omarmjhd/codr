@@ -6,7 +6,7 @@ from tornado.httputil import url_concat
 import base64
 from random import randint
 
-def _make_req(url, token):
+def _make_req(url):
     """Get data about the user that authorized the token."""
 
     # request some shit from github
@@ -32,12 +32,12 @@ def _make_req(url, token):
 def get_user(token):
     url = url_concat(config.gh_ep_url + '/user', {'access_token' : token})
     print(url)
-    return _make_req(url, token)
+    return _make_req(url)
 
 def get_repos(token):
     url = url_concat(config.gh_ep_url + '/user/repos', {'access_token' : token})
     print(url)
-    return _make_req(url, token)
+    return _make_req(url)
 
 def get_languages(token):
     """ Returns a dictionary of languages -> frequency """
@@ -60,16 +60,16 @@ def updated_at(token):
 def get_code_snippet(_id):
     """ Returns a string of the person's code """
     repo_url = config.gh_ep_url + '/users/' + _id + '/repos'
-    repos = _make_req(token)
+    repos = _make_req(repo_url)
     target_repo = repos[randint(0, len(repos) - 1)]
     base_string = '/repos/' + target_repo['full_name']
     commit_string = base_string + '/commits'
-    commit_url = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
-    commits = _make_req(commit_url, token)
+    commit_url = config.gh_ep_url + commit_string
+    commits = _make_req(commit_url)
     sha = commits[0]['sha']
     tree_string = base_string + '/git/trees/' + str(sha) + '?recursive=1'
-    tree_url = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
-    tree= _make_req(tree_url, token)
+    tree_url = config.gh_ep_url + tree_string
+    tree= _make_req(tree_url)
     struct = tree['tree']
 
     i = len(struct) - 1         # Iterate down to try to avoid README.md
@@ -80,8 +80,8 @@ def get_code_snippet(_id):
         return ""
 
     src_file = struct[i]['url'] # user has some source data
-    file_url = url_concat(src_file, {'access_token' : token})
-    contents = _make_req(file_url, token)
+    file_url = src_file
+    contents = _make_req(file_url)
     return base64.standard_b64decode(contents['content'])
 
 
