@@ -25,7 +25,7 @@ class FindHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
         user = users.get_potential(int(uid))
-        date = datetime.datetime(*map(int, re.split('[^\d', user['updated_at'])[:-1]))
+        date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
         self.write(json.dumps(user))
