@@ -4,8 +4,9 @@ from models import users
 class UserHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        print(uid)
-        return users.get_user(uid)
+        user = users.get_user(uid)
+        print(user)
+        return user
 
 
 class LikeHandler(tornado.web.RequestHandler):
