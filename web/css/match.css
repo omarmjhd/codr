@@ -88,7 +88,6 @@ p {
     margin-right: 4vw;
     margin-bottom: 2vh;
     width: 52vw;
-    height: 9vh;
     text-align: left;
 }
 
@@ -122,39 +121,44 @@ p {
 #buttons {
     margin-left: auto;
     margin-right: auto;
-    width: 52vw;
-    height: 8vh;
+    width: 30vw;
+    min-width: 25vh;
+    height: 10vh;
+    clear: both;
 }
 
 .buttonHolder {
     float: left;
-    width: 22vw;
-    margin-left: 2vw;
+    width: 10vw;
+    margin-left: 8vw;
+    margin-right: 4vw;
     height: 10vh;
 }
 
 #zero {
     float: left;
-    width: 22vw;
+    width: 10vh;
     height: 10vh;
+    border-radius: 5vh;
     background-color: #bc0000;
     background-image: url("../img/0_white.png");
-    background-size: contain;
+    background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 #zero:hover {
-    background-color: #ff3030;
+    background-color: #ff0000;
 }
 
 #one {
     float: right;
-    width: 22vw;
+    width: 10vh;
     height: 10vh;
+    border-radius: 5vh;
     background-color: #008000;
     background-image: url("../img/1_white.png");
-    background-size: contain;
+    background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
 }
