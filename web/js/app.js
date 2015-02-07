@@ -17,21 +17,30 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/like/' + uid + '/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
-            if ($scope.matched) {
+            if ($scope.matched === 'true') {
                 alert('You matched!');
             }
-            console.log($scope.matched);
+            // find a new person
+            $scope.find();
         });
     };
 
     $scope.reject = function() {
-        $http.get('/api/reject/' + uid + '/' + $scope.person._id);
+        $http.get('/api/reject/' + uid + '/' + $scope.person._id)
+        .then(function(result) {
+            // find a new person
+            $scope.find();
+        });
     };
 
-    $scope.person = {};
-    $http.get('/api/find/' + uid)
+    $scope.find = function() {
+        $scope.person = {};
+        $http.get('/api/find/' + uid)
         .then(function(result) {
             $scope.person = result.data;
-            console.log($scope.person);
-    });
+        });
+    };
+
+    // find an initial person
+    $scope.find();
 }]);
