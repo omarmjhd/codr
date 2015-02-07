@@ -32,3 +32,6 @@ def get_user(token):
     print(url)
     return _make_req(url, token)
 
+def get_repos(token):
+    url = url_concat(config.gh_ep_url + '/user/repos', {'access_token' : token})
+    return _make_req(url, token)
