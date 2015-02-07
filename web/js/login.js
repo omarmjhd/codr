@@ -1,9 +1,11 @@
 angular.module('codr', [])
 
-.controller('loginCtrl', function ($scope, $http) {
+.controller('loginCtrl', function ($scope, $http, $location) {
      $scope.sendRequest = function() {
-        var token = $location.search()['code'];
-        $http.post('api/login', {code: token});
-        alert('WORK, YOU SHIT');
+        var token = $location.search();
+        if ("code" in token) {
+            $http.post('api/login', {code: token['code']});
+            alert('i hate everything');
+        }
     };
 });
