@@ -135,26 +135,28 @@ p {
 
 #zero {
     float: left;
-    width: 22vw;
+    width: 10vh;
     height: 10vh;
+    border-radius: 5vh;
     background-color: #bc0000;
     background-image: url("../img/0_white.png");
-    background-size: contain;
+    background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 #zero:hover {
-    background-color: #ff3030;
+    background-color: #ff0000;
 }
 
 #one {
     float: right;
-    width: 22vw;
+    width: 10vh;
     height: 10vh;
+    border-radius: 5vh;
     background-color: #008000;
     background-image: url("../img/1_white.png");
-    background-size: contain;
+    background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
 }
