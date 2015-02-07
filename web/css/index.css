@@ -4,15 +4,18 @@
     border: 0px;
 }
 
+body {
+    background-image: url("../assets/Capture.PNG");
+}
+
 #maincontainer {
     position: fixed;
     top: 0;
-    left: 20vw;
+    left: 0vw;
     margin-top: 0px;
     height: 100vh;
-    width: 60vw;
-    min-width: 400px;
-    background-color: #999999;
+    width: 100vw;
+    min-width: 300px;
 }
 
 #content {
@@ -22,9 +25,11 @@
     margin-left: auto;
     margin-right: auto;
     width: 52vw;
+    min-width: 500px;
     height: 50vh;
     border-radius: 15vw;
     background-color: #222222;
+    opacity: 0.80;
 }
 
 #innercontent {
@@ -33,10 +38,8 @@
     position: relative;
     top: 50%;
     width: 52vw;
-    border-radius: 15vw;
+    min-width: 500px;
     transform: translateY(-50%);
-    background-color: #222222;
-
 }
 
 #signup {
@@ -45,6 +48,7 @@
     max-width: 200px;
     background-color: white;
     border-radius: 5vw;
+
 }
 
 h1 {
@@ -53,8 +57,9 @@ h1 {
     text-align: center;
     width: 100%;
     font-weight: normal;
-    font-size: 9em;
+    font-size: 8em;
     margin-bottom: 1vh;
+
 }
 
 p {
@@ -62,6 +67,7 @@ p {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom: 3vh;
+    opacity: 1;
 }
