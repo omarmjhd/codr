@@ -4,6 +4,7 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
+from random import randint
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
@@ -59,21 +60,28 @@ def updated_at(token):
 def get_code_snippet(token):
     """ Returns a string of the person's code """
     repos = get_repos(token)
-    target_repo = repos[0]
+    target_repo = repos[randint(0, len(repos) - 1)]
     base_string = '/repos/' + target_repo['full_name']
     commit_string = base_string + '/commits'
-    commits = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
+    commit_url = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
+    commits = _make_req(commit_url, token)
     sha = commits[0]['sha']
     tree_string = base_string + '/git/trees/' + str(sha) + '?recursive=1'
-    tree = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
+    tree_url = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
+    tree= _make_req(tree_url, token)
     struct = tree['tree']
-    i = 0
-    while struct[i]['type'] != 'blob':
-        i += 1
-    content = base64.b64decode(struct[i]['content']) # content is saved in base64
 
-    return content
+    i = len(struct) - 1         # Iterate down to try to avoid README.md
+    while i >= 0 and struct[i]['type'] != 'blob' :
+        i -= 1
 
+    if i < 0: # true iff user has no src code in his/her repos
+        return ""
+
+    src_file = struct[i]['url'] # user has some source data
+    file_url = url_concat(src_file, {'access_token' : token})
+    contents = _make_req(file_url, token)
+    return base64.b64decode(contents['content']) # content is saved in base64
 
 def get_issues(token):
 	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})

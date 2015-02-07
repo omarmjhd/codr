@@ -1,5 +1,7 @@
 <div id="main" ng-show="person">
-  <div id="code">{{person.code_snippet}}</div>
+  <div id="code">
+    <pre class="prettyprint">{{person.code_snippet}}</pre>
+  </div>
   <div id="name"><h1>{{person.name}}</h1></div>
   <div id="commit">Last commit: {{person.updated_at}}</div>
   <div id="languages">

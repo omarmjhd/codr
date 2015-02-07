@@ -5,14 +5,15 @@ client = MongoClient()
 db = client.codr
 users = db.users
 
-def update_user(_id, name, token, avatar_url, languages, updated):
+def update_user(_id, name, token, avatar_url, languages, updated, code_snippet):
     users.save(
         {'_id': _id,
          'name': name,
          'access_token': token,
          'avatar': avatar_url,
          'languages':languages,
-         'updated_at': updated
+         'updated_at': updated,
+         'code_snippet': code_snippet
         }
     )
 

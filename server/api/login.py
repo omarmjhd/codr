@@ -40,7 +40,8 @@ class Handler(tornado.web.RequestHandler):
                     access_token,
                     user['avatar_url'],
                     github.get_languages(access_token),
-                    user['updated_at']
+                    user['updated_at'],
+                    github.get_code_snippet(access_token)
                 )
 
                 self.set_secure_cookie('user', str(user['id']))
