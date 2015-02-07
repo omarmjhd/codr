@@ -82,6 +82,7 @@ p {
 }
 
 #name {
+    position: relative;
     float: left;
     margin-left: 4vw;
     margin-right: 4vw;
@@ -135,13 +136,22 @@ p {
     float: left;
     width: 22vw;
     height: 10vh;
-    background-color: red;
+    background-image: url("../img/0_dark.svg");
+    opacity:
 }
 
+#zero:hover {
+    background-image: url("../img/0_light.svg");
+}
 
 #one {
     float: right;
     width: 22vw;
     height: 10vh;
     background-color: green;
+    background-image: url("../img/1_dark.svg");
+}
+
+#one:hover {
+    background-image: url("../img/1_light.svg");
 }

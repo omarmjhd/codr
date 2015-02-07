@@ -38,6 +38,11 @@ def like(source_id, target_id):
     if not 'likes' in target:
         target['likes'] = []
 
+    # save changes to db
+    users.save(user)
+
+    print('----Like button clicked')
+    print(user, 'likes', target)
     # return if they are a match
     return target['likes'] and source_id in target['likes']
 
@@ -50,7 +55,11 @@ def reject(source_id, target_id):
     if 'rejects' not in user:
         user['rejects'] = []
 
+    print('----Reject button clicked')
+    print(user, 'rejects', get_user(target_id))
     user['rejects'].append(target_id)
+
+    users.save(user)
 
 def get_matches(_id):
     user = get_user(_id)
@@ -69,14 +78,17 @@ def get_matches(_id):
 
 def get_potential(_id):
 
-    for user in users.find():
-        if 'matches' not in user:
-            user['matches'] = []
-        if 'rejects' not in user:
-            user['rejects'] = []
-        if (not _id in user['rejects']
-            or not _id in user['matches']
-            or _id != user['_id']):
+    user = get_user(_id)
+    if 'matches' not in user:
+        user['matches'] = []
+    if 'rejects' not in user:
+        user['rejects'] = []
+
+    for other in users.find():
+        if (other['_id'] not in user['rejects']
+            and user['_id'] not in other['rejects']
+            and other['_id'] not in user['matches']
+            and other['_id'] != user['_id']):
             return user
 
     return None
