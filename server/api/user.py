@@ -4,33 +4,42 @@ from models import users
 import datetime
 import re
 
-class UserHandler(tornado.web.RequestHandler):
+class BaseHandler(tornado.web.RequestHandler):
 
-    def get(self, uid):
-        user = users.get_user(int(uid))
+    def get_current_user(self):
+        return self.get_secure_cookie("user")
+
+class UserHandler(BaseHandler):
+
+    def get(self):
+        user = users.get_user(self.get_current_user())
         self.write(json.dumps(user))
 
 
-class LikeHandler(tornado.web.RequestHandler):
+class LikeHandler(BaseHandler):
 
-    def get(self, source_id, target_id):
-        self.write(json.dumps(users.like(int(source_id), int(target_id))))
+    def get(self, target_id):
+        self.write(
+            json.dumps(users.like(self.get_current_user(), int(target_id)))
+        )
 
-class RejectHandler(tornado.web.RequestHandler):
+class RejectHandler(BaseHandler):
 
-    def get(self, source_id, target_id):
-        self.write(json.dumps(users.reject(int(source_id), int(target_id))))
+    def get(self, target_id):
+        self.write(json.dumps(
+            users.reject(self.get_current_user(), int(target_id)))
+    )
 
-class FindHandler(tornado.web.RequestHandler):
+class FindHandler(BaseHandler):
 
-    def get(self, uid):
-        user = users.get_potential(int(uid))
+    def get(self):
+        user = users.get_potential(self.get_current_user())
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
         self.write(json.dumps(user))
 
-class MatchesHandler(tornado.web.RequestHandler):
+class MatchesHandler(BaseHandler):
 
-    def get(self, uid):
-        self.write(json.dumps(users.get_matches(int(uid))))
+    def get(self):
+        self.write(json.dumps(users.get_matches(self.get_current_user())))
