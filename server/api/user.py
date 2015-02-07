@@ -14,6 +14,7 @@ class UserHandler(BaseHandler):
 
     def get(self):
         user = users.get_user(self.get_current_user())
+        print('---UserHandler:', user)
         if not user: return
         self.write(json.dumps(user))
 
@@ -41,6 +42,7 @@ class FindHandler(BaseHandler):
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
+        print('---FindHandler:', user)
         self.write(json.dumps(user))
 
 class MatchesHandler(BaseHandler):
