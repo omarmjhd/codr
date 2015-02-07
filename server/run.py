@@ -4,7 +4,7 @@ import tornado.ioloop
 import tornado.web
 
 import api.login
-import api.use
+import api.user
 
 application = tornado.web.Application([
     (r"/api/login", api.login.Handler),
