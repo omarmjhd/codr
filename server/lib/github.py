@@ -60,6 +60,8 @@ def updated_at(token):
 def get_code_snippet(_id):
     """ Returns a string of the person's code """
     repo_url = config.gh_ep_url + '/users/' + _id + '/repos'
+    print('---REPO URL----')
+    print(repo_url)
     repos = _make_req(repo_url)
     target_repo = repos[randint(0, len(repos) - 1)]
     base_string = '/repos/' + target_repo['full_name']
