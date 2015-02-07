@@ -30,7 +30,7 @@ class SnippetHandler(BaseHandler):
 
     def get(self, uid):
         target = users.get_user(int(uid))
-        user = get_current_user()
+        user = self.get_current_user()
         snippet = github.get_code_snippet(target['name'], user['access_token'])
         self.write(
             snippet
