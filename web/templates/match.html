@@ -2,7 +2,6 @@
   <div id="code">
     <pre class="prettyprint">{{person.code_snippet}}</pre>
   </div>
-  <button id="snipfresh" ng-click="sampleSnippet()" type="button">Refresh</button>
   <div id="name"><h1>{{person.name}}</h1></div>
   <div id="commit">Last commit: {{person.updated_at}}</div>
   <div id="languages">
@@ -14,8 +13,6 @@
     <button id="one" ng-click="like()" type="button">&nbsp;</button>
   </div>
 </div>
-<div id="main" ng-hide="person">
-  <div id="nomatch">
-    <div id="holder">{all out of matches}</div>
-  </div>
+<div id="nomatch" ng-hide="person">
+  <div id="holder">{all out of matches}</div>
 </div>
