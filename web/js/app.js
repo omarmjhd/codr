@@ -44,16 +44,15 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.person = result.data;
         });
+        var languages = '';
+        console.log($scope.person.languages);
+        for (l in $scope.person.languages.keys()) {
+            languages.concat(l);
+            languages.concat(', ');
+        }
+        $scope.person.languages = languages.substring(
+            0, languages.length - 2);
     };
-
-    var languages = '';
-    console.log($scope.person.languages);
-    for (l in $scope.person.languages.keys()) {
-        languages.concat(l);
-        languages.concat(', ');
-    }
-    $scope.person.languages = languages.substring(
-        0, languages.length - 2);
 
     // find an initial person
     $scope.find();
