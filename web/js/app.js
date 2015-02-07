@@ -62,8 +62,10 @@ angular.module('codr', ['ngRoute'])
         var languages = '';
         for (i in $scope.matches.keys()) {
             languages.concat(', ');
+            console.log(languages);
         }
         languages = languages.substring(0, languages.length - 2);
         $scope.languages = languages;
+        console.log("$scope.languages = ".concat($scope.languages));
     }
 }]);
