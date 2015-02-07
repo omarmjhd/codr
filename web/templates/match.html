@@ -1,6 +1,6 @@
 <div id="main" ng-show="person">
   <div id="code">
-    <pre class="prettyprint">{{person.code_snippet}}</pre>
+    <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
   </div>
   <button ng-click="sampleSnippet()" type="button">Refresh Snippet</button>
   <div id="name"><h1>{{person.name}}</h1></div>

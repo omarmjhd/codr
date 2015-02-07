@@ -94,7 +94,7 @@ p {
 }
 
 #code {
-    overflow: scroll; /* try instead of hiding */
+    overflow: auto; /* try instead of hiding */
     position: relative;
     float:left;
     margin-top: 4vh;
