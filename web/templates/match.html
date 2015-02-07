@@ -1,5 +1,7 @@
-<div id="main">
-  <div id="code"></div>
+<div id="main" ng-show="person">
+  <div id="code"  ng-click="sampleSnippet()">
+    <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
+  </div>
   <div id="name"><h1>{{person.name}}</h1></div>
   <div id="commit">Last commit: {{person.updated_at}}</div>
   <div id="languages">
@@ -7,11 +9,10 @@
     <p>{{person.languages}}</p>
   </div>
   <div id="buttons">
-    <div class="buttonHolder">
-      <button id="zero" ng-click="reject()" type="button">&nbsp;</button>
-    </div>
-    <div class="buttonHolder">
-      <button id="one" ng-click="like()" type="button">&nbsp;</button>
-    </div>
+    <button id="zero" ng-click="reject()" type="button">&nbsp;</button>
+    <button id="one" ng-click="like()" type="button">&nbsp;</button>
   </div>
+</div>
+<div id="nomatch" ng-hide="person">
+  <div id="holder">{all out of matches}</div>
 </div>

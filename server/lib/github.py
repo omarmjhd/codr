@@ -4,9 +4,9 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
-import re
+from random import randint
 
-def _make_req(url, token):
+def _make_req(url):
     """Get data about the user that authorized the token."""
 
     # request some shit from github
@@ -32,12 +32,12 @@ def _make_req(url, token):
 def get_user(token):
     url = url_concat(config.gh_ep_url + '/user', {'access_token' : token})
     print(url)
-    return _make_req(url, token)
+    return _make_req(url)
 
 def get_repos(token):
     url = url_concat(config.gh_ep_url + '/user/repos', {'access_token' : token})
     print(url)
-    return _make_req(url, token)
+    return _make_req(url)
 
 def get_languages(token):
     """ Returns a dictionary of languages -> frequency """
@@ -57,29 +57,49 @@ def updated_at(token):
     user = get_user(token)
     return user['updated_at']
 
-def get_code_snippet(token):
+def get_code_snippet(name, token):
     """ Returns a string of the person's code """
-    repos = get_repos(token)
-    target_repo = repos[0]
+    repo_url = url_concat(
+        config.gh_ep_url + '/users/' + name + '/repos',
+        {'access_token' : token}
+    )
+    print('---REPO URL----')
+    print(repo_url)
+    repos = _make_req(repo_url)
+    target_repo = repos[randint(0, len(repos) - 1)]
     base_string = '/repos/' + target_repo['full_name']
     commit_string = base_string + '/commits'
-    commits = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
+    commit_url = url_concat(
+        config.gh_ep_url + commit_string,
+        {'access_token' : token}
+    )
+    commits = _make_req(commit_url)
     sha = commits[0]['sha']
-    tree_string = base_string + '/git/trees/' + sha + '?recursive=1'
-    tree = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
+    tree_string = base_string + '/git/trees/' + str(sha) + '?recursive=1'
+    tree_url = url_concat(
+        config.gh_ep_url + tree_string,
+        {'access_token' : token}
+    )
+    tree= _make_req(tree_url)
     struct = tree['tree']
-    i = 0
-    while struct[i]['type'] != 'blob':
-        i += 1
-    content = base64.b64decode(struct[i]['content']) # content is saved in base64
 
-    return content
+    i = len(struct) - 1         # Iterate down to try to avoid README.md
+    while i >= 0 and struct[i]['type'] != 'blob' :
+        i -= 1
+
+    if i < 0: # true iff user has no src code in his/her repos
+        return ""
+
+    src_file = struct[i]['url'] # user has some source data
+    file_url = url_concat(src_file, {'access_token' : token})
+    contents = _make_req(file_url)
+    return base64.standard_b64decode(contents['content'])
 
 
 def get_issues(token):
-	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
-	json = _make_req(url) # gets a list of all issues currently assigned to the user
-	if json:
-		return True
-	else:
-		return False
+    url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
+    json = _make_req(url) # gets a list of all issues currently assigned to the user
+    if json:
+        return True
+    else:
+        return False

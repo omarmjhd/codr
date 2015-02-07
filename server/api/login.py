@@ -3,6 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+import traceback
 from models import users
 from lib import github
 
@@ -28,36 +29,35 @@ class Handler(tornado.web.RequestHandler):
             access_token = response['access_token']
             user = github.get_user(access_token)
 
-            print(user)
-
             # add to db
 
             if 'id' in user:
 
                 users.update_user(
                     user['id'],
-                    user['name'],
+                    user['login'],
                     access_token,
                     user['avatar_url'],
                     github.get_languages(access_token),
                     user['updated_at']
                 )
 
+                self.set_secure_cookie('user', str(user['id']))
+
                 fetched_user = users.get_user(user['id'])
 
                 print(fetched_user)
 
-                self.redirect('/#/match/'+str(user['id']))
+                self.redirect('/#/match')
             else:
                 self.redirect('/#/error/login')
 
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
-            print(e)
+            print('Error', e)
+            print(traceback.format_exc())
         except Exception as e:
             # Other errors are possible, such as IOError.
-            print(e)
-
-
-
+            print('Error', e)
+            print(traceback.format_exc())
