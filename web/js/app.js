@@ -21,6 +21,7 @@ angular.module('codr', ['ngRoute'])
                 alert('You matched!');
             }
             console.log($scope.matched);
+        }
     };
 
     $scope.reject = function() {
