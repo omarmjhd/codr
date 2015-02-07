@@ -36,7 +36,7 @@ class Handler(tornado.web.RequestHandler):
 
                 users.update_user(
                     user['id'],
-                    user['name'] if user['name'] else user['login'],
+                    user['name'] if 'name' in user else user['login'],
                     access_token,
                     user['avatar_url'],
                     github.get_languages(access_token),
