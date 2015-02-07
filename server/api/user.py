@@ -6,9 +6,6 @@ class UserHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
         user = users.get_user(int(uid))
-        date = datetime.datetime(*map(int, re.split('[^\d', user['updated_at'])[:-1]))
-        diff = datetime.now() - date
-        user['updated_at'] = str(diff.days) + " days ago"
         self.write(json.dumps(user))
 
 
@@ -25,4 +22,8 @@ class RejectHandler(tornado.web.RequestHandler):
 class FindHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        self.write(json.dumps(users.get_potential(int(uid))))
+        user = users.get_potential(int(uid))
+        date = datetime.datetime(*map(int, re.split('[^\d', user['updated_at'])[:-1]))
+        diff = datetime.now() - date
+        user['updated_at'] = str(diff.days) + " days ago"
+        self.write(json.dumps(user))
