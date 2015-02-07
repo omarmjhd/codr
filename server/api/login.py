@@ -37,6 +37,9 @@ class Handler(tornado.web.RequestHandler):
             # Other errors are possible, such as IOError.
             print(e)
 
-        self.redirect('/')
+        if 'id' in user:
+            self.redirect('/#/auth/'+user['id'])
+        else:
+            self.redirect('/#/error/login')
 
 
