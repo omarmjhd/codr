@@ -86,7 +86,6 @@ def get_potential(_id):
 
     for other in users.find():
         if (other['_id'] not in user['rejects']
-            and user['_id'] not in other['rejects']
             and other['_id'] not in user['matches']
             and other['_id'] != user['_id']):
             return user
