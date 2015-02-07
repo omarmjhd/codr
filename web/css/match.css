@@ -3,6 +3,7 @@
     padding: 0;
     border: 0;
     margin: 0;
+    background-color: #455A64;
 }
 
 h3 {
@@ -26,7 +27,7 @@ p {
     margin-right: auto;
     height: 100vh;
     width: 60vw;
-    background-color: gray;
+    background-color: #607D8B;
 }
 
 #code {
@@ -36,7 +37,7 @@ p {
     margin-bottom: 2vh;
     margin-left: 4vw;
     margin-right: 4vw;
-    background-color: black;
+    background-color: #CFD8DC;
     width: 52vw;
     height: 40vh;
 }
