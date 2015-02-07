@@ -2,6 +2,7 @@ import tornado.web
 import tornado.httpclient as httpclient
 import config
 import urllib
+import json
 from lib import github
 
 class Handler(tornado.web.RequestHandler):
