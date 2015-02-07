@@ -26,8 +26,16 @@ def like(source_id, target_id):
     # return if they are a match
     return target.likes and source_id in target.likes
 
-def get_matches(_id):
+def reject(source_id, target_id):
     user = get_user(source_id)
+
+    if not user.rejects:
+        user.rejects = []
+
+    user.rejects.append(target_id)
+
+def get_matches(_id):
+    user = get_user(_id)
 
     matches = []
     if user.likes:
@@ -37,3 +45,15 @@ def get_matches(_id):
                 matches.append(like)
 
     return matches
+
+def get_potential(_id):
+
+    for user in users:
+        if not user.matches:
+            user.matches = []
+        if not user.rejects:
+            user.rejects = []
+        if not _id in user.rejects and not _id in user.matches:
+            return user
+
+    return None
