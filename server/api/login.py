@@ -27,6 +27,7 @@ class Handler(tornado.web.RequestHandler):
             access_token = response['access_token']
             user = github.get_user(access_token)
 
+            print(response)
             print(user)
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
