@@ -44,10 +44,8 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.person = result.data;
                 var languages = '';
-                console.log(Object.keys($scope.person.languages));
                 for (l in Object.keys($scope.person.languages)) {
-                    languages.concat(l);
-                    languages.concat(', ');
+                    languages = languages.concat(l, ', ');
                 }
                 $scope.person.languages = languages.substring(
                     0, languages.length - 2);
