@@ -54,10 +54,10 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.sampleSnippet = function() {
-        $scope.code_snippet = '';
+        $scope.person.code_snippet = '';
         $http.get('/api/snippet')
         .then(function(result) {
-            $scope.code_snippet = result.data;
+            $scope.person.code_snippet = result.data;
         });
     }
 
