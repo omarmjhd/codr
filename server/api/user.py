@@ -38,9 +38,6 @@ class FindHandler(BaseHandler):
         user = users.get_potential(self.get_current_user())
         if not user: return
 
-        # write a secure cookie to prevent spoofing
-        self.set_secure_cookie("target", str(user['_id']))
-
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
