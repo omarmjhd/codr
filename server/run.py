@@ -9,8 +9,8 @@ import api.user
 application = tornado.web.Application([
     (r"/api/login", api.login.Handler),
     (r"/api/user/(?P<uid>[^\/]+)/?", api.user.UserHandler),
-    (r"/api/like/(?P<uid>[^\/]+)/?", api.user.LikeHandler),
-    (r"/api/reject/(?P<uid>[^\/]+)/?", api.user.RejectHandler),
+    (r"/api/like/(?P<source_id>[^\/]+)/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
+    (r"/api/reject/(?P<source_id>[^\/]+)/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
     (r"/api/find/(?P<uid>[^\/]+)/?", api.user.FindHandler)
 ])
 
