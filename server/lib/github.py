@@ -4,7 +4,6 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
-import re
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
