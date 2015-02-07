@@ -57,6 +57,7 @@ def updated_at(token):
     return user['updated_at']
 
 def get_code_snippet(token):
+    """ Returns a string of the person's code """
     repos = get_repos(token)
     target_repo = repos[0]
     base_string = '/repos/' + target_repo['full_name']
@@ -75,7 +76,7 @@ def get_code_snippet(token):
 
 
 def get_issues(token):
-	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token}) 
+	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
 	json = _make_req(url) # gets a list of all issues currently assigned to the user
 	if json:
 		return True
