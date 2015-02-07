@@ -7,8 +7,8 @@ Base = declarative_base()
 engine = create_engine('sqlite:///:memory:', echo=True)
 
 association_table = Table('association', Base.metadata,
-    Column('left_match', Integer, ForeignKey('user.id')),
-    Column('right_match', Integer, ForeignKey('user.id'))
+    Column('left_match', Integer, ForeignKey('users`.id')),
+    Column('right_match', Integer, ForeignKey('users.id'))
 )
 
 class User(Base):
