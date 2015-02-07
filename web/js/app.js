@@ -14,7 +14,7 @@ angular.module('codr', ['ngRoute'])
 .controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
-        $http.get('/api/like/' + uid)
+        $http.get('/api/like/' + uid + '/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched) {
