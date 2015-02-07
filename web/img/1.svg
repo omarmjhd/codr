@@ -2,10 +2,6 @@
 
 	<style>
 		.color{
-			fill: #008000;
-		}
-
-		.color:hover{
 			fill: #00CD00;
 		}
 	</style>
