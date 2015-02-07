@@ -30,6 +30,7 @@ p {
 
     font-size: 1.2em;
     margin-bottom: 1vh;
+    color: black;
 }
 
 @media all and (max-width: 800px) {
