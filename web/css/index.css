@@ -33,11 +33,20 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    #content {
-	top: 10%;
-	transform: translateY(0%);
+   #content {
+    position: relative;
+    top: 10%;
+    transform: translateY(0%);
+    margin-left: auto;
+    margin-right: auto;
+    width: 52vw;
+    min-width: 500px;
+    height: 50vh;
+    border-radius: 15vw;
+    background-color: #222222;
+    opacity: 0.80;
     }
- }
+}
 
 #innercontent {
     margin-left: auto;
@@ -51,7 +60,12 @@ body {
 
 @media screen and (max-width: 600px) {
     #innercontent {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
 	top: 10%;
+	width: 52vw;
+	min-width: 500px;
 	transform: translateY(0%);
     }
 }
