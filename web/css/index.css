@@ -11,6 +11,7 @@
 #content {
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     margin-left: auto;
     margin-right: auto;
@@ -26,6 +27,7 @@
    #content {
     position: relative;
     top: 10%;
+    -webkit-transform: translateY(0%);
     transform: translateY(0%);
     margin-left: auto;
     margin-right: auto;
@@ -45,6 +47,7 @@
     top: 50%;
     width: 52vw;
     min-width: 500px;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
