@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>404 ERROR OMFG</title>
+    <style>
+      body {
+        background-image: url("img/404.gif");
+
+        color: white;
+        font-family: 'Open Sans', serif;
+      }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <center><h1> OMFG 404 ! wat shud i do?</h1></center>
+  </body>
+</html>
