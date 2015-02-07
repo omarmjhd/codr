@@ -9,7 +9,10 @@
     <p>{{person.languages}}</p>
   </div>
   <div id="buttons">
-    <button id="matches" ng-click="go(/list.html)" type="button">View matches list</button>
-    <button id="chat" ng-click="go(/chat.html)" type="button">Chat</button>
+    <button id="viewlist" ng-click="go(/list.html)" type="button">&nbsp;</button>
+    <button id="chat" ng-click="go(/chat.html)" type="button">&nbsp;</button>
   </div>
+</div>
+<div id="nomatch" ng-hide="person">
+  <div id="holder">{all out of matches}</div>
 </div>
