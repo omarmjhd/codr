@@ -38,6 +38,8 @@ def like(source_id, target_id):
     if not 'likes' in target:
         target['likes'] = []
 
+    print('----Like button clicked')
+    print(user, 'likes', target)
     # return if they are a match
     return target['likes'] and source_id in target['likes']
 
@@ -50,6 +52,8 @@ def reject(source_id, target_id):
     if 'rejects' not in user:
         user['rejects'] = []
 
+    print('----Reject button clicked')
+    print(user, 'rejects', get_user(target_id))
     user['rejects'].append(target_id)
 
 def get_matches(_id):
@@ -75,8 +79,8 @@ def get_potential(_id):
         if 'rejects' not in user:
             user['rejects'] = []
         if (not _id in user['rejects']
-            or not _id in user['matches']
-            or _id != user['_id']):
+            and not _id in user['matches']
+            and _id != user['_id']):
             return user
 
     return None
