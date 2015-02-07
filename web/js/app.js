@@ -16,11 +16,11 @@ angular.module('codr', ['ngRoute'])
         });
 }])
 
-.controller('indexCtrl', ['$scope, $http'], function($scope, $http) {
+.controller('indexCtrl', ['$scope, $http', function($scope, $http) {
     $http.get('/api/token').then(function(result) {
         $scope.id = result.data;
     });
-}
+}])
 
 .controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams',
     function ($scope, $http, $sce, $routeParams) {
