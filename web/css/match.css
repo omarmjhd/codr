@@ -3,22 +3,60 @@
     padding: 0;
     border: 0;
     margin: 0;
-    background-color: #455A64;
+    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-image: url("../assets/Capture.PNG");
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: normal;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
+}
+
+h2 {
+    font-size: 1.9em;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: normal;
 }
 
 p {
-    font-size: 1.5em;
+
+    font-size: 1.2em;
+    margin-bottom: 1vh;
 }
 
-.select {
-    height: 100%;
-    width: 100%;
+@media all and (max-width: 800px) {
+    h2 {
+	font-size: 1.1em;
+	font-weight: normal;
+    }
+}
+
+@media all and (max-width: 800px) {
+    h3 {
+	font-size: 1.3em;
+	font-weight: normal;
+	margin-bottom: 2vh;
+   }
+}
+
+@media all and (max-width: 800px) {
+    p {font-size: 1.1em;}
+}
+
+@media all and (max-width: 600px) {
+    p {font-size: 1em;}
+}
+
+@media all and (max-width: 400px) {
+    p {font-size: 0.9em;}
 }
 
 #main {
@@ -27,7 +65,8 @@ p {
     margin-right: auto;
     height: 100vh;
     width: 60vw;
-    background-color: #607D8B;
+    background-color: #dddddd;
+    opacity: 0.8;
 }
 
 #code {
@@ -37,42 +76,35 @@ p {
     margin-bottom: 2vh;
     margin-left: 4vw;
     margin-right: 4vw;
-    background-color: #CFD8DC;
+    background-image: url("../img/404.gif");
     width: 52vw;
     height: 40vh;
 }
 
 #name {
-
+    float: left;
     margin-left: 4vw;
     margin-right: 4vw;
-    margin-bottom: 2vh;
-    float: left;
-    font-size: 3em;
-    width: 22vw;
-    height: 1em;
+    width: 52vw;
+    height: 9vh;
     text-align: left;
 }
 
 #commit {
-    background-color: gray;
     float: left;
-    margin-top: 1em;
-    margin-left: 0vw;
+    margin-left: 4vw;
     margin-right: 4vw;
-    margin-bottom: 2vh;
-    text-align: right;
-    font-size: 1.5em;
-    width: 26vw;
-    height: 1.5em;
+    text-align: left;
+    width: 52vw;
+    height: 7vh;
 }
 
 #languages {
     float:left;
-    width: 22vw;
+    width: 52vw;
     margin-right: 4vw;
     margin-left: 4vw;
-    height: 20vh;
+    height: 17vh;
 }
 
 #forks {
@@ -84,7 +116,6 @@ p {
     margin-left: 4vw;
     margin-bottom: 2vh;
 }
-
 
 #buttons {
     margin-left: auto;
@@ -98,7 +129,6 @@ p {
     width: 22vw;
     margin-left: 2vw;
     height: 10vh;
-    background-color: red;
 }
 
 #zero {
