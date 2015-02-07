@@ -7,7 +7,7 @@ Base = declarative_base()
 engine = create_engine('sqlite:///:memory:', echo=True)
 
 association_table = Table('association', Base.metadata,
-    Column('left_match', Integer, ForeignKey('users`.id')),
+    Column('left_match', Integer, ForeignKey('users.id')),
     Column('right_match', Integer, ForeignKey('users.id'))
 )
 
@@ -28,6 +28,6 @@ class User(Base):
         return "<User id=%s, name=%s>" % (self.id, self.name)
 
 if __name__ == '__main__':
-    User.__table__.create(engine)
-    association_table.create(engine)
-    #Base.metadata.create_all(engine)
+    #User.__table__.create(engine)
+    #association_table.create(engine)
+    Base.metadata.create_all(engine)
