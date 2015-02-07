@@ -55,7 +55,7 @@ angular.module('codr', ['ngRoute'])
 
     $scope.sampleSnippet = function() {
         $scope.person.code_snippet = '';
-        $http.get('/api/snippet')
+        $http.get('/api/snippet/' + $scope.person.name)
         .then(function(result) {
             $scope.person.code_snippet = result.data;
         });
