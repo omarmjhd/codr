@@ -22,6 +22,13 @@ angular.module('codr', ['ngRoute'])
         $http.post('/api/reject', {id: uid});
     };
 
-    $scope.person = $http.get('/api/user?id=' + uid);
-    console.log($scope.person);
+    $http.get('/api/user?id=' + uid)
+        .success(function(data) {
+            $scope.person = data;
+            console.log($scope.person);
+        })
+        .error(function(data, status) {
+            console.log(data);
+            console.log(status);
+        });
 }]);
