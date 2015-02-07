@@ -4,7 +4,6 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
-import collections
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
@@ -51,7 +50,7 @@ def get_languages(token):
             lang_dict[lang] = lang_dict[lang] + 1
 
     print(lang_dict)
-    return collections.OrderedDict(sorted(lang_dict.items()))
+    return sorted(lang_dict.items(), key=lambda x: x[1])
 
 def updated_at(token):
     user = get_user(token)
