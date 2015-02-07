@@ -12,7 +12,10 @@ def _make_req(url, token):
     try:
         response = json.loads(http_client.fetch(
             url,
-            method='GET'
+            method='GET',
+            headers={'Accept':'application/json',
+                     'User-Agent':'codr'
+                    }
         ).body.decode('utf-8'))
 
         return response
