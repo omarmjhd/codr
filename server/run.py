@@ -19,7 +19,7 @@ if __name__ == "__main__":
         config.app_secret = sys.argv[3]
 
     application = tornado.web.Application([
-        (r"/api/login", api.login.Handler),
+        (r"/api/login/?", api.login.Handler),
         (r"/api/user/(?P<uid>[^\/]+)/?", api.user.UserHandler),
         (r"/api/like/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
         (r"/api/reject/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),

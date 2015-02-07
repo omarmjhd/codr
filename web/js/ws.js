@@ -1,7 +1,7 @@
-var ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
+var ws = new WebSocket("ws://codr.cloudapp.net/api/notifications");
 
 ws.onopen = function() {
-   ws.send("Hello, world");
+    alert('opened');
 };
 
 ws.onmessage = function (evt) {
