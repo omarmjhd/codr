@@ -78,14 +78,17 @@ def get_matches(_id):
 
 def get_potential(_id):
 
-    for user in users.find():
-        if 'matches' not in user:
-            user['matches'] = []
-        if 'rejects' not in user:
-            user['rejects'] = []
-        if (not int(_id) in user['rejects']
-            and not int(_id) in user['matches']
-            and int(_id) != user['_id']):
+    user = get_user(_id)
+    if 'matches' not in user:
+        user['matches'] = []
+    if 'rejects' not in user:
+        user['rejects'] = []
+
+    for other in users.find():
+        if (other['_id'] not in user['rejects']
+            and user['_id'] not in other['rejects']
+            and other['_id'] not in user['matches']
+            and other['_id'] != user['_id']):
             return user
 
     return None
