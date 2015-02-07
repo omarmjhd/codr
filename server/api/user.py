@@ -4,7 +4,7 @@ import config
 from models import users
 import datetime
 import re
-import github
+from lib import github
 
 class BaseHandler(tornado.web.RequestHandler):
 
