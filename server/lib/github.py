@@ -35,3 +35,16 @@ def get_user(token):
 def get_repos(token):
     url = url_concat(config.gh_ep_url + '/user/repos', {'access_token' : token})
     return _make_req(url, token)
+
+def get_languages(token):
+    """ Returns a dictionary of languages -> frequency """
+    lang_dict = {}
+    repos = get_repos(token)
+    for repo in repos:
+        lang = repo['language']
+        if lang not in lang_dict:
+            lang_dict[lang] = 1
+        else:
+            lang_dict[lang] = lang_dict[lang] + 1
+
+    return lang_dict
