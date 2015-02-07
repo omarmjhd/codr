@@ -27,5 +27,6 @@ def _make_req(url, token):
 
 def get_user(token):
     url = url_concat(config.gh_ep_url + '/user', {'access_token' : token})
+    print(url)
     return _make_req(url, token)
 
