@@ -11,13 +11,13 @@ class UserHandler(tornado.web.RequestHandler):
 
 class LikeHandler(tornado.web.RequestHandler):
 
-    def get(self, uid):
-        self.write(json.dumps(users.like(int(uid))))
+    def get(self, source_id, target_id):
+        self.write(json.dumps(users.like(int(source_id), int(target_id))))
 
 class RejectHandler(tornado.web.RequestHandler):
 
-    def get(self, uid):
-        self.write(json.dumps(users.reject(int(uid))))
+    def get(self, source_id, target_id):
+        self.write(json.dumps(users.reject(int(source_id), int(target_id))))
 
 class FindHandler(tornado.web.RequestHandler):
 
