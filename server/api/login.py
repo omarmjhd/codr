@@ -54,10 +54,10 @@ class Handler(tornado.web.RequestHandler):
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
-            print(e)
+            print('Error', e)
         except Exception as e:
             # Other errors are possible, such as IOError.
-            print(e)
+            print('Error', e)
 
 
 
