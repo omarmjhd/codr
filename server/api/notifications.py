@@ -1,7 +1,7 @@
 import tornado.websocket
 from models import users
 
-class NotificationWebSocket(tornado.websocket.WebSocketHandler):
+class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
         user = users.get_user(int(self.get_secure_cookie("user")))
