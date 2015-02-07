@@ -4,6 +4,7 @@ import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
 import base64
+import re
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
@@ -54,7 +55,9 @@ def get_languages(token):
 
 def updated_at(token):
     user = get_user(token)
-    return user['updated_at']
+    date = datetime.datetime(*map(int, re.split('[^\d', user['updated_at'])[:-1]))
+    diff = datetime.now() - date
+    return str(diff.days) + " days ago"
 
 def get_code_snippet(token):
     """ Returns a string of the person's code """
