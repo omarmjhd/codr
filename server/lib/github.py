@@ -80,7 +80,7 @@ def get_code_snippet(token):
 
     src_file = struct[i]['url'] # user has some source data
     file_url = url_concat(src_file, {'access_token' : token})
-    contents = make_req(file_url, token)
+    contents = _make_req(file_url, token)
     return base64.b64decode(contents['content']) # content is saved in base64
 
 def get_issues(token):
