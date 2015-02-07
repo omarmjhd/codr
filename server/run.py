@@ -6,7 +6,7 @@ import tornado.web
 import api.login
 
 application = tornado.web.Application([
-    (r"/login", api.login.Handler),
+    (r"/api/login", api.login.Handler),
 ])
 
 if __name__ == "__main__":
