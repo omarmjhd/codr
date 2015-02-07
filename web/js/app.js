@@ -1,4 +1,4 @@
-/* angular.module('codr', ['ngRoute'])
+angular.module('codr', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -6,4 +6,4 @@
             templateUrl: 'templates/login.html',
             controller: 'loginCtrl'
         });
-}]); */
+}]);
