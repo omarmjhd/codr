@@ -26,5 +26,6 @@ angular.module('codr', ['ngRoute'])
     $http.get('/api/user?id=' + uid)
         .then(function(result) {
             $scope.person = result.data;
+            console.log($scope.person);
     });
 }]);
