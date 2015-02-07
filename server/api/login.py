@@ -3,7 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
-import models.users
+from models.users import *
 from lib import github
 
 class Handler(tornado.web.RequestHandler):
@@ -35,13 +35,13 @@ class Handler(tornado.web.RequestHandler):
 
             if 'id' in user:
 
-                fetched_user = models.user.get_user(user['id'])
+                fetched_user = get_user(user['id'])
 
                 if not fetched_user:
-                    models.user.add_user(
+                    add_user(
                         id, user['name'], access_token, user['avatar_url']
                     )
-                    fetched_user = models.user.get_user(user['id'])
+                    fetched_user = get_user(user['id'])
 
                 print(fetched_user)
 
