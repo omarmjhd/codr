@@ -136,22 +136,28 @@ p {
     float: left;
     width: 22vw;
     height: 10vh;
-    background-image: url("../img/0_dark.svg");
-    opacity:
+    background-color: #bc0000;
+    background-image: url("../img/0_white.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #zero:hover {
-    background-image: url("../img/0_light.svg");
+    background-color: #ff3030;
 }
 
 #one {
     float: right;
     width: 22vw;
     height: 10vh;
-    background-color: green;
-    background-image: url("../img/1_dark.svg");
+    background-color: #008000;
+    background-image: url("../img/1_white.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #one:hover {
-    background-image: url("../img/1_light.svg");
+    background-color: #00cd00;
 }
