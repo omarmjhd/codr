@@ -57,20 +57,29 @@ def updated_at(token):
     user = get_user(token)
     return user['updated_at']
 
-def get_code_snippet(_id):
+def get_code_snippet(name, token):
     """ Returns a string of the person's code """
-    repo_url = config.gh_ep_url + '/users/' + _id + '/repos'
+    repo_url = url_concat(
+        config.gh_ep_url + '/users/' + name + '/repos',
+        {'access_token' : token}
+    )
     print('---REPO URL----')
     print(repo_url)
     repos = _make_req(repo_url)
     target_repo = repos[randint(0, len(repos) - 1)]
     base_string = '/repos/' + target_repo['full_name']
     commit_string = base_string + '/commits'
-    commit_url = config.gh_ep_url + commit_string
+    commit_url = url_concat(
+        config.gh_ep_url + commit_string,
+        {'access_token' : token}
+    )
     commits = _make_req(commit_url)
     sha = commits[0]['sha']
     tree_string = base_string + '/git/trees/' + str(sha) + '?recursive=1'
-    tree_url = config.gh_ep_url + tree_string
+    tree_url = url_concat(
+        config.gh_ep_url + tree_string,
+        {'access_token' : token}
+    )
     tree= _make_req(tree_url)
     struct = tree['tree']
 
@@ -82,15 +91,15 @@ def get_code_snippet(_id):
         return ""
 
     src_file = struct[i]['url'] # user has some source data
-    file_url = src_file
+    file_url = url_concat(src_file, {'access_token' : token})
     contents = _make_req(file_url)
     return base64.standard_b64decode(contents['content'])
 
 
 def get_issues(token):
-	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
-	json = _make_req(url) # gets a list of all issues currently assigned to the user
-	if json:
-		return True
-	else:
-		return False
+    url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
+    json = _make_req(url) # gets a list of all issues currently assigned to the user
+    if json:
+        return True
+    else:
+        return False

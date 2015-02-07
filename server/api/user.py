@@ -28,8 +28,10 @@ class LikeHandler(BaseHandler):
 
 class SnippetHandler(BaseHandler):
 
-    def get(self, name):
-        snippet = github.get_code_snippet(name)
+    def get(self, uid):
+        target = users.get_user(int(uid))
+        user = users.get_user(self.get_current_user())
+        snippet = github.get_code_snippet(target['name'], user['access_token'])
         self.write(
             snippet
         )

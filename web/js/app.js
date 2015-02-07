@@ -43,6 +43,7 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/find')
         .then(function(result) {
             $scope.person = result.data;
+            if ($scope.person) {
                 var languages = '';
                 var keys = Object.keys($scope.person.languages);
                 for (l in keys) {
@@ -51,14 +52,15 @@ angular.module('codr', ['ngRoute'])
                 $scope.person.languages = languages.substring(
                     0, languages.length - 2);
 
-            // update sample snippet
-            $scope.sampleSnippet();
+                // update sample snippet
+                $scope.sampleSnippet();
+            }
         });
     };
 
     $scope.sampleSnippet = function() {
         $scope.person.code_snippet = '';
-        $http.get('/api/snippet/' + $scope.person.name)
+        $http.get('/api/snippet/' + $scope.person._id)
         .then(function(result) {
             $scope.person.code_snippet = result.data;
         });
