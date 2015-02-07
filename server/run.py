@@ -25,6 +25,7 @@ if __name__ == "__main__":
         (r"/api/find/?", api.user.FindHandler),
         (r"/api/matches/?", api.user.MatchesHandler),
         (r"/api/token/?", api.user.TokenHandler),
+        (r"/api/snippet/(?P<uid>[^\/]+)/?", api.user.SnippetHandler)
     ], cookie_secret=config.app_secret)
 
     application.listen(8888)

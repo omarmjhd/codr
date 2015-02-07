@@ -138,6 +138,7 @@ p {
 }
 
 #zero {
+    border: none;
     float: left;
     width: 10vh;
     height: 10vh;
@@ -150,10 +151,12 @@ p {
 }
 
 #zero:hover {
+    border: none;
     background-color: #ff0000;
 }
 
 #one {
+    border: none;
     float: right;
     width: 10vh;
     height: 10vh;
@@ -166,5 +169,8 @@ p {
 }
 
 #one:hover {
+    border: none;
     background-color: #00cd00;
 }
+
+#one

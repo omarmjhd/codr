@@ -4,6 +4,7 @@ import config
 from models import users
 import datetime
 import re
+import github
 
 class BaseHandler(tornado.web.RequestHandler):
 
@@ -23,6 +24,14 @@ class LikeHandler(BaseHandler):
     def get(self, target_id):
         self.write(
             json.dumps(users.like(self.get_current_user(), int(target_id)))
+        )
+
+class SnippetHandler(BaseHandler):
+
+    def get(self, uid):
+        user = users.get_user(int(uid))
+        self.write(
+            github.get_code_snippet(user['name'])
         )
 
 class RejectHandler(BaseHandler):
