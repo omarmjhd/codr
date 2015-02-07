@@ -21,15 +21,17 @@ angular.module('codr', ['ngRoute'])
                 alert('You matched!');
             }
             console.log($scope.matched);
+            // find a new person
+            $scope.find();
         });
-        // find a new person
-        $scope.find();
     };
 
     $scope.reject = function() {
-        $http.get('/api/reject/' + uid + '/' + $scope.person._id);
-        // find a new person
-        $scope.find();
+        $http.get('/api/reject/' + uid + '/' + $scope.person._id)
+        .then(function(result) {
+            // find a new person
+            $scope.find();
+        });
     };
 
     $scope.find = function() {
