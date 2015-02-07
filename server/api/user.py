@@ -20,11 +20,6 @@ class UserHandler(BaseHandler):
 class LikeHandler(BaseHandler):
 
     def get(self, target_id):
-        # check secure cookie to avoid spoofing
-        if str(target_id) != str(self.get_secure_cookie("target")):
-            raise Exception("A spoofing attempt was detected.")
-            return
-
         self.write(
             json.dumps(users.like(self.get_current_user(), int(target_id)))
         )
@@ -32,11 +27,6 @@ class LikeHandler(BaseHandler):
 class RejectHandler(BaseHandler):
 
     def get(self, target_id):
-        # check secure cookie to avoid spoofing
-        if str(target_id) != str(self.get_secure_cookie("target")):
-            raise Exception("A spoofing attempt was detected.")
-            return
-
         self.write(json.dumps(
             users.reject(self.get_current_user(), int(target_id)))
     )
