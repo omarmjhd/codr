@@ -5,16 +5,21 @@ angular.module('codr', ['ngRoute'])
         .when('/', {
             templateUrl: 'templates/login.html',
         })
-        .when('/match/:uid', {
+        .when('/match', {
             templateUrl: 'templates/match.html',
             controller: 'matchCtrl'
+        })
+        .when('/profile/:uid', {
+            templateUrl: 'templates/profile.html',
+            controller: 'profileCtrl'
         });
 }])
 
-.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
+.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams',
+    function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
-        $http.get('/api/like/' + uid + '/' + $scope.person._id)
+        $http.get('/api/like/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
@@ -26,7 +31,7 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.reject = function() {
-        $http.get('/api/reject/' + uid + '/' + $scope.person._id)
+        $http.get('/api/reject/' + $scope.person._id)
         .then(function(result) {
             // find a new person
             $scope.find();
@@ -35,12 +40,32 @@ angular.module('codr', ['ngRoute'])
 
     $scope.find = function() {
         $scope.person = {};
-        $http.get('/api/find/' + uid)
+        $http.get('/api/find')
         .then(function(result) {
             $scope.person = result.data;
         });
+        var languages = '';
+        console.log($scope.person.languages);
+        for (l in $scope.person.languages.keys()) {
+            languages.concat(l);
+            languages.concat(', ');
+        }
+        $scope.person.languages = languages.substring(
+            0, languages.length - 2);
     };
 
     // find an initial person
     $scope.find();
+}])
+
+.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
+    function ($scope, $http, $sce, $routeParams) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
+    $scope.profiles = function() {
+        $scope.matches = [];
+        $http.get('/api/user/' + uid)
+        .then(function(result) {
+            $scope.matches = result.data;
+        });
+    };
 }]);

@@ -1,4 +1,4 @@
-<div id="main" ng-hide="person=='null'">
+<div id="main" ng-show="person">
   <div id="code">
     <pre class="prettyprint">{{person.code_snippet}}</pre>
   </div>
@@ -13,6 +13,6 @@
     <button id="one" ng-click="like()" type="button">&nbsp;</button>
   </div>
 </div>
-<div id="main" ng-show="person=='null'">
+<div id="main" ng-hide="person">
     <h1>No more matches :(</h>
 </div>
