@@ -4,15 +4,15 @@ client = MongoClient()
 
 db = client.codr
 
-def add_user(id, name, token, avatar_url):
+def add_user(_id, name, token, avatar_url):
     users = db.users
     users.insert(
-        {'_id': id, 'name': name, 'access_token': token, 'avatar': avatar_url}
+        {'_id': _id, 'name': name, 'access_token': token, 'avatar': avatar_url}
     )
 
-def get_user(id):
+def get_user(_id):
     users = db.users
-    return users.find_one({'_id' : id})
+    return users.find_one({'_id' : _id})
 
 def make_match(a_id, b_id):
 
