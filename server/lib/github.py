@@ -73,3 +73,12 @@ def get_code_snippet(token):
     content = base64.b64decode(struct[i]['content']) # content is saved in base64
 
     return content
+
+
+def get_issues(token):
+	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token}) 
+	json = _make_req(url) # gets a list of all issues currently assigned to the user
+	if json:
+		return True
+	else:
+		return False
