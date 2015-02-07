@@ -4,9 +4,11 @@ import tornado.ioloop
 import tornado.web
 
 import api.login
+import api.use
 
 application = tornado.web.Application([
     (r"/api/login", api.login.Handler),
+    (r"/api/user", api.user.Handler)
 ])
 
 if __name__ == "__main__":
