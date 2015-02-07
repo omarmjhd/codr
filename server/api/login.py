@@ -39,7 +39,10 @@ class Handler(tornado.web.RequestHandler):
 
                 if not fetched_user:
                     users.add_user(
-                        id, user['name'], access_token, user['avatar_url']
+                        user['id'],
+                        user['name'],
+                        access_token,
+                        user['avatar_url']
                     )
                     fetched_user = users.get_user(user['id'])
 
