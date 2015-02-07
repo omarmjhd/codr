@@ -1,5 +1,5 @@
 <div id="main" ng-show="person">
-  <div id="code"  ng-click="sampleSnippet()">
+  <div id="code" ng-click="sampleSnippet()">
     <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
   </div>
   <div id="name"><h1>{{person.name}}</h1></div>
@@ -9,8 +9,8 @@
     <p>{{person.languages}}</p>
   </div>
   <div id="buttons">
-    <button id="viewlist" onclick="window.location.href='match.html'" type="button">View match list</button>
-    <button id="chat" ng-click="chat()" type="button">&nbsp;</button>
+    <button id="viewlist" ng-click="go(/list.html)" type="button">&nbsp;</button>
+    <button id="chat" ng-click="go(/chat.html)" type="button">&nbsp;</button>
   </div>
 </div>
 <div id="nomatch" ng-hide="person">
