@@ -57,6 +57,7 @@ def updated_at(token):
     return user['updated_at']
 
 def get_code_snippet(token):
+    """ Returns a string of the person's code """
     repos = get_repos(token)
     target_repo = repos[0]
     base_string = '/repos/' + target_repo['full_name']
