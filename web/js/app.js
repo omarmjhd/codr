@@ -23,6 +23,7 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
+                // send a web socket alert when you matech
                 ws.send($scope.person._id);
                 alert('You matched!');
             }
