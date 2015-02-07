@@ -23,10 +23,4 @@ angular.module('codr', ['ngRoute'])
 
     $scope.person = $http.get('/api/user?id=' + uid);
     }
-}])
-
-.directive('populateProfile', function() {
-    return {
-        templateUrl: 'templates/match.html';
-    }
-})
+}]);
