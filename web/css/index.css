@@ -1,13 +1,3 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-}
-
-body {
-    background-image: url("../assets/Capture.PNG");
-}
-
 #maincontainer {
     position: fixed;
     top: 0;
@@ -79,7 +69,7 @@ body {
 
 }
 
-h1 {
+.splashh1 {
     font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
     color: white;
     text-align: center;
@@ -90,7 +80,7 @@ h1 {
 
 }
 
-p {
+.splashtext {
     font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
     color: white;
     text-align: center;
