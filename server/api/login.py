@@ -40,6 +40,7 @@ class Handler(tornado.web.RequestHandler):
                      'client_id': config.gh_id,
                      'client_secret': config.gh_secret}
 
+        print(code)
         # request some shit from github
         http_client = httpclient.HTTPClient()
         try:
@@ -54,9 +55,11 @@ class Handler(tornado.web.RequestHandler):
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
+            print('http error')
             pass
         except Exception as e:
             # Other errors are possible, such as IOError.
+            print('whatever error')
             pass
 
 
