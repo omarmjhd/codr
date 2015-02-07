@@ -20,7 +20,6 @@ angular.module('codr', ['ngRoute'])
             if ($scope.matched === 'true') {
                 alert('You matched!');
             }
-            console.log($scope.matched);
         });
         // find a new person
         $scope.find();
@@ -37,7 +36,6 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/find/' + uid)
         .then(function(result) {
             $scope.person = result.data;
-            console.log($scope.person);
         });
     };
 
