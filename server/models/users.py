@@ -71,7 +71,9 @@ def get_potential(_id):
             user['matches'] = []
         if 'rejects' not in user:
             user['rejects'] = []
-        if not _id in user['rejects'] and not _id in user['matches']:
+        if (not _id in user['rejects']
+            and not _id in user['matches']
+            and _id != user['_id']):
             return user
 
     return None

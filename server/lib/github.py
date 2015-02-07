@@ -50,7 +50,7 @@ def get_languages(token):
             lang_dict[lang] = lang_dict[lang] + 1
 
     print(lang_dict)
-    return lang_dict
+    return sorted(lang_dict.items(), key=lambda x: x[1])
 
 def updated_at(token):
     user = get_user(token)
@@ -76,7 +76,7 @@ def get_code_snippet(token):
 
 
 def get_issues(token):
-	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token}) 
+	url = url_concat(config.gh_ep_url + '/user/issues', {'access_token' : token})
 	json = _make_req(url) # gets a list of all issues currently assigned to the user
 	if json:
 		return True
