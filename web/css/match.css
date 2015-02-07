@@ -95,10 +95,11 @@ p {
     float: left;
     margin-left: 4vw;
     margin-right: 4vw;
+    margin-bottom: 3.5vh;
     text-align: left;
     font-size: 1.2em;
     width: 52vw;
-    height: 7vh;
+    /*height: 7vh;*/
 }
 
 #languages {
@@ -106,7 +107,7 @@ p {
     width: 52vw;
     margin-right: 4vw;
     margin-left: 4vw;
-    height: 17vh;
+    margin-bottom: 3.5vh;
 }
 
 #forks {

@@ -64,7 +64,7 @@ def get_code_snippet(token):
     commit_string = base_string + '/commits'
     commits = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
     sha = commits[0]['sha']
-    tree_string = base_string + '/git/trees/' + sha + '?recursive=1'
+    tree_string = base_string + '/git/trees/' + str(sha) + '?recursive=1'
     tree = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
     struct = tree['tree']
     i = 0
