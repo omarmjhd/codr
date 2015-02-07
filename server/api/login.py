@@ -1,12 +1,13 @@
 import tornado.web
 import tornado.httpclient as httpclient
 import config
-import urllib
+import urllib.parse
+import json
 from lib import github
 
 class Handler(tornado.web.RequestHandler):
 
-    def post(self):
+    def get(self):
         # code provided by github
         code = self.get_argument('code')
         post_args = {'code': code,
@@ -19,21 +20,28 @@ class Handler(tornado.web.RequestHandler):
             response = json.loads(http_client.fetch(
                 config.gh_ex_url,
                 method='POST',
-                body=urllib.urlencode(post_args),
+                body=urllib.parse.urlencode(post_args),
                 headers={'Accept':'application/json'}
-            ))
+            ).body.decode('utf-8'))
+
+            access_token = response['access_token']
+            user = github.get_user(access_token)
 
             print(response)
+            print(user)
+
+            if 'id' in user:
+                self.redirect('/#/auth/'+str(user['id']))
+            else:
+                self.redirect('/#/error/login')
+
         except httpclient.HTTPError as e:
             # HTTPError is raised for non-200 responses; the response
             # can be found in e.response.
-            pass
+            print(e)
         except Exception as e:
             # Other errors are possible, such as IOError.
-            pass
+            print(e)
 
 
-
-    def get(self):
-        self.write("Hello, world")
 
