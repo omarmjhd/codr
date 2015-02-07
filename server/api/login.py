@@ -1,7 +1,7 @@
 import tornado.web
 import tornado.httpclient as httpclient
 import config
-import urllib.urlencode
+import urllib.parse
 import json
 from lib import github
 
@@ -48,7 +48,7 @@ class Handler(tornado.web.RequestHandler):
             response = json.loads(http_client.fetch(
                 config.gh_ex_url,
                 method='POST',
-                body=urllib.urlencode(post_args),
+                body=urllib.parse.urlencode(post_args),
                 headers={'Accept':'application/json'}
             ))
 
