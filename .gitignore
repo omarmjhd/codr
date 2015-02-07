@@ -1,2 +1,4 @@
 # generic files
 *~
+*.pyc
+/__pycache__
