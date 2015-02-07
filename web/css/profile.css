@@ -204,9 +204,7 @@ p {
     background-repeat: no-repeat;
 }
 
-#one:hover {
+#viewlist:hover {
     border: none;
     background-color:#dddddd;
 }
-
-#one
