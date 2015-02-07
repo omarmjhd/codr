@@ -29,8 +29,11 @@ class LikeHandler(BaseHandler):
 class SnippetHandler(BaseHandler):
 
     def get(self, name):
+        snippet = github.get_code_snippet(name)
+        print('-------------SNIPPET----------')
+        print(snippet)
         self.write(
-            github.get_code_snippet(name)
+            snippet
         )
 
 class RejectHandler(BaseHandler):
@@ -49,8 +52,6 @@ class FindHandler(BaseHandler):
         date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
         diff = datetime.datetime.now() - date
         user['updated_at'] = str(diff.days) + " days ago"
-        print('----------------FIND HANDLER----------------')
-        print(user)
         self.write(json.dumps(user))
 
 class MatchesHandler(BaseHandler):
