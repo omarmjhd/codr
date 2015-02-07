@@ -34,6 +34,7 @@ def get_user(token):
 
 def get_repos(token):
     url = url_concat(config.gh_ep_url + '/user/repos', {'access_token' : token})
+    print(url)
     return _make_req(url, token)
 
 def get_languages(token):
@@ -47,4 +48,5 @@ def get_languages(token):
         else:
             lang_dict[lang] = lang_dict[lang] + 1
 
+    print(lang_dict)
     return lang_dict

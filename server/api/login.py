@@ -28,7 +28,6 @@ class Handler(tornado.web.RequestHandler):
             access_token = response['access_token']
             user = github.get_user(access_token)
 
-            print(response)
             print(user)
 
             # add to db
