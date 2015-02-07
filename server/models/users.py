@@ -5,9 +5,14 @@ client = MongoClient()
 db = client.codr
 users = db.users
 
-def add_user(_id, name, token, avatar_url):
+def add_user(_id, name, token, avatar_url, languages):
     users.insert(
-        {'_id': _id, 'name': name, 'access_token': token, 'avatar': avatar_url}
+        {'_id': _id,
+         'name': name,
+         'access_token': token,
+         'avatar': avatar_url,
+         'languages':languages
+        }
     )
 
 def get_user(_id):
@@ -16,6 +21,9 @@ def get_user(_id):
 def like(source_id, target_id):
     user = get_user(source_id)
 
+    if not user:
+        raise ValueError('No user with id %d found' % (source_id, ))
+
     if not user.likes:
         user.likes = []
 
@@ -23,11 +31,17 @@ def like(source_id, target_id):
 
     target = get_user(target_id)
 
+    if not target:
+        raise ValueError('No user with id %d found' % (target_id, ))
+
     # return if they are a match
     return target.likes and source_id in target.likes
 
 def reject(source_id, target_id):
     user = get_user(source_id)
+
+    if not user:
+        raise ValueError('No user with id %d found' % (source_id, ))
 
     if not user.rejects:
         user.rejects = []
@@ -36,6 +50,9 @@ def reject(source_id, target_id):
 
 def get_matches(_id):
     user = get_user(_id)
+
+    if not user:
+        raise ValueError('No user with id %d found' % (_id, ))
 
     matches = []
     if user.likes:

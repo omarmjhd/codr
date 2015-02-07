@@ -42,7 +42,8 @@ class Handler(tornado.web.RequestHandler):
                         user['id'],
                         user['name'],
                         access_token,
-                        user['avatar_url']
+                        user['avatar_url'],
+                        get_languages(access_token)
                     )
                     fetched_user = users.get_user(user['id'])
 
