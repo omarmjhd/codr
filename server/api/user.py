@@ -21,7 +21,7 @@ class LikeHandler(BaseHandler):
 
     def get(self, target_id):
         # check secure cookie to avoid spoofing
-        if target_id != int(self.get_secure_cookie("target")):
+        if target_id != str(self.get_secure_cookie("target")):
             raise Exception("A spoofing attempt was detected.")
             return
 
@@ -33,8 +33,7 @@ class RejectHandler(BaseHandler):
 
     def get(self, target_id):
         # check secure cookie to avoid spoofing
-        print(target_id == int(self.get_secure_cookie('target')))
-        if target_id != int(self.get_secure_cookie("target")):
+        if target_id != str(self.get_secure_cookie("target")):
             raise Exception("A spoofing attempt was detected.")
             return
 
