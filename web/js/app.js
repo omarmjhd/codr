@@ -8,10 +8,15 @@ angular.module('codr', ['ngRoute'])
         .when('/match/:uid', {
             templateUrl: 'templates/match.html',
             controller: 'matchCtrl'
+        })
+        .when('/profile/:uid', {
+            templateUrl: 'templates/profile.html',
+            controller: 'profileCtrl'
         });
 }])
 
-.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams', function ($scope, $http, $sce, $routeParams) {
+.controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams',
+    function ($scope, $http, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
         $http.get('/api/like/' + uid + '/' + $scope.person._id)
@@ -43,4 +48,16 @@ angular.module('codr', ['ngRoute'])
 
     // find an initial person
     $scope.find();
+}])
+
+.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
+    function ($scope, $http, $sce, $routeParams) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
+    $scope.profiles = function() {
+        $scope.matches = [];
+        $http.get('/api/user/' + uid)
+        .then(function(result) {
+            $scope.matches = result.data;
+        });
+    }
 }]);
