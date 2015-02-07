@@ -101,8 +101,9 @@ angular.module('codr', ['ngRoute'])
 
             // update sample snippet
             $scope.sampleSnippet();
-        }
-    });
+            }
+        });
+    };
 
     $scope.sampleSnippet = function() {
         $scope.person.code_snippet = '';
@@ -113,4 +114,4 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.find();
-};
+}]);
