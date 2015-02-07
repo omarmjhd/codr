@@ -46,6 +46,16 @@ angular.module('codr', ['ngRoute'])
         });
     };
 
+    $scope.languages = function() {
+        $scope.languages = '';
+        for (l in $scope.person.languages.keys()) {
+            $scope.languages.concat(l);
+            $scope.languages.concat(', ');
+        }
+        $scope.languages = $scope.languages.substring(
+            0, $scope.languages.length - 2);
+    }
+
     // find an initial person
     $scope.find();
 }])
@@ -59,7 +69,6 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.matches = result.data;
         });
-        var languages = '';
         for (i in $scope.matches.keys()) {
             languages.concat(', ');
             console.log(languages);
