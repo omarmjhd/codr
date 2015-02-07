@@ -1,7 +1,7 @@
 import tornado.web
 import tornado.httpclient as httpclient
 import config
-import urllib
+import urllib.urlencode
 import json
 from lib import github
 
