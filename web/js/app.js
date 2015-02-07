@@ -23,7 +23,7 @@ angular.module('codr', ['ngRoute'])
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
-                ws.send($scope.person._id)
+                ws.send($scope.person._id);
                 alert('You matched!');
             }
             // find a new person
