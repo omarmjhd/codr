@@ -5,6 +5,7 @@ class UserHandler(tornado.web.RequestHandler):
 
     def get(self):
         id = self.get_argument('id')
+        print(id)
         return users.get_user(id)
 
 
