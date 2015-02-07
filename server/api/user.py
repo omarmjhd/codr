@@ -5,7 +5,7 @@ from models import users
 class UserHandler(tornado.web.RequestHandler):
 
     def get(self, uid):
-        user = users.get_user(uid)
+        user = users.get_user(int(uid))
         print(user)
         self.write(json.dumps(user))
 
