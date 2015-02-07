@@ -5,6 +5,7 @@ angular.module('codr', [])
         var token = $location.search();
         if ("code" in token) {
             $http.post('api/login', {code: token['code']});
+            alert('i hate everything');
         }
     };
 });
