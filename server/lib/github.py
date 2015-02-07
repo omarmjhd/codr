@@ -3,6 +3,7 @@ import urllib
 import config
 import tornado.httpclient as httpclient
 from tornado.httputil import url_concat
+import base64
 
 def _make_req(url, token):
     """Get data about the user that authorized the token."""
@@ -54,3 +55,20 @@ def get_languages(token):
 def updated_at(token):
     user = get_user(token)
     return user['updated_at']
+
+def get_code_snippet(token):
+    repos = get_repos(token)
+    target_repo = repos[0]
+    base_string = '/repos/' + target_repo['full_name']
+    commit_string = base_string + '/commits'
+    commits = url_concat(config.gh_ep_url + commit_string, {'access_token' : token})
+    sha = commits[0]['sha']
+    tree_string = base_string + '/git/trees/' + sha + '?recursive=1'
+    tree = url_concat(config.gh_ep_url + tree_string, {'access_token' : token})
+    struct = tree['tree']
+    i = 0
+    while struct[i]['type'] != 'blob':
+        i += 1
+    content = base64.b64decode(struct[i]['content']) # content is saved in base64
+
+    return content
