@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://codr.cloudapp.net/websocket");
+var ws = new WebSocket("ws://codr.cloudapp.net/notifications");
 
 ws.onopen = function() {
    ws.send("Hello, world");

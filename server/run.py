@@ -7,6 +7,7 @@ import tornado.web
 
 import api.login
 import api.user
+import api.notifications
 
 import config
 
@@ -26,6 +27,8 @@ if __name__ == "__main__":
         (r"/api/matches/?", api.user.MatchesHandler),
         (r"/api/token/?", api.user.TokenHandler),
         (r"/api/snippet/(?P<uid>[^\/]+)/?", api.user.SnippetHandler)
+        (r"/api/notifications/?", api.notifications.NotificationsWebSocket)
+
     ], cookie_secret=config.app_secret)
 
     application.listen(8888)
