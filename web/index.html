@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="codr">
 	<head>
 		<title>{codr}</title>
 
@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="https://raw.githubusercontent.com/lipis/bootstrap-social/gh-pages/bootstrap-social.css">
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
-	<body>
+	<body data-ng-controller="loginCtrl" data-ng-init="sendRequest()">
 	    <div id="maincontainer">
 	      <div id="content">
 		<div id="innercontent">
