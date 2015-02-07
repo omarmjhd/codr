@@ -3,6 +3,7 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+import time
 from models import users
 from lib import github
 
@@ -39,7 +40,8 @@ class Handler(tornado.web.RequestHandler):
                     user['name'],
                     access_token,
                     user['avatar_url'],
-                    github.get_languages(access_token)
+                    github.get_languages(access_token),
+                    time.time()
                 )
 
                 fetched_user = users.get_user(user['id'])
