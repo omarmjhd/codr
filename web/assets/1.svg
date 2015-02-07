@@ -2,7 +2,7 @@
 
 	<style>
 		.color{
-			fill: #00CD00;
+			fill: #8B8989;  /*#00CD00*/
 		}
 
 		.color:hover{
