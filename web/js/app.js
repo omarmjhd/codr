@@ -22,5 +22,4 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.person = $http.get('/api/user?id=' + uid);
-    }
 }]);
