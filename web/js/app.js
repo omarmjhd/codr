@@ -23,7 +23,7 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.person = {};
-    $http.get('/api/user?id=' + uid)
+    $http.get('/api/user/' + uid)
         .then(function(result) {
             $scope.person = result.data;
             console.log($scope.person);
