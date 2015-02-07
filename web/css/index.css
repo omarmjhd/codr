@@ -1,25 +1,3 @@
-.page-container {
-    display: -webkit-box;
-    display: flex;
-
-    -webkit-box-orient: vertical;
-    flex-direction: column;
-
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-@media screen and (orientation: landscape) {
-  .page-container.notification-opened {
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
-  }
-
-  .page-container.notification-opened > .notification-arrow {
-    margin-right: 20px;
-  }
-}
-
 #maincontainer {
     position: fixed;
     top: 0;
