@@ -4,7 +4,6 @@ angular.module('codr', ['ngRoute'])
     $routeProvider
         .when('/', {
             templateUrl: 'templates/login.html',
-            controller: 'indexCtrl'
         })
         .when('/match', {
             templateUrl: 'templates/match.html',
@@ -14,12 +13,6 @@ angular.module('codr', ['ngRoute'])
             templateUrl: 'templates/profile.html',
             controller: 'profileCtrl'
         });
-}])
-
-.controller('indexCtrl', ['$scope, $http', function($scope, $http) {
-    $http.get('/api/token').then(function(result) {
-        $scope.id = result.data;
-    });
 }])
 
 .controller('matchCtrl', ['$scope', '$http', '$sce', '$routeParams',
