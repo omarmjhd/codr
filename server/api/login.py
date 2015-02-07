@@ -3,10 +3,8 @@ import tornado.httpclient as httpclient
 import config
 import urllib.parse
 import json
+import models.users
 from lib import github
-from models.users import User
-from models.users import engine
-from sqlalchemy.orm import sessionmaker
 
 class Handler(tornado.web.RequestHandler):
 
@@ -36,22 +34,16 @@ class Handler(tornado.web.RequestHandler):
             # add to db
 
             if 'id' in user:
-                Session = sessionmaker(bind=engine)
-                session = Session()
 
-                orm_user = session.query(User)\
-                    .filter(User.name == user['name'])\
-                    .first()
+                fetched_user = models.user.get_user(user['id'])
 
-                if not orm_user:
-                    orm_user = User(id = user['id'],
-                                name = user['name'],
-                                auth_token = access_token,
-                                avatar = user['avatar_url'])
-                    session.add(user)
-                    session.commit()
+                if not fetched_user:
+                    models.user.add_user(
+                        id, user['name'], access_token, user['avatar_url']
+                    )
+                    fetched_user = models.user.get_user(user['id'])
 
-                print(orm_user)
+                print(fetched_user)
 
                 self.redirect('/#/match/'+str(user['id']))
             else:
