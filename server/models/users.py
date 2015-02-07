@@ -1,34 +1,30 @@
-from sqlalchemy import Table, create_engine, Column, String, Integer, ForeignKey
-from sqlalchemy.orm import relationship, backref
-from sqlalchemy.ext.declarative import declarative_base
+from pymongo import MongoClient
 
-Base = declarative_base()
+client = MongoClient()
 
-engine = create_engine('sqlite:///:memory:', echo=True)
+db = client.codr
 
-association_table = Table('association', Base.metadata,
-    Column('left_match', Integer, ForeignKey('users.id')),
-    Column('right_match', Integer, ForeignKey('users.id'))
-)
-
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key = True)
-    auth_token = Column(String)
-    name = Column(String)
-    avatar = Column(String)
-
-    matches = relationship('User',
-        secondary=association_table,
-        backref='matches',
-        foreign_keys=[id]
+def add_user(id, gender, name, token, avatar_url):
+    users = db.users
+    users.insert(
+        {'_id': id, 'name': name, 'access_token': token, 'avatar': avatar_url}
     )
 
-    def __repr__(self):
-        return "<User id=%s, name=%s>" % (self.id, self.name)
+def get_user(id):
+    users = db.users
+    return users.find_one({'_id' : id})
 
-if __name__ == '__main__':
-    #User.__table__.create(engine)
-    #association_table.create(engine)
-    Base.metadata.create_all(engine)
+def make_match(a_id, b_id):
+
+    users = db.users
+    a = users.find_one({'_id': a_id})
+    b = users.find_one({'_id': b_id})
+
+    if not a.matches:
+        a.matches = [b_id]
+    if not b.matches:
+        b.matches = [b_id]
+
+    a.matches.append(a)
+    b.matches.append(b)
+
