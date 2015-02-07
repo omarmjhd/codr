@@ -96,6 +96,10 @@ p {
 #refreshbutton {
     float: right;
     margin-right: 4vw;
+    height: 2vh;
+    width: 2vw;
+    background-image: url("../img/refresh.jpg");
+    background-size: contain;
 }
 
 
