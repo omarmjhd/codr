@@ -215,9 +215,9 @@ p {
 
 #viewlist {
     position:relative;
-    top: 20vh;
+    top: 15vh;
     border: none;
-    width: 15vw;
+    width: 20vw;
     height: 10vh;
     border-radius: 5vh;
     background-color: #bbbbbb;
