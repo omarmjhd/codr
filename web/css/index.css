@@ -21,9 +21,10 @@
     opacity: 0.80;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
    #content {
        width: 92vw;
+       height: 60vh;
     }
 }
 
@@ -37,9 +38,10 @@
     transform: translateY(-50%);
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
    #innercontent {
        width: 92vw;
+       height: 60vh;
     }
 }
 
