@@ -18,6 +18,12 @@ class UserHandler(BaseHandler):
         if not user: return
         self.write(json.dumps(user))
 
+class ProfileHandler(BaseHandler):
+
+    def get(self, uid):
+        user = users.get_user(int(uid))
+        if not user: return
+        self.write(json.dumps(user))
 
 class LikeHandler(BaseHandler):
 

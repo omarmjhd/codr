@@ -11,7 +11,7 @@ angular.module('codr', ['ngRoute'])
         })
         .when('/profile/:uid', {
             templateUrl: 'templates/profile.html',
-            controller: 'mainCtrl'
+            controller: 'profileCtrl'
         })
         .when('/list', {
             templateUrl: 'templates/list.html',
@@ -83,7 +83,6 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/matches/')
         .then(function(result) {
             $scope.matches = result.data;
-            console.log($scope.matches);
         });
     };
 
@@ -93,4 +92,24 @@ angular.module('codr', ['ngRoute'])
 
     // find an initial person
     $scope.find();
+}])
+
+.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
+    '$location', function ($scope, $http, $sce, $routeParams, $location) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
+    $scope.go = function(path) {
+        $location.path(path);
+    };
+
+    $scope.user = function() {
+        $scope.user = {};
+        $http.get('/api/profile/' + uid)
+        .then(function(result) {
+            $scope.user = result.data;
+            console.log($scope.user);
+        });
+    };
+
+    $scope.user();
 }]);

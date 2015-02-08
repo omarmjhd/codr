@@ -8,7 +8,7 @@ class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
     def open(self):
         self.user = int(self.get_secure_cookie("user"))
         notifiers.add(self)
-        print('Websockets connected.')
+        print('Notifications connected.')
 
     def on_message(self, target_id):
         print('--------MATCH----------')
@@ -21,5 +21,6 @@ class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
                 n.write_message(user['name'])
 
     def on_close(self):
-        notifiers.remove(self)
+        if self in notifiers:
+            notifiers.remove(self)
 

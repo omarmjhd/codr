@@ -1,14 +1,14 @@
 import tornado.websocket
 from models import users
 
-notifiers = set()
+chatters = set()
 
 class ChatWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
         self.user = int(self.get_secure_cookie("user"))
-        notifiers.add(self)
-        print('Websockets connected.')
+        chatters.add(self)
+        print('Chat connected.')
 
     def on_message(self, target_id):
         print('--------MATCH----------')
