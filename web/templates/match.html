@@ -1,8 +1,6 @@
 <div id="main" ng-show="person">
-  <div hljs>
-    <div id="code" ng-click="sampleSnippet()">
-      {{person.code_snippet}}
-	</div>
+  <div id="code" ng-click="sampleSnippet()">
+	  <div hljs>{{person.code_snippet}}</div>
   </div>
   <div id="name">
     <h1>{{person.name}}</h1>
