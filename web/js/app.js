@@ -154,33 +154,34 @@ angular.module('codr', ['ngRoute'])
         //$scope.msgs.push('you are now chatting, say hi!');
         $scope.$apply();
     };
+
     chat_ws.onmessage = function(evt) {
         console.log(evt.data);
         $scope.msgs.push(evt.data);
         $scope.$apply();
-    }
+    };
 
     $scope.send = function() {
+        var d = new Date();
         chat_ws.send(angular.toJson(
-            {'target': uid.toString(), 'msg' : $scope.userMsg})
+            {'target': uid.toString(),
+             'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
-    }
-}]);
-
-.directive('prettyprint', function() {
-    return {
-        restrict: 'C',
-        link: function postLink(scope, element, attrs) {
-              element.html(prettyPrintOne(scope.dom));
-        }
+        $scope.userMsg = '';
     };
-});
+}])
 
-.directive('prettyprint', function() {
-    return {
-        restrict: 'C',
-        link: function postLink(scope, element, attrs) {
-              element.html(prettyPrintOne(scope.dom));
-        }
+// press enter
+.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
     };
 });
