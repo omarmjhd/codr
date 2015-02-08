@@ -24,7 +24,7 @@ angular.module('codr', ['ngRoute'])
 }])
 
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
-    function ($scope, $http, $sce, $routeParams) {
+    '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
         $http.get('/api/like/' + $scope.person._id)
