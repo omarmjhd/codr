@@ -63,7 +63,7 @@ angular.module('codr', ['ngRoute'])
                     $scope.go('/chat/' + uid);
                 }
 			}
-		};
+		});
     };
 
     $scope.like = function() {
