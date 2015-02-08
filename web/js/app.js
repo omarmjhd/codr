@@ -67,7 +67,6 @@ angular.module('codr', ['ngRoute'])
 
                 // update sample snippet
                 $scope.sampleSnippet();
-            } else {
                 $scope.profiles();
             }
         });
@@ -138,10 +137,8 @@ angular.module('codr', ['ngRoute'])
 
 .controller('chatCtrl', ['$scope', function ($scope) {
     $scope.messages = []
-    /*
     chat_ws.onopen = function() {
         $scope.messages.push('you are now chatting, say hi!');
         $scope.messages.push('HIALFDJLAKDSJFLKDSAF');
     };
-    */
 }]);
