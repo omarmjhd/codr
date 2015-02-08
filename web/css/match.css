@@ -92,6 +92,7 @@ p {
 @media all and (max-width: 800px) {
     #nomatch {
 	height: 70vh;
+	width: 90vw;
     }
 }
 
@@ -266,7 +267,7 @@ p {
 #viewlist {
     border: none;
     width: 35vw;
-    height: 10vh;
+    /*height: 10vh;*/
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
