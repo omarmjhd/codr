@@ -94,7 +94,7 @@ angular.module('codr', ['ngRoute'])
     $scope.find();
 }])
 
-.controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
+.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
