@@ -9,7 +9,7 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
         self.user = int(self.get_secure_cookie("user"))
-        self.target = None
+        #self.target = None
         chatters[self.user] = self
         print('Chat connected.')
 
