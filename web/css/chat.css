@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+#chatBackground {
     font: 13px;
     background: none !important;
 }
