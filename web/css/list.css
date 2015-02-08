@@ -9,7 +9,7 @@
 }
 
 #matching {
-    position: relative;
+    position: absolute;
     bottom: 2vh;
     margin-left: auto;
     margin-right: auto;
