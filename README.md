@@ -1,4 +1,4 @@
-# Codr
+# {codr}
 
 ## Linking coders together.
 http://codr.link
