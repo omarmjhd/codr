@@ -76,8 +76,8 @@ angular.module('codr', ['ngRoute'])
 
                 // update sample snippet
                 $scope.sampleSnippet();
-                $scope.profiles();
             }
+            $scope.profiles();
         });
     };
 
@@ -161,8 +161,8 @@ angular.module('codr', ['ngRoute'])
     }
 
     $scope.send = function() {
-        chat_ws.send(angular.toJson(
-            {'target': uid.toString(), 'msg' : $scope.userMsg})
-        );
+        console.log(uid);
+        console.log($scope.userMsg);
+        chat_ws.send(angular.toJson({'target': uid, 'msg' : $scope.userMsg}));
     }
 }]);
