@@ -28,6 +28,7 @@ angular.module('codr', ['ngRoute'])
 
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     // web sockets
     var notes_ws = new WebSocket("ws://codr.link:8888/api/notifications");
@@ -57,13 +58,14 @@ angular.module('codr', ['ngRoute'])
 				  title: "Populating chat . . .",
 				  type: "success",
 				  timer: 2000
-				});
-				// INSERT  $scope.chat? here
-			}
+				}),
+                function() {
+                    $scope.go('/chat/' + uid);
+                }
+			};
 		});
     };
 
-    var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
         $http.get('/api/like/' + $scope.person._id)
         .then(function(result) {
