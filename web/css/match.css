@@ -198,7 +198,8 @@ p {
 }
 
 #matchesButton {
-    position: relative;
+    position: absolute;
+    left: 4vw;
     float: left;
     border: none;
     width: 10vh;
