@@ -20,6 +20,9 @@ angular.module('codr', ['ngRoute'])
         .when('/chat', {
             templateUrl: 'templates/chat.html',
             controller: 'mainCtrl'
+        })
+        .otherwise({
+            redirectTo: '404.html'
         });
 }])
 
