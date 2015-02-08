@@ -19,9 +19,6 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         self.target = int(e['target'])
         msg = e['msg']
         matches =  [x['id'] for x in users.get_matches(self.user)]
-        print(self.target)
-        print(chatters)
-        print(self.user)
         author = users.get_user(self.user)
         # target is chatting and is a match and is chatting the same person
         if (self.target in chatters
@@ -29,11 +26,12 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
             and chatters[self.target].target == self.user):
             print(e)
             chatters[self.target].write_message(author['name'] + ': ' + msg)
-            self.write_message('You: ' + msg)
 
         # otherwise send them an alert
         elif self.target in notifiers and self.target in chatters:
-            chatters[self.target].write_message(author['name']);
+            chatters[self.target].write_message(author['name'] + ': ' + msg);
+
+        self.write_message('You: ' + msg)
 
     def on_close(self):
         if self.user in chatters:
