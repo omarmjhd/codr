@@ -58,12 +58,12 @@ angular.module('codr', ['ngRoute'])
 				  title: "Populating chat . . .",
 				  type: "success",
 				  timer: 2000
-				})
-			};
-		},
-        function() {
-            $scope.go('/chat/' + uid);
-        });
+				}),
+                function() {
+                    $scope.go('/chat/' + uid);
+                }
+			}
+		};
     };
 
     $scope.like = function() {
