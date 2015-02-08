@@ -107,7 +107,25 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/profile/' + uid)
         .then(function(result) {
             $scope.user = result.data;
-            console.log($scope.user);
+            if ($scope.user) {
+                var languages = '';
+                var keys = Object.keys($scope.user.languages);
+                for (l in keys) {
+                    languages = languages.concat(keys[l], ', ');
+                }
+                $scope.user.languages = languages.substring(
+                    0, languages.length - 2);
+
+                // update sample snippet
+                $scope.sampleSnippet();
+        });
+    };
+
+    $scope.sampleSnippet = function() {
+        $scope.user.code_snippet = '';
+        $http.get('/api/snippet/' + $scope.user._id)
+        .then(function(result) {
+            $scope.user.code_snippet = result.data;
         });
     };
 
