@@ -8,10 +8,9 @@ chatters = {}
 class ChatWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
-        if self.get_secure_cookie("user"):
-            self.user = int(self.get_secure_cookie("user"))
-            chatters[self.user] = self
-            print('Chat connected.')
+        self.user = int(self.get_secure_cookie("user"))
+        chatters[self.user] = self
+        print('Chat connected.')
 
     def on_message(self, e):
         e = json.loads(e)
