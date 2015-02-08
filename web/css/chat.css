@@ -10,7 +10,7 @@
 }
 
 #userInput {
-    background: #000;
+    background: #aaaaaa;
     padding: 3px;
     position: absolute;
     bottom: 15vh;
@@ -35,7 +35,7 @@ input {
     margin-right: .5%;
 }
 
-button {
+.sendbutton {
     width: 9%;
     float: right;
     background: rgb(130, 224, 255);
