@@ -212,10 +212,16 @@ p {
     background-repeat: no-repeat;
 }
 
-
 #matchesButton:hover {
     border: none;
     background-color: #aaaaaa;
+}
+
+@media all and (max-width: 600px) {
+    #matchesButton {
+	width: 6vh;
+	height: 6vh;
+    }
 }
 
 #zero {
