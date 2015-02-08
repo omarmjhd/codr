@@ -31,6 +31,10 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
             chatters[self.target].write_message(author['name'] + ': ' + msg)
             self.write_message('You: ' + msg)
 
+        # otherwise send them an alert
+        elif self.target in notifiers and self.target in chatters:
+            chatters[self.target].write_message(msg)
+
     def on_close(self):
         if self.user in chatters:
             del chatters[self.user]
