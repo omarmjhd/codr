@@ -38,6 +38,7 @@ angular.module('codr', ['ngRoute'])
     notes_ws.onmessage = function (evt) {
         swal('You matched with ', evt.data, "success");
     };
+
     chat_ws.onmessage = function (evt) {
 		swal({
 		  title: "self.setReceivedMessage(true)",
@@ -60,7 +61,7 @@ angular.module('codr', ['ngRoute'])
 				}),
                 function() {
                     $scope.go('/chat/' + uid);
-                }
+                };
 			};
 		});
     };
