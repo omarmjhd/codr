@@ -187,6 +187,9 @@ p {
     width: 30vw;
     min-width: 25vh;
     height: 10vh;
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: dash 5s linear forwards;
     clear: both;
 }
 
