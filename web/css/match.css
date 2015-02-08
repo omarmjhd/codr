@@ -101,16 +101,6 @@ p {
    margin-right: auto;
 }
 
-#refreshbutton {
-    float: right;
-    margin-right: 4vw;
-    height: 2vh;
-    width: 2vw;
-    background-image: url("../img/refresh.jpg");
-    background-size: contain;
-}
-
-
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
@@ -125,6 +115,14 @@ p {
     opacity: 1;
 }
 
+@media all and (max-width: 600px) {
+    #code {
+	width: 92vw;
+    }
+}
+
+
+
 #name {
     position: relative;
     float: left;
@@ -133,6 +131,11 @@ p {
     margin-bottom: 2vh;
     width: 40vw;
     text-align: left;
+}
+@media all and (max-width: 600px) {
+    #name {
+	width: 92vw;
+    }
 }
 
 #commit {
@@ -144,6 +147,12 @@ p {
     font-size: 1.2em;
     width: 52vw;
     /*height: 7vh;*/
+}
+
+@media all and (max-width: 600px) {
+    #commit {
+	width: 92vw;
+    }
 }
 
 #languages {
