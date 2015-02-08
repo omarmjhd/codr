@@ -45,7 +45,7 @@ angular.module('codr', ['ngRoute'])
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
                 notes_ws.send($scope.person._id);
-                swal("You matched!", "success");
+                swal("You matched!", "Your match has been added to the list.", "success");
             }
             // find a new person
             $scope.find();
@@ -154,15 +154,34 @@ angular.module('codr', ['ngRoute'])
         //$scope.msgs.push('you are now chatting, say hi!');
         $scope.$apply();
     };
+
     chat_ws.onmessage = function(evt) {
         console.log(evt.data);
         $scope.msgs.push(evt.data);
         $scope.$apply();
-    }
+    };
 
     $scope.send = function() {
+        var d = new Date();
         chat_ws.send(angular.toJson(
-            {'target': uid.toString(), 'msg' : $scope.userMsg})
+            {'target': uid.toString(),
+             'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
-    }
-}]);
+        $scope.usrMsg = '';
+    };
+}])
+
+// press enter
+.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
