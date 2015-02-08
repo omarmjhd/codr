@@ -37,6 +37,7 @@ input {
 
 .sendbutton {
     width: 9%;
+    min-width: 50px;
     float: right;
     background: rgb(130, 224, 255);
     border: none;
