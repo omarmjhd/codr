@@ -27,7 +27,9 @@ if __name__ == "__main__":
         (r"/api/matches/?", api.user.MatchesHandler),
         (r"/api/token/?", api.user.TokenHandler),
         (r"/api/snippet/(?P<uid>[^\/]+)/?", api.user.SnippetHandler),
-        (r"/api/notifications/?", api.notifications.NotificationsWebSocket)
+
+        (r"/api/notifications/?", api.notifications.NotificationsWebSocket),
+        (r"/api/chat/?", api.chat.ChatWebSocket)
 
     ], cookie_secret=config.app_secret)
 
