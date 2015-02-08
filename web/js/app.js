@@ -146,7 +146,7 @@ angular.module('codr', ['ngRoute'])
 
 .controller('chatCtrl', ['$scope', function ($scope) {
     var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
-    $scope.messages = []
+    $scope.msgs = []
     chat_ws.onopen = function() {
         $scope.msgs.push('you are now chatting, say hi!');
         $scope.msgs.push('HIALFDJLAKDSJFLKDSAF');
