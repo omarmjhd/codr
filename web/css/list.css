@@ -19,6 +19,8 @@
     border-radius: 5vh;
     background-image: url("../img/arrow-back.png");
     background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #cccccc;
 }
 
