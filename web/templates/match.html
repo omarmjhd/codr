@@ -12,12 +12,12 @@
 	  <p>{{person.languages}}</p>
   </div>
   <div id="buttons">
-	  <button id="zero" ng-click="reject()" type="button">&nbsp;</button>
-	  <button id="one" ng-click="like()" type="button">&nbsp;</button>
+	  <button id="zero" title="Pass" ng-click="reject()" type="button">&nbsp;</button>
+	  <button id="one" title="Like" ng-click="like()" type="button">&nbsp;</button>
   </div>
 </div>
 <div id="nomatch" ng-hide="person">
   <div id="holder">{all out of profiles}
-    <button id="viewlist" ng-click="profiles(); go('/list')" type="button">view my matches</button>
+    <button id="viewlist" title="View matches" ng-click="profiles(); go('/list')" type="button">view my matches</button>
   </div>
 </div>
