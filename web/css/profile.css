@@ -191,7 +191,7 @@ p {
     background-color: #dddddd;
 }
 
-#viewlist {
+#viewlistProfile {
     border: none;
     float: right;
     width: 10vh;
@@ -204,9 +204,7 @@ p {
     background-repeat: no-repeat;
 }
 
-#one:hover {
+#viewlistProfile:hover {
     border: none;
     background-color:#dddddd;
 }
-
-#one

@@ -1,10 +1,10 @@
 var ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
 
 ws.onopen = function() {
-    alert('opened');
+    // do something
 };
 
 ws.onmessage = function (evt) {
-   alert(evt.data);
+    alert('You matched with ' + evt.data);
 };
 

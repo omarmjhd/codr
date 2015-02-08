@@ -68,9 +68,16 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
+@media all and (max-width: 600px) {
+    #main {
+	width: 100vw;
+    }
+}
+
 #nomatch {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     left: 20vw;
     border-radius: 15vw;
@@ -88,6 +95,7 @@ p {
    font-size: 2em;
    position: relative;
    top: 50%;
+   -webkit-transform: translateY(-50%);
    transform: translateY(-50%);
    margin-left: auto;
    margin-right: auto;
@@ -204,9 +212,30 @@ p {
     background-repeat: no-repeat;
 }
 
+
 #one:hover {
     border: none;
     background-color: #00cd00;
 }
 
-#one
+
+#viewlist {
+
+    border: none;
+    width: 25vw;
+    height: 10vh;
+    border-radius: 5vh;
+    background-color: #888888;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-image: url("../img/1_white.png");
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;*/
+}
+
+#viewlist:hover {
+    border: none;
+    background-color: #bbbbbb;
+}
