@@ -45,6 +45,7 @@ input {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
+    border-radius: 2px;
 }
 
 .sendbutton:hover {
