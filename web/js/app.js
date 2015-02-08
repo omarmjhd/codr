@@ -113,6 +113,11 @@ angular.module('codr', ['ngRoute'])
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
+    chat_ws.onmessage = function (evt) {
+        swal(evt.data, ' wants to talk to you!', 'success');
+    };
+
     $scope.go = function(path) {
         $location.path(path);
     };
