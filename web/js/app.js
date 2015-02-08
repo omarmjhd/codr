@@ -169,7 +169,7 @@ angular.module('codr', ['ngRoute'])
         );
         $scope.usrMsg = '';
     };
-}]);
+}])
 
 // press enter
 .directive('ngEnter', function () {
