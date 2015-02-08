@@ -206,9 +206,11 @@ p {
     height: 10vh;
     /*border-radius: 5vh;*/
     background-image: url("../img/list.png");
+    background-color: rgba(221,221,221,0.8);
     background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 2; /* put in front */
 }
 
 
