@@ -4,11 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </TextView>
-
     <WebView
         android:id="@+id/activity_main_webview"
         android:layout_width="fill_parent"
