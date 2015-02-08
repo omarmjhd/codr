@@ -164,7 +164,7 @@ angular.module('codr', ['ngRoute'])
         var d = new Date()
         chat_ws.send(angular.toJson(
             {'target': uid.toString(),
-             'msg' : d.toLocaleString().$scope.userMsg})
+             'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
     }
 }]);
