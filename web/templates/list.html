@@ -1,7 +1,9 @@
 <div id="matches">
   <h1>Your Matches</h1>
   <ul>
-    <li ng-repeat="m in person.matches" id="{{m}}" ng-click="go(/profile')">{{m}}</li>
+    <li ng-repeat="m in matches" id="{{m.id}}">
+        <a ng-href="#/profile/{{m.id}}">{{m.name}}</a>
+    </li>
   </ul>
   <button id="matching" ng-click="go('/match')" type="button">Continue Matching</button>
 </div>
