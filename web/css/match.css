@@ -68,6 +68,10 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
+@media all and (max-width: 600px) {
+    width: 100vw;
+}
+
 #nomatch {
     position: absolute;
     top: 50%;
@@ -214,13 +218,12 @@ p {
 
 
 #viewlist {
-    position:relative;
-    top: 14vh;
+
     border: none;
     width: 25vw;
     height: 10vh;
     border-radius: 5vh;
-    background-color: #bbbbbb;
+    background-color: #888888;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -232,5 +235,5 @@ p {
 
 #viewlist:hover {
     border: none;
-    background-color: #888888;
+    background-color: #bbbbbb;
 }
