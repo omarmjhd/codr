@@ -28,14 +28,7 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
             chatters[target].write_message(author['name'] + ': ' + msg)
             self.write_message('You: ' + msg)
 
-        # notify the match for a chat
-        else:
-            for n in notifiers:
-                if n.user == target:
-                    user = users.get_user(self.user)
-                    n.write_message(user['name'])
-
-
     def on_close(self):
-        del chatters[self.user]
+        if self.user in chatters:
+            del chatters[self.user]
 
