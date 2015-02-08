@@ -167,7 +167,7 @@ angular.module('codr', ['ngRoute'])
             {'target': uid.toString(),
              'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
-        $scope.usrMsg = '';
+        $scope.userMsg = '';
     };
 }])
 
