@@ -1,7 +1,9 @@
-<ul id="messages">
-  <li ng-repeat="m in msgs">{{m}}</li>
-</ul>
-<div id="userInput">
+<div id="chatBackground">
+  <ul id="messages">
+    <li ng-repeat="m in msgs">{{m}}</li>
+  </ul>
+  <div id="userInput">
     <input type="text" ng-model="userMsg" autocomplete="off" ng-enter="send()"/>
     <button ng-click="send()">Send</button>
+  </div>
 </div>
