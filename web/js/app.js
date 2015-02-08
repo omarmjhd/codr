@@ -79,11 +79,11 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.profiles = function() {
-        $scope.person.matches = [];
+        $scope.matches = [];
         $http.get('/api/matches/')
         .then(function(result) {
-            $scope.person.matches = result.data;
-            console.log($scope.person.matches);
+            $scope.matches = result.data;
+            console.log($scope.matches);
         });
     };
 
