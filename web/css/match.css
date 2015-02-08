@@ -138,6 +138,7 @@ p {
     width: 40vw;
     text-align: left;
 }
+
 @media all and (max-width: 800px) {
     #name {
 	width: 92vw;

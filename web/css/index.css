@@ -24,7 +24,13 @@
 @media all and (max-width: 800px) {
    #content {
        width: 92vw;
-       height: 60vh;
+
+    }
+}
+
+@media all and (max-width: 600px) {
+    #content {
+	height: 60vh;
     }
 }
 
@@ -41,7 +47,12 @@
 @media all and (max-width: 800px) {
    #innercontent {
        width: 92vw;
-       height: 60vh;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #innercontent {
+	height: 60vh;
     }
 }
 
