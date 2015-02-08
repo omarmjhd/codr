@@ -31,10 +31,14 @@ angular.module('codr', ['ngRoute'])
 
     // web sockets
     var notes_ws = new WebSocket("ws://codr.link:8888/api/notifications");
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
 
     // notifications
     notes_ws.onmessage = function (evt) {
         swal('You matched with ', evt.data, "success");
+    };
+    chat_ws.onmessage = function (evt) {
+        swal(evt.data, ' wants to talk to you!', 'success');
     };
 
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
@@ -108,6 +112,11 @@ angular.module('codr', ['ngRoute'])
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
+    chat_ws.onmessage = function (evt) {
+        swal(evt.data, ' wants to talk to you!', 'success');
+    };
 
     $scope.go = function(path) {
         $location.path(path);

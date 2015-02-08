@@ -35,12 +35,17 @@ input {
     margin-right: .5%;
 }
 
-button {
+.sendbutton {
     width: 9%;
+    min-width: 50px;
     float: right;
     background: rgb(130, 224, 255);
     border: none;
     padding: 10px;
+}
+
+.sendbutton:hover {
+    background: rgb(100, 194, 225);
 }
 
 #messages {
