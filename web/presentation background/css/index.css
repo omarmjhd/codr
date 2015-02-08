@@ -1,0 +1,36 @@
+* {
+	text-align: center;
+	background-color: #F5F5F5;
+}
+body {
+	/* background-image: url("bg.PNG"); */
+}
+#companyName  {
+	color: #212121;
+	font-size: 20vh;
+	margin-top: 20vh;
+	margin-left: 1vw;
+}
+
+span{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{ 
+	from { width: 0; } 
+} 
+
+@keyframes blink{
+	to{opacity: .0;}
+}
+
+#info  {
+	margin-top: 1vh;
+	color: #727272;
+	font-size: 5vh;
+}
+
+#loginBtn {
+	font-size: 4vh;
+}
+
