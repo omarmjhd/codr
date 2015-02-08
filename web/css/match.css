@@ -198,8 +198,9 @@ p {
 }
 
 #matches {
+    position: absolute;
+    left: 4vw;
     border: none;
-    float: left;
     width: 10vh;
     height: 10vh;
     border-radius: 5vh;
@@ -216,8 +217,8 @@ p {
 }
 
 #zero {
-    position: absolute;
-    left: 4vw;
+    position: relative;
+    float: left;
     width: 10vh;
     height: 10vh;
     border-radius: 5vh;
