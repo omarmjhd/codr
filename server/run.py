@@ -8,6 +8,7 @@ import tornado.web
 import api.login
 import api.user
 import api.notifications
+import api.chat
 
 import config
 
