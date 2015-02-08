@@ -12,6 +12,14 @@ angular.module('codr', ['ngRoute'])
         .when('/profile/:uid', {
             templateUrl: 'templates/profile.html',
             controller: 'mainCtrl'
+        })
+        .when('/list', {
+            templateUrl: 'templates/list.html',
+            controller: 'mainCtrl'
+        })
+        .when('/chat', {
+            templateUrl: 'templates/chat.html',
+            controller: 'mainCtrl'
         });
 }])
 
