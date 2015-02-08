@@ -218,7 +218,6 @@ p {
 #zero {
     position: absolute;
     left: 4vw;
-    float: left;
     width: 10vh;
     height: 10vh;
     border-radius: 5vh;
