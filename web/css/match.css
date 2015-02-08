@@ -69,7 +69,9 @@ p {
 }
 
 @media all and (max-width: 600px) {
-    width: 100vw;
+    #main {
+	width: 100vw;
+    }
 }
 
 #nomatch {
