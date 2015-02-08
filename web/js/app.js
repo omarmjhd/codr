@@ -39,7 +39,6 @@ angular.module('codr', ['ngRoute'])
         swal('You matched with ', evt.data, "success");
     };
     chat_ws.onmessage = function (evt) {
-        swal('You got a message!', evt.data, 'success');
 		swal({
 		  title: "self.setReceivedMessage(true)",
 		  text: "What would you like to do?",
