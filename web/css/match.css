@@ -93,6 +93,9 @@ p {
     #nomatch {
 	height: 70vh;
 	width: 90vw;
+	left: 5vw;
+	right: 5vw;
+	font-size: 1.5em;
     }
 }
 
@@ -226,6 +229,7 @@ p {
     #matchesButton {
 	width: 6vh;
 	height: 6vh;
+	border-radius: 0;
     }
 }
 
@@ -281,6 +285,12 @@ p {
     background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;*/
+}
+
+@media all and (max-width: 800px) {
+    #viewlist {
+	width: 50vw;
+    }
 }
 
 #viewlist:hover {

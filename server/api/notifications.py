@@ -6,6 +6,7 @@ notifiers = set()
 class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
 
     def open(self):
+        print(self.get_cookie('user'))
         self.user = int(self.get_secure_cookie("user"))
         notifiers.add(self)
         print('Notifications connected.')

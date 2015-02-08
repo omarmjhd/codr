@@ -30,7 +30,7 @@ angular.module('codr', ['ngRoute'])
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
 
     // web sockets
-    var notes_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
+    var notes_ws = new WebSocket("ws://codr.link:8888/api/notifications");
 
     // notifications
     notes_ws.onmessage = function (evt) {
@@ -144,11 +144,11 @@ angular.module('codr', ['ngRoute'])
     $scope.user();
 }])
 
-.controller('chatCtrl', ['$scope', '$sce', '$routeParams',
-    function ($scope, $sce, $routeParams) {
+.controller('chatCtrl', ['$scope', '$sce', '$routeParams', '$location',
+    function ($scope, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
-    var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
     $scope.msgs = []
     chat_ws.onopen = function() {
         //$scope.msgs.push('you are now chatting, say hi!');
@@ -167,6 +167,10 @@ angular.module('codr', ['ngRoute'])
              'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
         $scope.userMsg = '';
+    };
+
+    $scope.go = function(path) {
+        $location.path(path);
     };
 }])
 
