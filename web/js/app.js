@@ -19,7 +19,7 @@ angular.module('codr', ['ngRoute'])
         })
         .when('/chat', {
             templateUrl: 'templates/chat.html',
-            controller: 'mainCtrl'
+            controller: 'chatCtrl'
         })
         .otherwise({
             templateUrl: '/404.html'
@@ -35,7 +35,7 @@ angular.module('codr', ['ngRoute'])
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
-                notes_ws.send($scope.person._id);
+                ws.send($scope.person._id);
                 alert('You matched!');
             }
             // find a new person
@@ -134,4 +134,12 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.user();
+}])
+
+.controller('chatCtrl', ['$scope', function ($scope) {
+    $scope.messages = []
+    chat_ws.onopen = function() {
+        $scope.messages.push('you are now chatting, say hi!');
+        $scope.messages.push('HIALFDJLAKDSJFLKDSAF');
+    };
 }]);
