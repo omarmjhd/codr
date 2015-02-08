@@ -68,6 +68,10 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
+@media all and (max-width: 600px) {
+    width: 100vw;
+}
+
 #nomatch {
     position: absolute;
     top: 50%;
