@@ -123,6 +123,7 @@ p {
     height: 40vh;
     background-color: white;
     opacity: 1;
+    cursor: pointer;
 }
 
 @media all and (max-width: 800px) {
