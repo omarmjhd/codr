@@ -155,7 +155,8 @@ angular.module('codr', ['ngRoute'])
         $scope.$apply();
     };
     chat_ws.onmessage = function(evt) {
-        $scope.msgs.push(evt);
+        console.log(evt.data);
+        $scope.msgs.push(evt.data);
         $scope.$apply();
     }
 
