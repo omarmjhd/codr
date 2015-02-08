@@ -35,7 +35,7 @@ angular.module('codr', ['ngRoute'])
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
-                ws.send($scope.person._id);
+                ws_notes.send($scope.person._id);
                 alert('You matched!');
             }
             // find a new person
