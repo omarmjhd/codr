@@ -34,7 +34,7 @@ angular.module('codr', ['ngRoute'])
 
     // notifications
     notes_ws.onmessage = function (evt) {
-        swal('You matched with ', evt.data, "success");
+        alert('You matched with ' + evt.data);
     };
 
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
@@ -45,7 +45,7 @@ angular.module('codr', ['ngRoute'])
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
                 notes_ws.send($scope.person._id);
-                swal("You matched!", "Your match has been added to the list.", "success");
+                alert('You matched!');
             }
             // find a new person
             $scope.find();
@@ -144,8 +144,8 @@ angular.module('codr', ['ngRoute'])
     $scope.user();
 }])
 
-.controller('chatCtrl', ['$scope', '$sce', '$routeParams',
-    function ($scope, $sce, $routeParams) {
+.controller('chatCtrl', ['$scope', '$sce', '$routeParams', '$location',
+    function ($scope, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
@@ -156,31 +156,17 @@ angular.module('codr', ['ngRoute'])
     };
 
     chat_ws.onmessage = function(evt) {
-        $scope.msgs.push(evt.data);
+        $scope.msgs.push(evt);
         $scope.$apply();
     };
 
     $scope.send = function() {
-        var d = new Date();
-        chat_ws.send(angular.toJson(
-            {'target': uid.toString(),
-             'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
-        );
-        $scope.userMsg = '';
+        console.log(uid);
+        console.log($scope.userMsg);
+        chat_ws.send(angular.toJson({'target': uid, 'msg' : $scope.userMsg}));
     };
-}])
 
-// press enter
-.directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    scope.$eval(attrs.ngEnter);
-                });
-
-                event.preventDefault();
-            }
-        });
+    $scope.go = function(path) {
+        $location.path(path);
     };
-});
+}]);
