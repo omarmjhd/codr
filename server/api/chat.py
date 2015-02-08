@@ -19,6 +19,10 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         msg = e['msg']
         matches = users.get_matches(self.user)
         # target is chatting and is a match
+        print(target)
+        print(chatters)
+        print(chatters[target])
+        print(matches)
         if target in chatters and chatters[target].user in matches:
             print('TARGET ACQUIRED.')
             chatters[target].write_message('Match: ' + msg)
