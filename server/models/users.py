@@ -67,9 +67,11 @@ def get_matches(_id):
     if 'likes' in user:
         for like in user['likes']:
             target = get_user(like)
-            if likes in target and _id in target['likes']:
+            if 'likes' in target and _id in target['likes']:
                 matches.append(like)
 
+    print('---------MATCHES----------')
+    print(matches)
     return matches
 
 def get_potential(_id):
