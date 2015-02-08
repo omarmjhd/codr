@@ -211,6 +211,14 @@ p {
     background-repeat: no-repeat;
 }
 
+@media all and (max-width: 600px) {
+    #matchesButton {
+	position: absolute;
+	right: 4vw;
+	bottom: 12vh;
+    }
+}
+
 #matchesButton:hover {
     border: none;
     background-color: #aaaaaa;
