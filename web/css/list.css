@@ -4,18 +4,39 @@
     width: 52vw;
     text-align: center;
     color: white;
+    margin-bottom: 2vh;
+}
+
+#matching {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10vh;
+    background-image: url("../img/arrow-back.png");
+    background-size: 18vh 18vh;
+    background-color: #cccccc;
+}
+
+#matching:hover {
+    background-color: #ffffff;
 }
 
 #matchesbackground {
-    background-color: rgba(34, 34, 34, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(34, 34, 34, 0.4);
+    width: 100vw;
+    height: 100vh;
 }
 
 .matched {
     margin-left: 2vw;
-    text-align: left;
+    margin-bottom: 1vh;
+    text-align: center;
     font-size: 1.3em;
     background-color: rgba(34, 34, 34, 0.9);
-    margin-bottom: 1vh;
 }
 
 #listcontent {

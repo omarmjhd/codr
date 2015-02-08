@@ -1,4 +1,4 @@
-<div id="main" ng-show="person">
+<div id="main" ng-show="person" ng-swipe-left="reject()" ng-swipe-right="like()">
   <div id="code" ng-click="sampleSnippet()">
     <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
   </div>
