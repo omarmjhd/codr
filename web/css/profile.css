@@ -68,6 +68,13 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
+
+@media all and (max-width: 800px) {
+    #main {
+	width: 100vw;
+    }
+}
+
 #nomatch {
     position: absolute;
     top: 50%;
@@ -80,6 +87,12 @@ p {
     text-align: center;
     color: white;
     font-size: 2em;
+}
+
+@media all and (max-width: 800px) {
+    #nomatch {
+	height: 70vh;
+    }
 }
 
 #holder {
@@ -117,6 +130,13 @@ p {
     opacity: 1;
 }
 
+@media all and (max-width: 800px) {
+    #code {
+	width: 92vw;
+    }
+}
+
+
 #name {
     position: relative;
     float: left;
@@ -125,6 +145,12 @@ p {
     margin-bottom: 2vh;
     width: 40vw;
     text-align: left;
+}
+
+@media all and (max-width: 800px) {
+    #name {
+	width: 92vw;
+    }
 }
 
 #commit {
@@ -136,6 +162,12 @@ p {
     font-size: 1.2em;
     width: 52vw;
     /*height: 7vh;*/
+}
+
+@media all and (max-width: 600px) {
+    #commit {
+	width: 92vw;
+    }
 }
 
 #languages {
