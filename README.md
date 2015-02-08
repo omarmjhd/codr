@@ -1,6 +1,6 @@
 # {codr}
 
-## Linking coders together.
+## Linking programmers together.
 http://codr.link
 
 VTHacks 2015

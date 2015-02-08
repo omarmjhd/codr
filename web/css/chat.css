@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#chatBackground {
+    font: 13px;
+    background: none !important;
+}
+
+#userInput {
+    background: #aaaaaa;
+    padding: 3px;
+    position: absolute;
+    bottom: 15vh;
+    width: 100%;
+}
+
+#controlpanel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 15vh;
+    background-color: #aaaaaa;
+
+}
+
+input {
+    float: left;
+    border: 0;
+    padding: 10px;
+    width: 90%;
+    margin-right: .5%;
+}
+
+.sendbutton {
+    width: 9%;
+    float: right;
+    height: 40px;
+    background-color: rgb(130, 224, 255);
+    background-image: url("../img/speech-bubble.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 2px;
+}
+
+.sendbutton:hover {
+    background-color: rgb(100, 194, 225);
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+#messages li:nth-child(even) {
+    background: #fff;
+}

@@ -3,9 +3,6 @@ package net.cloudapp.codr.codrandroid;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -28,9 +25,7 @@ public class MainActivity extends ActionBarActivity {
         webView.loadUrl("http://codr.cloudapp.net");
         // Force links and redirects to open in the app, instead of using an external browser app
         webView.setWebViewClient(new WebViewClient());
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

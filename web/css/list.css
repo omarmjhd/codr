@@ -1,5 +1,67 @@
 
-#viewlist {
+
+.listtitle {
+    margin-bottom: 2vh;
+    width: 52vw;
+    text-align: center;
+    color: white;
+    margin-top: 2vh;
+}
+
+#matching {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+    background-image: url("../img/arrow-back.png");
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+}
+
+#matching:hover {
+    background-color: #ffffff;
+}
+
+#matchesbackground {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(34, 34, 34, 0.4);
+    width: 100vw;
+    height: 100vh;
+}
+
+.matched {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vh;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: rgba(34, 34, 34, 0.4);
+    list-style-type: none;
+}
+
+#listcontent {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 52vw;
+    min-height: 70vh;
+    border-radius: 3vw;
+    background-color: rgba(34, 34, 34, 0.8);
+}
+
+#viewlistlist {
     border: none;
     float: right;
     width: 10vh;
@@ -12,7 +74,7 @@
     background-repeat: no-repeat;
 }
 
-#viewlist:hover {
+#viewlistlist:hover {
     border: none;
     background-color:#dddddd;
 }

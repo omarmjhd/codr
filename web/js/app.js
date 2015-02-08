@@ -17,23 +17,41 @@ angular.module('codr', ['ngRoute'])
             templateUrl: 'templates/list.html',
             controller: 'mainCtrl'
         })
-        .when('/chat', {
+        .when('/chat/:uid', {
             templateUrl: 'templates/chat.html',
-            controller: 'mainCtrl'
+            controller: 'chatCtrl'
+        })
+        .otherwise({
+            templateUrl: '/404.html'
         });
 }])
 
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
+
+    // web sockets
+    var notes_ws = new WebSocket("ws://codr.link:8888/api/notifications");
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
+
+    // notifications
+    notes_ws.onmessage = function (evt) {
+        swal('You matched with ', evt.data, "success");
+    };
+
+    chat_ws.onmessage = function (evt) {
+        swal('You got a message!', evt.data, 'success');
+    };
+
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
     $scope.like = function() {
         $http.get('/api/like/' + $scope.person._id)
         .then(function(result) {
             $scope.matched = result.data;
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
-                ws.send($scope.person._id);
-                alert('You matched!');
+                notes_ws.send($scope.person._id);
+                swal("You matched!", "Your match has been added to the list.", "success");
             }
             // find a new person
             $scope.find();
@@ -52,6 +70,7 @@ angular.module('codr', ['ngRoute'])
         $scope.person = {};
         $http.get('/api/find')
         .then(function(result) {
+            $scope.profiles();
             $scope.person = result.data;
             if ($scope.person) {
                 var languages = '';
@@ -64,8 +83,6 @@ angular.module('codr', ['ngRoute'])
 
                 // update sample snippet
                 $scope.sampleSnippet();
-            } else {
-                $scope.profiles();
             }
         });
     };
@@ -97,6 +114,11 @@ angular.module('codr', ['ngRoute'])
 .controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
+    chat_ws.onmessage = function (evt) {
+        swal(evt.data, ' wants to talk to you!', 'success');
+    };
 
     $scope.go = function(path) {
         $location.path(path);
@@ -131,4 +153,49 @@ angular.module('codr', ['ngRoute'])
     };
 
     $scope.user();
-}]);
+}])
+
+.controller('chatCtrl', ['$scope', '$sce', '$routeParams', '$location',
+    function ($scope, $sce, $routeParams, $location) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
+    var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
+    $scope.msgs = []
+    chat_ws.onopen = function() {
+        //$scope.msgs.push('you are now chatting, say hi!');
+        $scope.$apply();
+    };
+
+    chat_ws.onmessage = function(evt) {
+        $scope.msgs.push(evt.data);
+        $scope.$apply();
+    };
+
+    $scope.send = function() {
+        var d = new Date();
+        chat_ws.send(angular.toJson(
+            {'target': uid.toString(),
+             'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
+        );
+        $scope.userMsg = '';
+    };
+
+    $scope.go = function(path) {
+        $location.path(path);
+    };
+}])
+
+// press enter
+.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});

@@ -92,6 +92,10 @@ p {
 @media all and (max-width: 800px) {
     #nomatch {
 	height: 70vh;
+	width: 90vw;
+	left: 5vw;
+	right: 5vw;
+	font-size: 1.5em;
     }
 }
 
@@ -110,7 +114,7 @@ p {
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
-    float:left;
+    float: left;
     margin-top: 4vh;
     margin-bottom: 2vh;
     margin-left: 4vw;
@@ -119,6 +123,7 @@ p {
     height: 40vh;
     background-color: white;
     opacity: 1;
+    cursor: pointer;
 }
 
 @media all and (max-width: 800px) {
@@ -186,6 +191,9 @@ p {
     width: 30vw;
     min-width: 25vh;
     height: 10vh;
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 1000;
+	animation: dash 5s linear forwards;
     clear: both;
 }
 
@@ -197,8 +205,37 @@ p {
     height: 10vh;
 }
 
-#zero {
+#matchesButton {
+    position: absolute;
+    right: 4vw;
+    top: 46vh;
     border: none;
+    width: 10vh;
+    height: 10vh;
+    /*border-radius: 5vh;*/
+    background-image: url("../img/list.png");
+    background-color: rgba(221,221,221,0.8);
+    border-radius: 2vh;
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#matchesButton:hover {
+    border: none;
+    background-color: #aaaaaa;
+}
+
+@media all and (max-width: 600px) {
+    #matchesButton {
+	width: 6vh;
+	height: 6vh;
+	border-radius: 0;
+    }
+}
+
+#zero {
+    position: relative;
     float: left;
     width: 10vh;
     height: 10vh;
@@ -236,10 +273,9 @@ p {
 
 
 #viewlist {
-
     border: none;
     width: 35vw;
-    height: 10vh;
+    /*height: 10vh;*/
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
@@ -250,6 +286,12 @@ p {
     background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;*/
+}
+
+@media all and (max-width: 800px) {
+    #viewlist {
+	width: 50vw;
+    }
 }
 
 #viewlist:hover {

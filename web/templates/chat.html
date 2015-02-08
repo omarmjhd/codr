@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html>
   <head>
@@ -35,3 +36,17 @@
     </script>
   </body>
 </html>
+=======
+<div id="chatBackground">
+  <ul id="messages">
+    <li ng-repeat="m in msgs">{{m}}</li>
+  </ul>
+  <div id="userInput">
+    <input type="text" ng-model="userMsg" autocomplete="off" ng-enter="send()"/>
+    <button class="sendbutton" ng-click="send()">&nbsp;</button>
+  </div>
+  <div id="controlpanel">
+    <button id="matching" ng-click="go('/list')" type="button">&nbsp;</button>
+  </div>
+</div>
+>>>>>>> 909113052fe3d442e17af7c19bb14c41f079579a
