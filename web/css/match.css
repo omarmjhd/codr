@@ -198,9 +198,8 @@ p {
 }
 
 #matchesButton {
-    position: relative;
-    float: right;
-    margin-right: 4vw;
+    position: absolute;
+    right: 4vw;
     border: none;
     width: 10vh;
     height: 10vh;
@@ -210,7 +209,6 @@ p {
     background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 2; /* put in front */
 }
 
 
