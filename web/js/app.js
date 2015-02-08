@@ -160,6 +160,8 @@ angular.module('codr', ['ngRoute'])
     }
 
     $scope.send = function() {
+        console.log(uid);
+        console.log($scope.userMsg);
         chat_ws.send(angular.toJson({'target': uid, 'msg' : $scope.userMsg}));
     }
 }]);
