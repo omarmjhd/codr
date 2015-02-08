@@ -1,7 +1,7 @@
 <div ng-swipe-left="reject()" ng-swipe-right="like()">
 	<div id="main" ng-show="person">
 	  <div id="code" ng-click="sampleSnippet()">
-		<pre>{{person.code_snippet}}</pre>
+		<pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
 	  </div>
 	  <div id="name"><h1>{{person.name}}</h1></div>
 	  <button id="matchesButton" ng-click="go('/list')" type="button">&nbsp;</button>
