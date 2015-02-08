@@ -17,7 +17,7 @@ class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
         for n in notifiers:
             print(n.user, int(target_id))
             if n.user == int(target_id):
-                n.write_message(self.user)
+                n.write_message(str(self.user))
 
     def on_close(self):
         notifiers.remove(self)
