@@ -1,4 +1,30 @@
 
+
+.listtitle {
+    width: 52vw;
+    text-align: center;
+    color: white;
+}
+
+.matched {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#listcontent {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    width: 52vw;
+    min-height: 50vh;
+    border-radius: 15vw;
+    background-color: #222222;
+    opacity: 0.80;
+}
+
 #viewlistlist {
     border: none;
     float: right;
