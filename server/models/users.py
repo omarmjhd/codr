@@ -67,7 +67,7 @@ def get_matches(_id):
     if 'likes' in user:
         for like in user['likes']:
             target = get_user(like)
-            if _id in target['likes']:
+            if likes in target and _id in target['likes']:
                 matches.append(like)
 
     return matches
