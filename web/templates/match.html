@@ -1,20 +1,22 @@
-<div id="main" ng-show="person" ng-swipe-left="reject()" ng-swipe-right="like()">
-  <div id="code" ng-click="sampleSnippet()">
-    <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
-  </div>
-  <div id="name"><h1>{{person.name}}</h1></div>
-  <button id="matchesButton" ng-click="go('/list')" type="button">&nbsp;</button>
-  <div id="commit">Last commit: {{person.updated_at}}</div>
-  <div id="languages">
-    <h3>Languages</h3>
-    <p>{{person.languages}}</p>
-  </div>
-  <div id="buttons">
-    <button id="zero" ng-click="reject()" type="button">&nbsp;</button>
-    <button id="one" ng-click="like()" type="button">&nbsp;</button>
-  </div>
-</div>
-<div id="nomatch" ng-hide="person">
-  <div id="holder">{all out of profiles}
-    <button id="viewlist" ng-click="go('/list')" type="button">view my matches</button></div>
+<div ng-swipe-left="reject()" ng-swipe-right="like()">
+	<div id="main" ng-show="person">
+	  <div id="code" ng-click="sampleSnippet()">
+		<pre>{{person.code_snippet}}</pre>
+	  </div>
+	  <div id="name"><h1>{{person.name}}</h1></div>
+	  <button id="matchesButton" ng-click="go('/list')" type="button">&nbsp;</button>
+	  <div id="commit">Last commit: {{person.updated_at}}</div>
+	  <div id="languages">
+		<h3>Languages</h3>
+		<p>{{person.languages}}</p>
+	  </div>
+	  <div id="buttons">
+		<button id="zero" ng-click="reject()" type="button">&nbsp;</button>
+		<button id="one" ng-click="like()" type="button">&nbsp;</button>
+	  </div>
+	</div>
+	<div id="nomatch" ng-hide="person">
+	  <div id="holder">{all out of profiles}
+		<button id="viewlist" ng-click="go('/list')" type="button">view my matches</button></div>
+	</div>
 </div>
