@@ -68,6 +68,12 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
+@media all and (max-width: 600px) {
+    #main {
+	width: 100vw;
+    }
+}
+
 #nomatch {
     position: absolute;
     top: 50%;
@@ -82,6 +88,13 @@ p {
     font-size: 2em;
 }
 
+
+@media all and (max-width: 800px) {
+    #nomatch {
+	height: 70vh;
+    }
+}
+
 #holder {
    text-align: center;
    color: white;
@@ -92,16 +105,6 @@ p {
    margin-left: auto;
    margin-right: auto;
 }
-
-#refreshbutton {
-    float: right;
-    margin-right: 4vw;
-    height: 2vh;
-    width: 2vw;
-    background-image: url("../img/refresh.jpg");
-    background-size: contain;
-}
-
 
 #code {
     overflow: auto; /* try instead of hiding */
@@ -117,6 +120,12 @@ p {
     opacity: 1;
 }
 
+@media all and (max-width: 600px) {
+    #code {
+	width: 92vw;
+    }
+}
+
 #name {
     position: relative;
     float: left;
@@ -125,6 +134,12 @@ p {
     margin-bottom: 2vh;
     width: 40vw;
     text-align: left;
+}
+
+@media all and (max-width: 600px) {
+    #name {
+	width: 92vw;
+    }
 }
 
 #commit {
@@ -136,6 +151,12 @@ p {
     font-size: 1.2em;
     width: 52vw;
     /*height: 7vh;*/
+}
+
+@media all and (max-width: 600px) {
+    #commit {
+	width: 92vw;
+    }
 }
 
 #languages {
