@@ -12,7 +12,7 @@
 #userInput {
     background: #000;
     padding: 3px;
-    position: relative;
+    position: absolute;
     bottom: 15vh;
     width: 100%;
 }
