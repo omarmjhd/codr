@@ -43,7 +43,6 @@ class Handler(tornado.web.RequestHandler):
                 )
 
                 self.set_secure_cookie('user', str(user['id']))
-                print(self.get_cookie('user'))
 
                 fetched_user = users.get_user(user['id'])
 
