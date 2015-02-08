@@ -69,7 +69,9 @@ p {
 }
 
 @media all and (max-width: 600px) {
-    width: 100vw;
+    #main {
+	width: 100vw;
+    }
 }
 
 #nomatch {
@@ -220,13 +222,14 @@ p {
 #viewlist {
 
     border: none;
-    width: 25vw;
+    width: 35vw;
     height: 10vh;
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    font-size: 0.5em;
     /*background-image: url("../img/1_white.png");
     background-size: 8vh 8vh;
     background-position: center;
