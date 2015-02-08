@@ -1,3 +1,4 @@
+
 #maincontainer {
     position: fixed;
     top: 0;
@@ -6,37 +7,28 @@
     height: 100vh;
     width: 100vw;
 }
-
-#content {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    margin-left: auto;
-    margin-right: auto;
-    width: 52vw;
-    height: 50vh;
-    border-radius: 15vw;
-    background-color: #222222;
-    opacity: 0.80;
+body {
+    background-image: url("bg.PNG");
 }
 
 @media all and (max-width: 600px) {
    #content {
        width: 98vw;
     }
+=======
+#companyName  {
+	color: #212121;
+	font-size: 20vh;
+	margin-top: 20vh;
+	margin-left: 1vw;
+>>>>>>> 13177f16b3108f7c9fb918dfcd3c6c97ac672b2e
 }
 
-#innercontent {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 50%;
-    width: 52vw;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+span{
+  animation: blink 1s infinite;
 }
 
+<<<<<<< HEAD
 @media all and (max-width: 600px) {
    #innercontent {
        width: 98vw;
@@ -49,26 +41,22 @@
     max-width: 250px;
     background-color: white;
     border-radius: 5vw;
+=======
+@keyframes type{
+	from { width: 0; }
+}
+>>>>>>> 13177f16b3108f7c9fb918dfcd3c6c97ac672b2e
 
+@keyframes blink{
+	to{opacity: .0;}
 }
 
-.splashh1 {
-    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-    color: white;
-    text-align: center;
-    width: 100%;
-    font-weight: normal;
-    font-size: 8em;
-    margin-bottom: 1vh;
-
+#info  {
+	margin-top: 1vh;
+	color: #727272;
+	font-size: 5vh;
 }
 
-.splashtext {
-    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-    color: white;
-    text-align: center;
-    width: 100%;
-    font-size: 1.8em;
-    margin-bottom: 3vh;
-    opacity: 1;
+#loginBtn {
+	font-size: 4vh;
 }
