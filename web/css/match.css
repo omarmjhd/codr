@@ -198,23 +198,30 @@ p {
 }
 
 #matchesButton {
-    position: relative;
-    float: right;
-    margin-right: 4vw;
+    position: absolute;
+    right: 4vw;
+    top: 46vh;
     border: none;
     width: 10vh;
     height: 10vh;
     /*border-radius: 5vh;*/
     background-image: url("../img/list.png");
+    background-color: rgba(221,221,221,0.8);
     background-size: 8vh 8vh;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-
 #matchesButton:hover {
     border: none;
     background-color: #aaaaaa;
+}
+
+@media all and (max-width: 600px) {
+    #matchesButton {
+	width: 6vh;
+	height: 6vh;
+    }
 }
 
 #zero {
