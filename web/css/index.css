@@ -16,27 +16,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 52vw;
-    min-width: 500px;
     height: 50vh;
     border-radius: 15vw;
     background-color: #222222;
     opacity: 0.80;
 }
 
-@media screen and (max-width: 600px) {
+@media all and (max-width: 600px) {
    #content {
-    position: relative;
-    top: 10%;
-    -webkit-transform: translateY(0%);
-    transform: translateY(0%);
-    margin-left: auto;
-    margin-right: auto;
-    width: 52vw;
-    min-width: 500px;
-    height: 50vh;
-    border-radius: 15vw;
-    background-color: #222222;
-    opacity: 0.80;
+       width: 92vw;
     }
 }
 
@@ -46,20 +34,13 @@
     position: relative;
     top: 50%;
     width: 52vw;
-    min-width: 500px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
-@media screen and (max-width: 600px) {
-    #innercontent {
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	top: 10%;
-	width: 52vw;
-	min-width: 500px;
-	transform: translateY(0%);
+@media all and (max-width: 600px) {
+   #innercontent {
+       width: 92vw;
     }
 }
 
