@@ -1,5 +1,6 @@
-# Codr 
-# Linking coders together.
+# Codr
+
+## Linking coders together.
 http://codr.link
 
 VTHacks 2015
