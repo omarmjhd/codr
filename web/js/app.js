@@ -110,4 +110,6 @@ angular.module('codr', ['ngRoute'])
             console.log($scope.user);
         });
     };
+
+    $scope.user();
 }]);
