@@ -144,8 +144,8 @@ angular.module('codr', ['ngRoute'])
     $scope.user();
 }])
 
-.controller('chatCtrl', ['$scope', '$sce', '$routeParams',
-    function ($scope, $sce, $routeParams) {
+.controller('chatCtrl', ['$scope', '$sce', '$routeParams', '$location',
+    function ($scope, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     var chat_ws = new WebSocket("ws://codr.link:8888/api/chat");
@@ -167,6 +167,10 @@ angular.module('codr', ['ngRoute'])
              'msg' : d.toLocaleString() + ' ' + $scope.userMsg})
         );
         $scope.userMsg = '';
+    };
+
+    $scope.go = function(path) {
+        $location.path(path);
     };
 }])
 

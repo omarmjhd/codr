@@ -229,6 +229,7 @@ p {
     #matchesButton {
 	width: 6vh;
 	height: 6vh;
+	border-radius: 0;
     }
 }
 
