@@ -22,7 +22,7 @@ angular.module('codr', ['ngRoute'])
             controller: 'mainCtrl'
         })
         .otherwise({
-            redirectTo: '404.html'
+            templateUrl: '/404.html'
         });
 }])
 
