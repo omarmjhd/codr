@@ -6,6 +6,7 @@
 
 body {
     font: 13px;
+    background: none !important;
 }
 
 #userInput {
@@ -42,4 +43,7 @@ button {
 
 #messages li:nth-child(odd) {
     background: #eee;
+}
+#messages li:nth-child(even) {
+    background: #fff;
 }
