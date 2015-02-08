@@ -19,6 +19,7 @@ if __name__ == "__main__":
         config.gh_secret = sys.argv[2]
         config.app_secret = bytes(sys.argv[3], 'utf-8')
 
+    print(config.app_secret)
     application = tornado.web.Application([
         (r"/api/login/?", api.login.Handler),
         (r"/api/user/?", api.user.UserHandler),
