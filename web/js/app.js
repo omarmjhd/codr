@@ -145,7 +145,7 @@ angular.module('codr', ['ngRoute'])
 }])
 
 .controller('chatCtrl', ['$scope', '$sce', '$routeParams',
-    function ($scope, $http, $sce, $routeParams) {
+    function ($scope, $sce, $routeParams) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
