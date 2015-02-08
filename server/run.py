@@ -17,9 +17,8 @@ if __name__ == "__main__":
     if sys.argv[1] and sys.argv[2] and sys.argv[3]:
         config.gh_id = sys.argv[1]
         config.gh_secret = sys.argv[2]
-        config.app_secret = bytes(sys.argv[3], 'utf-8')
+        config.app_secret = sys.argv[3]
 
-        print(config.app_secret)
         application = tornado.web.Application([
             (r"/api/login/?", api.login.Handler),
             (r"/api/user/?", api.user.UserHandler),
@@ -34,7 +33,7 @@ if __name__ == "__main__":
             (r"/api/notifications/?", api.notifications.NotificationsWebSocket),
             (r"/api/chat/?", api.chat.ChatWebSocket)
 
-        ], cookie_secret=sys.argv[3])
+        ], cookie_secret=config.app_secret)
 
         application.listen(8888)
         tornado.ioloop.IOLoop.instance().start()
