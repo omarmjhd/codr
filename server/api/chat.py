@@ -23,14 +23,14 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         )
         # target is chatting and is a match
         if target in chatters and chatters[target].user in matches:
-            match = chatters[target].user
-            chatters[target].write_message(matches[match] + ': ' + msg)
+            author = users.get_user(self.user)
+            chatters[target].write_message(author['name'] + ': ' + msg)
             self.write_message('You: ' + msg)
 
         # notify the match for a chat
-        elif chatters[target].user in matches:
+        else:
             for n in notifiers:
-                if n.user == chatters[target].user:
+                if n.user == target:
                     user = users.get_user(self.user)
                     n.write_message(user['name'])
 
