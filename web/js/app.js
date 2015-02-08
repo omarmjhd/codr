@@ -156,6 +156,8 @@ angular.module('codr', ['ngRoute'])
     $scope.msgs = []
     chat_ws.onopen = function() {
         //$scope.msgs.push('you are now chatting, say hi!');
+        console.log(uid)
+        console.log(uid.toString())
         if (uid.toString()) {
             chat_ws.send(uid.toString());
         }
