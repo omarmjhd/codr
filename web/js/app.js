@@ -34,7 +34,7 @@ angular.module('codr', ['ngRoute'])
 
     // notifications
     notes_ws.onmessage = function (evt) {
-        alert('You matched with ' + evt.data);
+        swal('You matched with ', evt.data, "success");
     };
 
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
@@ -45,7 +45,7 @@ angular.module('codr', ['ngRoute'])
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
                 notes_ws.send($scope.person._id);
-                alert('You matched!');
+                swal("You matched!", "success");
             }
             // find a new person
             $scope.find();
