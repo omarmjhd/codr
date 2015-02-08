@@ -6,9 +6,16 @@
     color: white;
 }
 
+#matchesbackground {
+    background-color: rgba(34, 34, 34, 0.2);
+}
+
 .matched {
-    text-align: center;
+    margin-left: 2vw;
+    text-align: left;
     font-size: 1.3em;
+    background-color: rgba(34, 34, 34, 0.9);
+    margin-bottom: 1vh;
 }
 
 #listcontent {
@@ -21,8 +28,7 @@
     width: 52vw;
     min-height: 50vh;
     border-radius: 15vw;
-    background-color: #222222;
-    opacity: 0.80;
+    background-color: rgba(34, 34, 34, 0.8);
 }
 
 #viewlistlist {
