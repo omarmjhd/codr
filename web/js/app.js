@@ -64,6 +64,7 @@ angular.module('codr', ['ngRoute'])
         $scope.person = {};
         $http.get('/api/find')
         .then(function(result) {
+            $scope.profiles();
             $scope.person = result.data;
             if ($scope.person) {
                 var languages = '';
@@ -77,7 +78,6 @@ angular.module('codr', ['ngRoute'])
                 // update sample snippet
                 $scope.sampleSnippet();
             }
-            $scope.profiles();
         });
     };
 
