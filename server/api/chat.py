@@ -37,5 +37,6 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
 
 
     def on_close(self):
-        del chatters[self.user]
+        if self.user in chatters:
+            del chatters[self.user]
 
