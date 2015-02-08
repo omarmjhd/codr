@@ -38,7 +38,7 @@ angular.module('codr', ['ngRoute'])
         swal('You matched with ', evt.data, "success");
     };
     chat_ws.onmessage = function (evt) {
-        swal(evt.data, 'wants to chat with you', "success");
+        swal(evt.data, 'wants to chat with you', "confirm");
     };
 
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
