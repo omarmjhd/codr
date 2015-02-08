@@ -68,7 +68,7 @@ p {
     background-color: rgba(221,221,221,0.8);
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
     #main {
 	width: 100vw;
     }
@@ -121,7 +121,7 @@ p {
     opacity: 1;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
     #code {
 	width: 92vw;
     }
@@ -133,12 +133,12 @@ p {
     position: relative;
     float: left;
     margin-left: 4vw;
-    margin-right: 0vw;
+    margin-right: 4vw;
     margin-bottom: 2vh;
     width: 40vw;
     text-align: left;
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
     #name {
 	width: 92vw;
     }
