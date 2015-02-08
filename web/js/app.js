@@ -156,6 +156,8 @@ angular.module('codr', ['ngRoute'])
     $scope.msgs = []
     chat_ws.onopen = function() {
         //$scope.msgs.push('you are now chatting, say hi!');
+        // limit messages to one person
+        chat_ws.send(uid.toString());
         $scope.$apply();
     };
 
