@@ -64,6 +64,7 @@ angular.module('codr', ['ngRoute'])
         $scope.person = {};
         $http.get('/api/find')
         .then(function(result) {
+            $scope.profiles();
             $scope.person = result.data;
             if ($scope.person) {
                 var languages = '';
@@ -77,7 +78,6 @@ angular.module('codr', ['ngRoute'])
                 // update sample snippet
                 $scope.sampleSnippet();
             }
-            $scope.profiles();
         });
     };
 
@@ -155,7 +155,8 @@ angular.module('codr', ['ngRoute'])
         $scope.$apply();
     };
     chat_ws.onmessage = function(evt) {
-        $scope.msgs.push(evt);
+        console.log(evt.data);
+        $scope.msgs.push(evt.data);
         $scope.$apply();
     }
 
