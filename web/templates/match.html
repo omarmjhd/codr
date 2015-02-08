@@ -3,13 +3,13 @@
     <pre class="prettyprint" onload="prettyPrint()">{{person.code_snippet}}</pre>
   </div>
   <div id="name"><h1>{{person.name}}</h1></div>
+  <button id="matchesButton" ng-click="go('/list')" type="button">&nbsp;</button>
   <div id="commit">Last commit: {{person.updated_at}}</div>
   <div id="languages">
     <h3>Languages</h3>
     <p>{{person.languages}}</p>
   </div>
   <div id="buttons">
-    <button id="matchesButton" ng-click="go('/list')" type="button">&nbsp;</button>
     <button id="zero" ng-click="reject()" type="button">&nbsp;</button>
     <button id="one" ng-click="like()" type="button">&nbsp;</button>
   </div>
