@@ -57,15 +57,13 @@ angular.module('codr', ['ngRoute'])
 				swal({
 				  title: "Populating chat . . .",
 				  type: "success",
-				  timer: 2000,
-				  showCancelButton: false,
-				  showConfirmButton: false
-				}),
-                function() {
-                    $scope.go('/chat/' + uid);
-                };
+				  timer: 2000
+				})
 			};
-		});
+		},
+        function() {
+            $scope.go('/chat/' + uid);
+        });
     };
 
     $scope.like = function() {
