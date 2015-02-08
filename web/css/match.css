@@ -197,13 +197,13 @@ p {
     height: 10vh;
 }
 
-#matches {
+#matchesButton {
     position: absolute;
     left: 4vw;
     border: none;
     width: 10vh;
     height: 10vh;
-    border-radius: 5vh;
+    /*border-radius: 5vh;*/
     background-color: #888888;
     background-image: url("../img/list.png");
     background-size: 8vh 8vh;
@@ -211,7 +211,7 @@ p {
     background-repeat: no-repeat;
 }
 
-#matches:hover {
+#matchesButton:hover {
     border: none;
     background-color: #aaaaaa;
 }
