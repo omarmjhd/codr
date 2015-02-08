@@ -18,9 +18,6 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         target = int(e['target'])
         msg = e['msg']
         matches =  [x['id'] for x in users.get_matches(self.user)]
-        print(target)
-        print(chatters)
-        print(self.user)
         # target is chatting and is a match
         if target in chatters and target in matches:
             print(e)
@@ -33,6 +30,8 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
             for n in notifiers:
                 if n.user == target:
                     user = users.get_user(self.user)
+                    self.write_message('You: ' + msg)
+                    self.write_message('<i>'+user['name']+' is away.</i>')
                     n.write_message(user['name'])
 
 
