@@ -1,6 +1,7 @@
 
 
 .listtitle {
+    margin-bottom: 2vh;
     width: 52vw;
     text-align: center;
     color: white;
@@ -47,8 +48,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 52vw;
-    min-height: 50vh;
-    border-radius: 15vw;
+    min-height: 70vh;
+    border-radius: 3vw;
     background-color: rgba(34, 34, 34, 0.8);
 }
 
