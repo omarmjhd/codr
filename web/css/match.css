@@ -110,7 +110,7 @@ p {
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
-    float:left;
+    float: left;
     margin-top: 4vh;
     margin-bottom: 2vh;
     margin-left: 4vw;
@@ -138,6 +138,7 @@ p {
     width: 40vw;
     text-align: left;
 }
+
 @media all and (max-width: 800px) {
     #name {
 	width: 92vw;
@@ -238,7 +239,7 @@ p {
 
     border: none;
     width: 35vw;
-    /*height: 10vh; */
+    height: 10vh;
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
