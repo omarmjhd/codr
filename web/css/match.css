@@ -110,7 +110,7 @@ p {
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
-    float:left;
+    float: left;
     margin-top: 4vh;
     margin-bottom: 2vh;
     margin-left: 4vw;
@@ -138,6 +138,7 @@ p {
     width: 40vw;
     text-align: left;
 }
+
 @media all and (max-width: 800px) {
     #name {
 	width: 92vw;
@@ -196,8 +197,29 @@ p {
     height: 10vh;
 }
 
-#zero {
+#matchesButton {
+    position: absolute;
+    left: 4vw;
+    float: left;
     border: none;
+    width: 10vh;
+    height: 10vh;
+    /*border-radius: 5vh;*/
+    background-color: #888888;
+    background-image: url("../img/list.png");
+    background-size: 8vh 8vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+#matchesButton:hover {
+    border: none;
+    background-color: #aaaaaa;
+}
+
+#zero {
+    position: relative;
     float: left;
     width: 10vh;
     height: 10vh;
@@ -235,10 +257,9 @@ p {
 
 
 #viewlist {
-
     border: none;
     width: 35vw;
-    /*height: 10vh; */
+    height: 10vh;
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
