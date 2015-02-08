@@ -150,6 +150,7 @@ angular.module('codr', ['ngRoute'])
     chat_ws.onopen = function() {
         $scope.msgs.push('you are now chatting, say hi!');
         $scope.msgs.push('HIALFDJLAKDSJFLKDSAF');
-        console.log($scope.messages);
+        console.log($scope.msgs);
+        $scope.$apply();
     };
 }]);
