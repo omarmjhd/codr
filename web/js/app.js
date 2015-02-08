@@ -17,7 +17,7 @@ angular.module('codr', ['ngRoute'])
             templateUrl: 'templates/list.html',
             controller: 'mainCtrl'
         })
-        .when('/chat', {
+        .when('/chat/:uid', {
             templateUrl: 'templates/chat.html',
             controller: 'chatCtrl'
         })
@@ -144,7 +144,10 @@ angular.module('codr', ['ngRoute'])
     $scope.user();
 }])
 
-.controller('chatCtrl', ['$scope', function ($scope) {
+.controller('chatCtrl', ['$scope', '$sce', '$routeParams',
+    function ($scope, $http, $sce, $routeParams) {
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
+
     var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
     $scope.msgs = []
     chat_ws.onopen = function() {
@@ -157,6 +160,6 @@ angular.module('codr', ['ngRoute'])
     }
 
     $scope.send = function() {
-        chat_ws.send($scope.userMsg);
+        chat_ws.send({'target': uid, 'msg' : $scope.userMsg});
     }
 }]);
