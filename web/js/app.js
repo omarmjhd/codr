@@ -39,6 +39,28 @@ angular.module('codr', ['ngRoute'])
     };
     chat_ws.onmessage = function (evt) {
         swal('You got a message!', evt.data, 'success');
+		swal({
+		  title: "self.setReceivedMessage(true)",
+		  text: "What would you like to do?",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonColor: "#388E3C",
+		  confirmButtonText: "Chat",
+		  cancelButtonColor: "#DD6B55",
+		  cancelButtonText: "Cancel",
+		  closeOnConfirm: false,
+		  closeOnCancel: true
+		},
+		function(isConfirm){
+			if (isConfirm) {
+				swal({
+				  title: "Populating chat . . .",
+				  type: "success",
+				  timer: 2000
+				});
+				// INSERT  $scope.chat? here
+			}
+		});
     };
 
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
