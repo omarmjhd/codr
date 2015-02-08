@@ -1,6 +1,6 @@
 <div id="main" ng-show="user">
   <div id="code" ng-click="sampleSnippet()">
-    <pre class="prettyprint linenums" onload="prettyPrint()">{{user.code_snippet}}</pre>
+    <pre class="prettyprint" onload="prettyPrint()">{{user.code_snippet}}</pre>
   </div>
   <div id="name"><h1>{{user.name}}</h1></div>
   <div id="commit">Last commit: {{user.updated_at}}</div>
@@ -10,6 +10,6 @@
   </div>
   <div id="buttons">
     <button id="viewlistProfile" ng-click="go('/list')" type="button">&nbsp;</button>
-    <button id="chat" ng-click="go('/chat')" type="button">&nbsp;</button>
+    <button id="chat" ng-click="go('/chat/' + user._id)" type="button">&nbsp;</button>
   </div>
 </div>
