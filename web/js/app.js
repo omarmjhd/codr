@@ -155,13 +155,12 @@ angular.module('codr', ['ngRoute'])
         $scope.$apply();
     };
     chat_ws.onmessage = function(evt) {
+        console.log(evt);
         $scope.msgs.push(evt);
         $scope.$apply();
     }
 
     $scope.send = function() {
-        console.log(uid.toString());
-        console.log($scope.userMsg);
         chat_ws.send(angular.toJson(
             {'target': uid.toString(), 'msg' : $scope.userMsg})
         );
