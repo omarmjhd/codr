@@ -5,7 +5,7 @@ client = MongoClient()
 db = client.codr
 chat = db.chat
 
-def get_chat(self, a, b):
+def get_chat(a, b):
     return chat.find(
         {'or' :
             [
@@ -15,7 +15,7 @@ def get_chat(self, a, b):
         }
     )
 
-def add_msg(self, a, b, msg):
+def add_msg(a, b, msg):
     db.chat.insert({'author':a,'target':b,'content':msg})
 
 
