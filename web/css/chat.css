@@ -40,14 +40,13 @@ input {
     float: right;
     background-color: rgb(130, 224, 255);
     background-image: url("../img/speech-bubble.svg");
-    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border: none;
 }
 
 .sendbutton:hover {
-    background: rgb(100, 194, 225);
+    background-color: rgb(100, 194, 225);
 }
 
 #messages {
