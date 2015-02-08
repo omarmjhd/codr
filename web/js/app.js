@@ -107,6 +107,7 @@ angular.module('codr', ['ngRoute'])
         $http.get('/api/user/' + uid)
         .then(function(result) {
             $scope.user = result.data;
+            console.log($scope.user);
         });
     };
 }]);
