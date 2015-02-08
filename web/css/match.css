@@ -110,7 +110,7 @@ p {
 #code {
     overflow: auto; /* try instead of hiding */
     position: relative;
-    float:left;
+    float: left;
     margin-top: 4vh;
     margin-bottom: 2vh;
     margin-left: 4vw;
