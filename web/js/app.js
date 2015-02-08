@@ -45,7 +45,7 @@ angular.module('codr', ['ngRoute'])
             if ($scope.matched === 'true') {
                 // send a web socket alert when you match
                 notes_ws.send($scope.person._id);
-                swal("You matched!", "success");
+                swal("You matched!", "Your match has been added to the list.", "success");
             }
             // find a new person
             $scope.find();
