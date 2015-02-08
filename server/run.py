@@ -19,22 +19,22 @@ if __name__ == "__main__":
         config.gh_secret = sys.argv[2]
         config.app_secret = bytes(sys.argv[3], 'utf-8')
 
-    print(config.app_secret)
-    application = tornado.web.Application([
-        (r"/api/login/?", api.login.Handler),
-        (r"/api/user/?", api.user.UserHandler),
-        (r"/api/profile/(?P<uid>[^\/]+)/?", api.user.ProfileHandler),
-        (r"/api/like/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
-        (r"/api/reject/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
-        (r"/api/find/?", api.user.FindHandler),
-        (r"/api/matches/?", api.user.MatchesHandler),
-        (r"/api/token/?", api.user.TokenHandler),
-        (r"/api/snippet/(?P<uid>[^\/]+)/?", api.user.SnippetHandler),
+        print(sys.argv[3])
+        application = tornado.web.Application([
+            (r"/api/login/?", api.login.Handler),
+            (r"/api/user/?", api.user.UserHandler),
+            (r"/api/profile/(?P<uid>[^\/]+)/?", api.user.ProfileHandler),
+            (r"/api/like/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
+            (r"/api/reject/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
+            (r"/api/find/?", api.user.FindHandler),
+            (r"/api/matches/?", api.user.MatchesHandler),
+            (r"/api/token/?", api.user.TokenHandler),
+            (r"/api/snippet/(?P<uid>[^\/]+)/?", api.user.SnippetHandler),
 
-        (r"/api/notifications/?", api.notifications.NotificationsWebSocket),
-        (r"/api/chat/?", api.chat.ChatWebSocket)
+            (r"/api/notifications/?", api.notifications.NotificationsWebSocket),
+            (r"/api/chat/?", api.chat.ChatWebSocket)
 
-    ], cookie_secret=config.app_secret)
+        ], cookie_secret=config.app_secret)
 
-    application.listen(8888)
-    tornado.ioloop.IOLoop.instance().start()
+        application.listen(8888)
+        tornado.ioloop.IOLoop.instance().start()
