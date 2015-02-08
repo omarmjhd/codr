@@ -239,7 +239,7 @@ p {
 
     border: none;
     width: 35vw;
-    /*height: 10vh; */
+    height: 10vh;
     border-radius: 5vh;
     background-color: #888888;
     text-align: center;
