@@ -18,6 +18,16 @@ class UserHandler(BaseHandler):
         if not user: return
         self.write(json.dumps(user))
 
+class ProfileHandler(BaseHandler):
+
+    def get(self, uid):
+        user = users.get_user(int(uid))
+        if not user: return
+
+        date = datetime.datetime(*map(int, re.split('[^\d]', user['updated_at'])[:-1]))
+        diff = datetime.datetime.now() - date
+        user['updated_at'] = str(diff.days) + " days ago"
+        self.write(json.dumps(user))
 
 class LikeHandler(BaseHandler):
 
