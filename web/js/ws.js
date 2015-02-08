@@ -1,5 +1,5 @@
-var notes_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
-var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
+notes_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
+chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
 
 
 // notifications
