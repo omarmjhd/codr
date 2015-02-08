@@ -26,10 +26,6 @@ angular.module('codr', ['ngRoute'])
         });
 }])
 
-.controller('myCtrl', function($scope) {
-    $scope.dom = '&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;/html&gt;'
-})
-
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
 
@@ -187,14 +183,5 @@ angular.module('codr', ['ngRoute'])
                 event.preventDefault();
             }
         });
-    };
-});
-
-.directive('prettyprint', function() {
-    return {
-        restrict: 'C',
-        link: function postLink(scope, element, attrs) {
-              element.html(prettyPrintOne(scope.dom));
-        }
     };
 });
