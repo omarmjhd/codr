@@ -68,10 +68,9 @@ def get_matches(_id):
         for like in user['likes']:
             target = get_user(like)
             if 'likes' in target and _id in target['likes']:
-                matches.append(like)
+                match = get_user(int(like))
+                matches.append({'id':like, 'name':match['name']})
 
-    print('---------MATCHES----------')
-    print(matches)
     return matches
 
 def get_potential(_id):
