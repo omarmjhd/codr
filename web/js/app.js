@@ -57,7 +57,9 @@ angular.module('codr', ['ngRoute'])
 				swal({
 				  title: "Populating chat . . .",
 				  type: "success",
-				  timer: 2000
+				  timer: 2000,
+				  showCancelButton: false,
+				  showConfirmButton: false
 				}),
                 function() {
                     $scope.go('/chat/' + uid);
