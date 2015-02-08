@@ -13,6 +13,8 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         print('Chat connected.')
 
     def on_message(self, e):
+        print(chatters)
+        print(self.user)
         e = json.loads(e)
         # check all connections and notify the other matched user
         target = int(e['target'])
