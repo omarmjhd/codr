@@ -67,7 +67,6 @@ angular.module('codr', ['ngRoute'])
 
                 // update sample snippet
                 $scope.sampleSnippet();
-            } else {
                 $scope.profiles();
             }
         });
