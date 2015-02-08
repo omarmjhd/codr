@@ -1,6 +1,7 @@
 import tornado.websocket
 import json
 from models import users
+from models import chat
 from api.notifications import notifiers
 
 chatters = {}
@@ -17,6 +18,9 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         e = json.loads(e)
         # check all connections and notify the other matched user
         self.target = int(e['target'])
+
+        print(chat.get_chat(self.user, self.target))
+
         msg = e['msg']
         matches =  [x['id'] for x in users.get_matches(self.user)]
         author = users.get_user(self.user)
@@ -31,6 +35,7 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
         elif self.target in notifiers and self.target in chatters:
             chatters[self.target].write_message(author['name'] + ': ' + msg);
 
+        chat.add_msg(self.user, self.target, msg)
         self.write_message('You: ' + msg)
 
     def on_close(self):
