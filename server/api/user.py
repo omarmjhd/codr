@@ -9,7 +9,7 @@ from lib import github
 class BaseHandler(tornado.web.RequestHandler):
 
     def get_current_user(self):
-        return int(self.get_secure_cookie("user"))
+        return int(self.get_secure_cookie("user"), min_version=2)
 
 class UserHandler(BaseHandler):
 
