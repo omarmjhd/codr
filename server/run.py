@@ -21,7 +21,8 @@ if __name__ == "__main__":
 
     application = tornado.web.Application([
         (r"/api/login/?", api.login.Handler),
-        (r"/api/user/(?P<uid>[^\/]+)/?", api.user.UserHandler),
+        (r"/api/user/?", api.user.UserHandler),
+        (r"/api/profile/(?P<uid>[^\/]+)/?", api.user.ProfileHandler),
         (r"/api/like/(?P<target_id>[^\/]+)/?", api.user.LikeHandler),
         (r"/api/reject/(?P<target_id>[^\/]+)/?", api.user.RejectHandler),
         (r"/api/find/?", api.user.FindHandler),

@@ -94,7 +94,7 @@ angular.module('codr', ['ngRoute'])
     $scope.find();
 }])
 
-.controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
+.controller('profileCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
@@ -104,9 +104,31 @@ angular.module('codr', ['ngRoute'])
 
     $scope.user = function() {
         $scope.user = {};
-        $http.get('/api/user/' + uid)
+        $http.get('/api/profile/' + uid)
         .then(function(result) {
             $scope.user = result.data;
+            if ($scope.user) {
+                var languages = '';
+                var keys = Object.keys($scope.user.languages);
+                for (l in keys) {
+                    languages = languages.concat(keys[l], ', ');
+                }
+                $scope.user.languages = languages.substring(
+                    0, languages.length - 2);
+
+                // update sample snippet
+                $scope.sampleSnippet();
+            };
         });
     };
+
+    $scope.sampleSnippet = function() {
+        $scope.user.code_snippet = '';
+        $http.get('/api/snippet/' + $scope.user._id)
+        .then(function(result) {
+            $scope.user.code_snippet = result.data;
+        });
+    };
+
+    $scope.user();
 }]);
