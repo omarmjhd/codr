@@ -14,9 +14,10 @@ class NotificationsWebSocket(tornado.websocket.WebSocketHandler):
         print('--------MATCH----------')
         print(self.user, target_id)
         # check all connections and notify the other matched user
-        if target_id in notifiers:
+        target_id = int(target_id)
+        if int(target_id) in notifiers:
             user = users.get_user(self.user)
-            notifiers[target_id].write_message(user['name'])
+            notifiers[int(target_id)].write_message(user['name'])
 
     def on_close(self):
         if self in notifiers:
