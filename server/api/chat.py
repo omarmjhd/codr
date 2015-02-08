@@ -31,7 +31,7 @@ class ChatWebSocket(tornado.websocket.WebSocketHandler):
                 if n.user == target:
                     user = users.get_user(self.user)
                     self.write_message('You: ' + msg +
-                                '\n<i>'+user['name']+' is away.</i>'
+                                '<br><i>'+user['name']+' is away.</i>'
                     )
                     n.write_message(user['name'])
 
