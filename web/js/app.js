@@ -28,7 +28,6 @@ angular.module('codr', ['ngRoute'])
 
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
-    var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     // web sockets
     var notes_ws = new WebSocket("ws://codr.link:8888/api/notifications");
@@ -40,31 +39,10 @@ angular.module('codr', ['ngRoute'])
     };
 
     chat_ws.onmessage = function (evt) {
-		swal({
-		  title: "self.setReceivedMessage(true)",
-		  text: "What would you like to do?",
-		  type: "warning",
-		  showCancelButton: true,
-		  confirmButtonColor: "#388E3C",
-		  confirmButtonText: "Chat",
-		  cancelButtonColor: "#DD6B55",
-		  cancelButtonText: "Cancel",
-		  closeOnConfirm: false,
-		  closeOnCancel: true
-		},
-		function(isConfirm){
-			if (isConfirm) {
-				swal({
-				  title: "Populating chat . . .",
-				  type: "success",
-				  timer: 2000
-				}),
-                function() {
-                    $scope.go('/chat/' + uid);
-                }
-			}
-		});
+        swal('You got a message!', evt.data, 'success');
     };
+
+    var uid = $sce.trustAsResourceUrl($routeParams.uid);
 
     $scope.like = function() {
         $http.get('/api/like/' + $scope.person._id)
