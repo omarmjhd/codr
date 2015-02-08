@@ -28,6 +28,16 @@ angular.module('codr', ['ngRoute'])
 
 .controller('mainCtrl', ['$scope', '$http', '$sce', '$routeParams',
     '$location', function ($scope, $http, $sce, $routeParams, $location) {
+
+    // web sockets
+    var notes_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/notifications");
+    var chat_ws = new WebSocket("ws://codr.cloudapp.net:8888/api/chat");
+
+    // notifications
+    notes_ws.onmessage = function (evt) {
+        alert('You matched with ' + evt.data);
+    };
+
     var uid = $sce.trustAsResourceUrl($routeParams.uid);
     $scope.like = function() {
         $http.get('/api/like/' + $scope.person._id)
