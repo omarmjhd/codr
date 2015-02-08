@@ -43,6 +43,10 @@ input {
     padding: 10px;
 }
 
+.sendbutton:hover {
+    background: rgb(100, 194, 225);
+}
+
 #messages {
     list-style-type: none;
     margin: 0;
